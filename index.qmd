@@ -1,0 +1,14 @@
+---
+title: "NORSAR ML Workshop"
+---
+
+# Pre-read and setup
+
+<details>
+  <summary>I'm feeling lazy</summary>
+  Stuff
+</details>
+
+# Agenda 
+
+# Post-read and other material

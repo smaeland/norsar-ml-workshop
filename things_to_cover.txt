@@ -1,0 +1,19 @@
+
+DAY 1
+
+ML intro:
+
+- ML vs AI
+- different ML tasks (classification, etc)
+- traditional counterparts
+	- detection: STA/LTA vs anomaly detection
+	- cross-correlation -> segue into convolution
+
+
+
+
+
+
+
+
+DAY 2

@@ -1,0 +1,34 @@
+project:
+  type: website
+  output-dir: docs
+  preview:
+    port: 5555
+    browser: false
+    timeout: 3600
+
+website:
+  title: "NORSAR ML Workshop"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+  revealjs:
+    theme: [default, custom.scss]
+    slide-number: true
+    #title-slide-attributes: 
+    #  data-background-image: figures/hvl_logo_engelsk.png
+    #  data-background-size: 15%
+    #  data-background-position: 98% 2%
+    code-line-numbers: false
+highlight-style: atom-one
+revealjs-plugins
+  - pointer
+  
