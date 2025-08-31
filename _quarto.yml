@@ -29,6 +29,6 @@ format:
     #  data-background-position: 98% 2%
     code-line-numbers: false
 highlight-style: atom-one
-revealjs-plugins
+revealjs-plugins:
   - pointer
   
