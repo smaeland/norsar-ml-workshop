@@ -11,4 +11,9 @@ title: "NORSAR ML Workshop"
 
 # Agenda 
 
+Wednesday: [Slides](slides/lecture1.qmd)
+
+Thursday: [Slides](slides/lecture2.qmd)
+
+
 # Post-read and other material

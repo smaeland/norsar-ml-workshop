@@ -1,5 +1,5 @@
 ---
-title: "Day 1"
+title: "Day 2"
 subtitle: "NORSAR ML Workshop"
 author: "steffen.maeland@norsar.no"
 format:
@@ -8,6 +8,18 @@ format:
     auto-play-media: true
 ---
 
-# Agenda
 
-Woop woop
+
+
+
+
+
+
+
+## Libraries for machine learning
+
+
+## NORSAR developments
+
+
+## Future directions at NORSAR

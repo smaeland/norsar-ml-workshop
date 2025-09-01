@@ -1,6 +1,6 @@
 PREREAD
 
-- Python basics
+- Python basics !!
 - Review paper
 
 
