@@ -33,13 +33,13 @@ format:
 :::{.column width="60%"}
 - AI: Computer makes smart decisions
 - Machine learning: Computer learns to recognise patterns
-- Deep learning: Computer learns to recognise advanced patterns 
+- Deep learning: Computer learns to recognise advanced patterns
 - (Generative DL)
 
 The big AI tools of today are driven by advancements in
 
 - Deep learning -- bigger and better models
-- Computing -- bigger and better data centres 
+- Computing -- bigger and better data centres
 :::
 :::
 
@@ -55,6 +55,7 @@ Traditional approach: (_symbolic AI_)
 
 IF amplitude > threshold AND duration > 2 seconds
 THEN earthquake;
+ELSE noise;
 :::
 
 :::{.column width="50%"}
@@ -68,7 +69,7 @@ These are earthquakes, these are not, figure out the difference
 
 Some terminology:
 
-- _Model:_ 
+- _Model:_
 - _Label:_
 
 
@@ -93,7 +94,7 @@ Convolutions
 
 ## Neural networks
 
-Sequentially improved features 
+Sequentially improved features
 
 ## {background-iframe="https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=gauss&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=15&networkShape=&seed=0.56524&showTestData=false&discretize=false&percTrainData=50&x=false&y=false&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false&playButton_hide=false&showTestData_hide=false&regularization_hide=true&dataset_hide=false&batchSize_hide=true&learningRate_hide=false&percTrainData_hide=true&regularizationRate_hide=true&problem_hide=true" background-interactive="true" data-menu-title="TensorFlow playground"}
 
@@ -256,7 +257,7 @@ $$
 ## Exercise 2
 
 
-## Post-exercise 
+## Post-exercise
 
 
 
@@ -274,7 +275,6 @@ Move to day 2
 
 ## The more advanced stuff
 
-Deep learning components 
+Deep learning components
 
-More tomorrow! 
-
+More tomorrow!
