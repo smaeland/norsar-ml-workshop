@@ -4,6 +4,11 @@ title: "NORSAR ML Workshop"
 
 # Pre-read and setup
 
+- Python tutorial
+- Numpy tutorial??
+  - Indexing, slicing
+  
+
 <details>
   <summary>I'm feeling lazy</summary>
   Stuff

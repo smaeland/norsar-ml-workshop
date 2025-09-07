@@ -1,8 +1,6 @@
 import csv
 import h5py
 import numpy as np
-from pylsp_jsonrpc import endpoint
-
 
 def pick_events(num_events=1000):
 
@@ -46,6 +44,7 @@ def pick_events(num_events=1000):
     type_out = []
     p_start_out = []
     s_start_out = []
+    mag_out = []
 
     rng = np.random.default_rng()
 
@@ -54,24 +53,26 @@ def pick_events(num_events=1000):
         type = rng.integers(0, 1, endpoint=True)
 
         if type == 0:
-            name, _, p_start, s_start = noise_traces.pop(0)
+            name, p_start, s_start, mag = noise_traces.pop(0)
             data_out.append(data_noise.get(name)[:])
-            type_out.append(type)
-            p_start_out.append(p_start)
-            s_start_out.append(s_start)
 
         elif type == 1:
-            name, _, p_start, s_start = signal_traces.pop(0)
+            name, p_start, s_start, mag = signal_traces.pop(0)
             data_out.append(data_signal.get(name)[:])
-            type_out.append(type)
-            p_start_out.append(p_start)
-            s_start_out.append(s_start)
+
+        type_out.append(type)
+        p_start_out.append(p_start)
+        s_start_out.append(s_start)
+        mag_out.append(mag)
+
+        print('name:', name, 'type:', type, 'p_start:', p_start, 's_start:', s_start, 'mag:', mag)
 
     fout = h5py.File('selected_events.h5', 'w')
-    fout.create_dataset('data', data=np.stack(data_out), dtype=np.float32)
+    fout.create_dataset('waveforms', data=np.stack(data_out), dtype=np.float32)
     fout.create_dataset('type', data=np.array(type_out), dtype=np.int8)
-    fout.create_dataset('p_start', data=np.array(p_start_out), dtype=np.int8)
-    fout.create_dataset('s_start', data=np.array(s_start_out), dtype=np.int8)
+    fout.create_dataset('p_start', data=np.array(p_start_out), dtype=np.int16)
+    fout.create_dataset('s_start', data=np.array(s_start_out), dtype=np.int16)
+    fout.create_dataset('mag', data=np.array(mag_out), dtype=np.float16)
 
     fout.close()
 
@@ -79,3 +80,4 @@ def pick_events(num_events=1000):
 
 if __name__ == '__main__':
     pick_events(10)
+
