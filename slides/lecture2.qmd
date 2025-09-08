@@ -15,11 +15,3 @@ format:
 
 
 
-
-## Libraries for machine learning
-
-
-## NORSAR developments
-
-
-## Future directions at NORSAR

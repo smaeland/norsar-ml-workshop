@@ -1,6 +1,7 @@
 numpy
 scipy
 matplotlib
+obspy
 tensorflow
 scikit-learn
 notebook

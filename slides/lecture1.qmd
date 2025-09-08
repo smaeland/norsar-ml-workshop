@@ -59,11 +59,29 @@ ELSE noise;
 :::
 
 :::{.column width="50%"}
-These are earthquakes, these are not, figure out the difference
+Machine learning approach:
 
-(figures)
+This is an earthquake
+
+![](https://raw.githubusercontent.com/smousavi05/STEAD/master/eventSample.png)
+
+This is not
+
+![](https://raw.githubusercontent.com/smousavi05/STEAD/master/noise.png)
+
+Compute a function to separate the two.
+
 :::
 :::
+
+## The _what_
+
+Let's plot number of results on [Google Scholar](https://scholar.google.com)
+
+:::{.absolute left="5%" bottom="5%" width="800px"}
+![](figures/papers_per_year.png)
+:::
+
 
 ## The _what_
 
@@ -71,10 +89,37 @@ Some terminology:
 
 - _Model:_
 - _Label:_
+- _Supervised learning:_
 
 
+And some statistics:
+
+(polynomial regression animation?)
+
+
+## The _what_
+
+Datasets, data quality 
+
+
+
+## The _what_
+
+Today and tomorrow:
+
+Intro to modern ML technologies, which is mainly **pattern regognition**.
+
+:::{.absolute bottom="0%" left="0%" width="200px"}
+![](https://m.media-amazon.com/images/I/71fqxXDY2ZL._UF1000,1000_QL80_.jpg)
+:::
+
+:::{.absolute bottom="0%" right="0%" width="200px"}
+![](https://www.bishopbook.com/assets/images/deep-learning-book-cover.jpg)
+:::
 
 ## The _why_
+
+Accessible tech!
 
 
 ## The _wow_
@@ -84,7 +129,15 @@ Success stories
 
 ## Exercise number 1 {.center background-color="#FBE9E7"}
 
-## Post-exercise: understanding what we did
+## Post-exercise {.center background-color="#E0F2F1"}
+
+Understanding what we did
+
+
+## Fun with crosscorrelation
+
+Animation
+
 
 ## ML for waveform data
 
@@ -256,6 +309,8 @@ $$
 
 ## Exercise 2
 
+Train an ML pick detector
+
 
 ## Post-exercise
 
@@ -273,8 +328,35 @@ $$
 
 Move to day 2
 
+
+
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+## DAY 2
+
+
+## Recap from day 1
+
+
+
 ## The more advanced stuff
 
 Deep learning components
 
-More tomorrow!
+## Libraries for machine learning
+
+## Exercise: Unsupervised learning with pretrained image models?
+
+
+
+
+## SOTA research
+
+
+## NORSAR developments
+
+
+## Future directions at NORSAR
+
+
+## Hackathon
