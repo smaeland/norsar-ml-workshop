@@ -73,7 +73,7 @@ Interesting higher-level papers:
 
 
 <details>
-  <summary>I'm feeling lazy</summary>
+  <summary>**Level 1**</summary>
   Stuff
 </details>
 
