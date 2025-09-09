@@ -21,8 +21,8 @@ _**Remote participation:**_ Teams link can be found in the meeting invitation.
 
 |   |   |   |
 |---|---|---|
-|  9.00 | Intro | Slides |
-|  9.30 | Exercise: Event detection | Notebook |
+|  9.00 | Intro | Slides: _coming_ |
+|  9.30 | Exercise: Event detection | Notebook: _coming_ |
 | 10.00 | | | 
 | 11.45 | ✨Special✨ lunch | |
 
@@ -33,16 +33,96 @@ _**Remote participation:**_ Teams link can be found in the meeting invitation.
 |  9.00 | Intro | Slides |
 |  9.30 | Exercise: Event detection | Notebook |
 | 10.00 | | | 
-| 11.45 | Lunch | |
+| 11.45 | Lunch (kantinen) | |
 
 
 
-Wednesday: [Slides](slides/lecture1.qmd)
+<!-- Wednesday: [Slides](slides/lecture1.qmd) -->
 
-Thursday: [Slides](slides/lecture2.qmd)
+<!-- Thursday: [Slides](slides/lecture2.qmd) -->
 
 
-## Pre-read and setup
+## Pre-read material
+
+
+## Getting ready
+
+During the workshop we will do various hands-on exercises, most of which benefit
+from some experience with programming. Luckily, the de-facto programming language
+for machine learning is _Python_, which is relatively easy to get started with.
+
+There are three pieces of tech we will be using:
+
+1. **Python**, the programming langage,
+2. Python **libraries**, containing code to actually do stuff, and
+3. **Jupyter notebooks**, which is a convenient way of running Python.
+
+The magic of 3. is that you **_do not need to install anything_**, instead we
+run the code online, in a browser. Below follows an introduction, and some
+reference material, to the three.
+
+#### Python
+
+If you already have some coding background in a different language, the [Python
+cheat sheet](https://realpython.com/cheatsheets/python/) gives the essential
+overview of the language, while the official [tutorial](https://docs.python.org/3/tutorial/)
+goes in depth.
+
+If you have less programming experience, Google's [Python course](https://developers.google.com/edu/python)
+is quite nice, or in case you would like something in video format, Microsoft has
+made a [Python for beginners](https://learn.microsoft.com/en-us/shows/intro-to-python-development/)
+video series.
+
+However, in the end we can get away with limited Python knowledge, since the
+majority of our interaction with both the data and the ML models is through
+the set of libraries decribed below. And, given the modern tools at our disposal,
+we can always [ask for help](https://chatgpt.com/).
+
+> Hey ChatGPT, I already know Matlab, can you give me a super-short introduction to Python?
+
+
+#### Required Python libraries 
+
+The main data structure we use for data-intensive tasks like ML is the _array_,
+provided by the [NumPy](https://numpy.org/) (*Num*erical *Py*thon) library. 
+It looks like this
+
+```{.python}
+>>> import numpy as np
+>>> a = np.array([[1,2,3], [4,5,6]])
+>>> a
+array([[1, 2, 3],
+       [4, 5, 6]])
+>>> a.shape
+(2, 3)
+```
+
+and allows for performing operations on each element _without_ writing
+explicit `for`-loops:
+
+```{.python}
+>>> a + 10
+array([[11, 12, 13],
+       [14, 15, 16]])
+```
+
+While we will cover some NumPy basics during the workshop, the essentials
+are given in these two tutorials: [NumPy quickstart](https://numpy.org/doc/stable/user/quickstart.html),
+for those who are already familiar with Python, and [NumPy basics for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html)
+for ... well, beginners. 
+
+To perform all the computations involved in doing deep learning, we need a library
+that can do automatic differentiation and efficient matrix multiplications. A popular
+option is TensorFlow and its companion interface for building neural networks, [Keras](keras.io).
+A nice thing about Keras is the extensive [example gallery](https://keras.io/examples/),
+which serves as inspiration for solving loads of different tasks. While other options for
+deep learning frameworks have their benefits too, they mostly all follow similar syntax
+for data operations as NumPy, making it relatively easy to switch between them, as long
+as one knows NumPy.
+
+
+#### Jupyter notebooks 
+
 
 - Python tutorial
 - Numpy tutorial??
