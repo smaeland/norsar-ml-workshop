@@ -1,24 +1,81 @@
 ---
-title: "NORSAR ML Workshop"
+title: "NORSAR Machine Learning Workshop, Sept 17-18 2025"
+toc: true
 ---
 
-# Pre-read and setup
+Welcome to the 2025 workshop on machine learning (ML) in seismology, where we will
+learn, try out, and develop ML tools for use at NORSAR. 
 
-- Python tutorial
-- Numpy tutorial??
-  - Indexing, slicing
-  
+Slides, exercises and other material will be kept on this webpage for later reference.
+If you have suggestions for additions or improvements, submit a
+[pull request](https://github.com/smaeland/norsar-ml-workshop/pulls)!
 
-<details>
-  <summary>I'm feeling lazy</summary>
-  Stuff
-</details>
 
-# Agenda 
+## Agenda 
+
+Both days will take place in Plotterommet.
+
+_**Remote participation:**_ Teams link can be found in the meeting invitation.
+
+#### Wednesday
+
+|   |   |   |
+|---|---|---|
+|  9.00 | Intro | Slides |
+|  9.30 | Exercise: Event detection | Notebook |
+| 10.00 | | | 
+| 11.45 | ✨Special✨ lunch | |
+
+#### Thursday
+
+|   |   |   |
+|---|---|---|
+|  9.00 | Intro | Slides |
+|  9.30 | Exercise: Event detection | Notebook |
+| 10.00 | | | 
+| 11.45 | Lunch | |
+
+
 
 Wednesday: [Slides](slides/lecture1.qmd)
 
 Thursday: [Slides](slides/lecture2.qmd)
 
 
-# Post-read and other material
+## Pre-read and setup
+
+- Python tutorial
+- Numpy tutorial??
+  - Indexing, slicing
+- Jupyter Notebooks
+
+
+The long-ish tutorial to python: https://docs.python.org/3/tutorial/
+Python cheat sheet: https://realpython.com/cheatsheets/python/
+
+NumPy tutorial: https://numpy.org/doc/stable/user/absolute_beginners.html
+NumPy quickstart (higher level than tutorial): https://numpy.org/doc/stable/user/quickstart.html
+
+ChatGPT: _Hey I already know Matlab, can you give me a super-short introduction to Python?_
+
+ML Basics: https://developers.google.com/machine-learning/crash-course
+  
+Reviews:
+
+[Deep-learning seismology. SM Mousavi, GC Beroza](https://www.science.org/doi/epdf/10.1126/science.abm4470) (not great)
+[Machine Learning in Earthquake Seismology. SM Mousavi, GC Beroza](https://www.annualreviews.org/content/journals/10.1146/annurev-earth-071822-100323) (better)
+[Machine Learning in Seismology: Turning Data into Insights. Q Kong et al.](https://www.seismosoc.org/wp-content/uploads/2019/02/emerging-topics-srl.pdf)
+
+NORSAR papers:
+
+
+Interesting higher-level papers:
+
+
+<details>
+  <summary>I'm feeling lazy</summary>
+  Stuff
+</details>
+
+
+## Post-read and other material

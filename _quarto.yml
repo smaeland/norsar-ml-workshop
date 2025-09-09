@@ -5,6 +5,9 @@ project:
     port: 5555
     browser: false
     timeout: 3600
+  render:
+    - "index.qmd"
+    - "slides/*.qmd"
 
 website:
   title: "NORSAR ML Workshop"
