@@ -1,0 +1,338 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "NORSAR Machine Learning Workshop,Sept 17-18 2025",
+    "section": "",
+    "text": "Welcome to the 2025 workshop on machine learning (ML) in seismology, where we will learn, try out, and develop ML tools for use at NORSAR.\nSlides, exercises and other material will be kept on this webpage for later reference. If you have suggestions for additions or improvements, submit a pull request!"
+  },
+  {
+    "objectID": "index.html#before-the-workshop",
+    "href": "index.html#before-the-workshop",
+    "title": "NORSAR Machine Learning Workshop,Sept 17-18 2025",
+    "section": "Before the workshop",
+    "text": "Before the workshop\nTo make the workshop as productive as possible, we encourage everyone to go through the following beforehand:\n\nTest that you have a setup that can run the exercises. We aim to run everything online in Google Colab, which requires a Google account, but nothing more. To complete the test, click here to open our first exercise, and click through it (takes 2 min, tops). If you do not have/want a Google account, take a look at the other options listed in Section 4.0.3.\nRead some of the background material in Section 3, especially the first of the review articles, to get some inspiration to what tasks can be solved with modern machine learning.\nThink about topics or ideas to you would like to discuss or even prototype during the workshop. Around half of day 2 will be dedicated to exploring new projects.\n\n\nOptional\nIn addition to the points above, it will be helpful for the exercises we have planned to take a look at the technical stuff in Section 4, and run though the various tutorials to get comfortable with Python and its libraries. We will do a quickstart on the first day of the workshop as well, but doing it beforehand is a lot more efficient."
+  },
+  {
+    "objectID": "index.html#agenda",
+    "href": "index.html#agenda",
+    "title": "NORSAR Machine Learning Workshop,Sept 17-18 2025",
+    "section": "Agenda",
+    "text": "Agenda\nBoth days will take place in Maskinhallen.\nRemote participation: Teams link can be found in the meeting invitation.\n\nWednesday\n\n\n\n9.00\nIntro\nSlides: coming\n\n\n9.30\nExercise: Event detection\nNotebook: coming\n\n\n10.00\nPost-exercise: Understanding what we did\nSlides: coming\n\n\n11.00\nExercise: Event classification\nNotebook: coming\n\n\n11.45\n✨Special✨ lunch\n\n\n\n12.30\nDiscussion\n\n\n\n13.00\nEnd of day 1\n\n\n\n\n\n\nThursday\n\n\n\n9.00\nRecap from yesterday\n\n\n\n9.15\nDeep learning tools\nSlides: coming\n\n\n9.30\nExercise: Training deep learning models\nNotebook: coming\n\n\n10.00\nPost-exercise: Finding the optimal model\nSlides: coming\n\n\n10.30\nRecent and future ML at NORSAR\n\n\n\n11.00\nHackathon\n\n\n\n11.45\nLunch (kantinen)\n\n\n\n12.30\nWrap-up and discussions\n\n\n\n13.00\nEnd of day 2"
+  },
+  {
+    "objectID": "index.html#sec-background",
+    "href": "index.html#sec-background",
+    "title": "NORSAR Machine Learning Workshop,Sept 17-18 2025",
+    "section": "Background material",
+    "text": "Background material\nThese review articles give a fairly comprehensive (although brief) overview of machine learning applications in seismology:\n\nOld but gold: Machine Learning in Seismology: Turning Data into Insights, Q. Kong et al., 2019\nMore recent, with relatively narrow scope: Machine Learning in Earthquake Seismology, S.M. Mousavi and G. C. Beroza, 2023\nRelatively recent, with wider scope: Deep-learning seismology, S.M. Mousavi and G.C. Beroza, 2022\n\nFor a beginner-friendly, hands-on book on deep learning, Deep Learning with Python by F. Chollet is an absolutely great resource.\n\nSelected NORSAR ML works\nAs you know, NORSAR has made strong contributions to the field, documented for instance by these works:\n\nDeep learning models for regional phase detection on seismic stations in Northern Europe and the European Arctic (code available on GitHub)\nSelf-supervised learning of seismological data reveals new eruptive sequences at the Mayotte submarine volcano\nMonitoring urban construction and quarry blasts with low-cost seismic sensors and deep learning tools in the city of Oslo, Norway\nArrayNet: A Combined Seismic Phase Classification and Back‐Azimuth Regression Neural Network for Array Processing Pipelines (code available on GitHub)\nPredicting infrasound transmission loss using deep learning\nSeismic and infrasound monitoring of military conflicts using machine learning\nEnhancing seismic calving event identification in Svalbard through empirical matched field processing and machine learning\n\nNote that we have a bit of a tradition for open-sourcing the code used to produce results, made available on the NORSAR GitHub and the Zenodo platform."
+  },
+  {
+    "objectID": "index.html#sec-technical",
+    "href": "index.html#sec-technical",
+    "title": "NORSAR Machine Learning Workshop,Sept 17-18 2025",
+    "section": "Technical things",
+    "text": "Technical things\nDuring the workshop we will do various hands-on exercises, most of which benefit from some experience with programming. Luckily, the de-facto programming language for machine learning is Python, which is relatively easy to get started with.\nThere are three pieces of tech we will be using:\n\nPython, the programming langage,\nPython libraries, containing code to actually do stuff, and\nJupyter notebooks, which is a convenient way of running Python.\n\nThe magic of 3. is that you do not need to install anything, instead we run the code online, in a browser. Below follows an introduction, and some reference material, to the three.\n\nPython\nIf you already have some coding background in a different language, the Python cheat sheet gives the essential overview of the language, while the official tutorial goes in depth.\nIf you have less programming experience, Google’s Python course is quite nice, or in case you would like something in video format, Microsoft has made a Python for beginners video series.\nHowever, in the end we can get away with limited Python knowledge, since the majority of our interaction with both the data and the ML models is through the set of libraries decribed below. And, given the modern tools at our disposal, we can always ask for help.\n\nHey ChatGPT, I already know Matlab, can you give me a super-short (like, really short) introduction to Python?\n\n\n\nRequired Python libraries\nThe main data structure we use for data-intensive tasks like ML is the array, provided by the NumPy (Numerical Python) library. It looks like this:\n&gt;&gt;&gt; import numpy as np\n&gt;&gt;&gt; a = np.array([[1,2,3], [4,5,6]])\n&gt;&gt;&gt; a\narray([[1, 2, 3],\n       [4, 5, 6]])\n&gt;&gt;&gt; a.shape\n(2, 3)\nand allows for performing operations on each element without writing explicit for-loops:\n&gt;&gt;&gt; a + 10\narray([[11, 12, 13],\n       [14, 15, 16]])\nWhile we will cover some NumPy basics during the workshop, the essentials are given in these two tutorials: NumPy quickstart, for those who are already familiar with Python, and NumPy basics for beginners for … well, beginners.\nTo perform all the computations involved in doing deep learning, we need a library that can do automatic differentiation and efficient matrix multiplications. A popular option is TensorFlow and its companion interface for building neural networks, Keras. A nice thing about Keras is the extensive example gallery, which serves as inspiration for solving loads of different tasks. While other options for deep learning frameworks have their benefits too, they mostly all follow similar syntax for data operations as NumPy, making it relatively easy to switch between them, as long as one knows NumPy.\n\n\nJupyter notebooks\nJupyter notebooks form a convenient way of prototyping code, by mixing code, text and graphics in a single document. The easiest option for running the exercise notebooks is through a cloud service, in which case there is nothing to install. Alternatives are (choose one):\n\nGoogle Colab (Preferred): Requires a Google account (like GMail), but otherwise free.\nKaggle Code: Requires an account, but otherwise free.\nInstall on our own machine: No accounts required, but setup may take a few minutes. Instructions are given in the Jupyter docs.\n\nThe notebooks are mostly self-explanatory, but the basics are also given in the Jupyter Notebook 101 course, and documented in detail on the Jupyter website."
+  },
+  {
+    "objectID": "index.html#post-read-and-other-material",
+    "href": "index.html#post-read-and-other-material",
+    "title": "NORSAR Machine Learning Workshop,Sept 17-18 2025",
+    "section": "Post-read and other material",
+    "text": "Post-read and other material\nHere we will collect workshop material for future reference 💾."
+  },
+  {
+    "objectID": "slides/lecture1.html#agenda",
+    "href": "slides/lecture1.html#agenda",
+    "title": "Day 1",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nToday\n\nPizza\n\n\nTomorrow"
+  },
+  {
+    "objectID": "slides/lecture1.html#what-why-wow",
+    "href": "slides/lecture1.html#what-why-wow",
+    "title": "Day 1",
+    "section": "What, why, wow",
+    "text": "What, why, wow"
+  },
+  {
+    "objectID": "slides/lecture1.html#the-what",
+    "href": "slides/lecture1.html#the-what",
+    "title": "Day 1",
+    "section": "The what",
+    "text": "The what\n\n\n\nAI: Computer makes smart decisions\nMachine learning: Computer learns to recognise patterns\nDeep learning: Computer learns to recognise advanced patterns\n(Generative DL)\n\nThe big AI tools of today are driven by advancements in\n\nDeep learning – bigger and better models\nComputing – bigger and better data centres"
+  },
+  {
+    "objectID": "slides/lecture1.html#the-what-1",
+    "href": "slides/lecture1.html#the-what-1",
+    "title": "Day 1",
+    "section": "The what",
+    "text": "The what\n\n\nTraditional approach: (symbolic AI)\nIF amplitude &gt; threshold AND duration &gt; 2 seconds THEN earthquake; ELSE noise;\n\nMachine learning approach:\nThis is an earthquake\n\nThis is not\n\nCompute a function to separate the two."
+  },
+  {
+    "objectID": "slides/lecture1.html#the-what-2",
+    "href": "slides/lecture1.html#the-what-2",
+    "title": "Day 1",
+    "section": "The what",
+    "text": "The what\nLet’s plot number of results on Google Scholar"
+  },
+  {
+    "objectID": "slides/lecture1.html#the-what-3",
+    "href": "slides/lecture1.html#the-what-3",
+    "title": "Day 1",
+    "section": "The what",
+    "text": "The what\nSome terminology:\n\nModel:\nLabel:\nSupervised learning:\n\nAnd some statistics:\n(polynomial regression animation?)"
+  },
+  {
+    "objectID": "slides/lecture1.html#the-what-4",
+    "href": "slides/lecture1.html#the-what-4",
+    "title": "Day 1",
+    "section": "The what",
+    "text": "The what\nDatasets, data quality"
+  },
+  {
+    "objectID": "slides/lecture1.html#the-what-5",
+    "href": "slides/lecture1.html#the-what-5",
+    "title": "Day 1",
+    "section": "The what",
+    "text": "The what\nToday and tomorrow:\nIntro to modern ML technologies, which is mainly pattern regognition."
+  },
+  {
+    "objectID": "slides/lecture1.html#the-why",
+    "href": "slides/lecture1.html#the-why",
+    "title": "Day 1",
+    "section": "The why",
+    "text": "The why\nAccessible tech!"
+  },
+  {
+    "objectID": "slides/lecture1.html#the-wow",
+    "href": "slides/lecture1.html#the-wow",
+    "title": "Day 1",
+    "section": "The wow",
+    "text": "The wow\nSuccess stories"
+  },
+  {
+    "objectID": "slides/lecture1.html#exercise-number-1",
+    "href": "slides/lecture1.html#exercise-number-1",
+    "title": "Day 1",
+    "section": "Exercise number 1",
+    "text": "Exercise number 1"
+  },
+  {
+    "objectID": "slides/lecture1.html#post-exercise",
+    "href": "slides/lecture1.html#post-exercise",
+    "title": "Day 1",
+    "section": "Post-exercise",
+    "text": "Post-exercise\nUnderstanding what we did"
+  },
+  {
+    "objectID": "slides/lecture1.html#fun-with-crosscorrelation",
+    "href": "slides/lecture1.html#fun-with-crosscorrelation",
+    "title": "Day 1",
+    "section": "Fun with crosscorrelation",
+    "text": "Fun with crosscorrelation\nAnimation"
+  },
+  {
+    "objectID": "slides/lecture1.html#ml-for-waveform-data",
+    "href": "slides/lecture1.html#ml-for-waveform-data",
+    "title": "Day 1",
+    "section": "ML for waveform data",
+    "text": "ML for waveform data\nCross-correlation\nConvolutions"
+  },
+  {
+    "objectID": "slides/lecture1.html#neural-networks",
+    "href": "slides/lecture1.html#neural-networks",
+    "title": "Day 1",
+    "section": "Neural networks",
+    "text": "Neural networks\nSequentially improved features"
+  },
+  {
+    "objectID": "slides/lecture1.html#section",
+    "href": "slides/lecture1.html#section",
+    "title": "Day 1",
+    "section": "",
+    "text": "TensorFlowplayground"
+  },
+  {
+    "objectID": "slides/lecture1.html#deep-learning",
+    "href": "slides/lecture1.html#deep-learning",
+    "title": "Day 1",
+    "section": "Deep learning",
+    "text": "Deep learning\n\n\n\nThe point of deep learning is to sequentially learn better feature representations, and use these to solve a task.\n\n\n\nSince neural networks are universal function approximators, they can model arbitrarily complex relationships. The cost of doing so, is that we need a lot of data."
+  },
+  {
+    "objectID": "slides/lecture1.html#enter-the-convolution-operation",
+    "href": "slides/lecture1.html#enter-the-convolution-operation",
+    "title": "Day 1",
+    "section": "Enter the convolution operation",
+    "text": "Enter the convolution operation\nThe foundation for modern computer vision (plus lots of other things!) is convolution:\nan operation that takes in two functions and returns a new function\n\n\n\n\n\n\\[\nf \\ast g \\equiv \\int_{-\\infty}^{\\infty} f(\\tau) g(t-\\tau) d\\tau\n\\]"
+  },
+  {
+    "objectID": "slides/lecture1.html#enter-the-convolution-operation-1",
+    "href": "slides/lecture1.html#enter-the-convolution-operation-1",
+    "title": "Day 1",
+    "section": "Enter the convolution operation",
+    "text": "Enter the convolution operation\nThe foundation for modern computer vision (plus lots of other things!) is convolution:\nan operation that takes in two functions and returns a new function\n\n\n\n\n\n\\[\nf \\ast g \\equiv \\int_{-\\infty}^{\\infty} f(\\tau) g(t-\\tau) d\\tau\n\\]\n\n\n\nIn practice, convolution is a way to recognise and localise patterns in data"
+  },
+  {
+    "objectID": "slides/lecture1.html#discrete-convolution",
+    "href": "slides/lecture1.html#discrete-convolution",
+    "title": "Day 1",
+    "section": "Discrete convolution",
+    "text": "Discrete convolution\nConvolution is a lot easier with discrete data such as images, because:\n\nthe integral becomes a sum\nthe first function is our image\nthe second function is our kernel or filter, which tries to find patterns in the image."
+  },
+  {
+    "objectID": "slides/lecture1.html#convolutions-recap",
+    "href": "slides/lecture1.html#convolutions-recap",
+    "title": "Day 1",
+    "section": "Convolutions recap",
+    "text": "Convolutions recap"
+  },
+  {
+    "objectID": "slides/lecture1.html#convolutions-recap-1",
+    "href": "slides/lecture1.html#convolutions-recap-1",
+    "title": "Day 1",
+    "section": "Convolutions recap",
+    "text": "Convolutions recap"
+  },
+  {
+    "objectID": "slides/lecture1.html#convolutions-recap-2",
+    "href": "slides/lecture1.html#convolutions-recap-2",
+    "title": "Day 1",
+    "section": "Convolutions recap",
+    "text": "Convolutions recap"
+  },
+  {
+    "objectID": "slides/lecture1.html#convolutions-recap-3",
+    "href": "slides/lecture1.html#convolutions-recap-3",
+    "title": "Day 1",
+    "section": "Convolutions recap",
+    "text": "Convolutions recap"
+  },
+  {
+    "objectID": "slides/lecture1.html#convolutions-recap-4",
+    "href": "slides/lecture1.html#convolutions-recap-4",
+    "title": "Day 1",
+    "section": "Convolutions recap",
+    "text": "Convolutions recap"
+  },
+  {
+    "objectID": "slides/lecture1.html#convolutions-recap-5",
+    "href": "slides/lecture1.html#convolutions-recap-5",
+    "title": "Day 1",
+    "section": "Convolutions recap",
+    "text": "Convolutions recap"
+  },
+  {
+    "objectID": "slides/lecture1.html#convolutions-detour",
+    "href": "slides/lecture1.html#convolutions-detour",
+    "title": "Day 1",
+    "section": "Convolutions detour",
+    "text": "Convolutions detour\nIf the take the convolution operation\n\\[\n\\small\n(f \\ast g)(t) \\equiv \\int_{-\\infty}^{\\infty} f(\\tau) g(t-\\tau) d\\tau\n\\]\nbut reverse one of the functions (\\(\\small f(t) \\to f(-t)\\)), we get the similar operation called cross-correlation:\n\n\\[\n\\small\nf \\star g \\equiv f(-t) \\ast g(t)\n\\]"
+  },
+  {
+    "objectID": "slides/lecture1.html#convolutions-detour-1",
+    "href": "slides/lecture1.html#convolutions-detour-1",
+    "title": "Day 1",
+    "section": "Convolutions detour",
+    "text": "Convolutions detour\nIf the take the convolution operation\n\\[\n\\small\nf \\ast g \\equiv \\int_{-\\infty}^{\\infty} f(\\tau) g(t-\\tau) d\\tau\n\\]\nbut reverse one of the functions (\\(\\small f(t) \\to f(-t)\\)), we get the similar operation called cross-correlation:\n\n\\[\n\\small\nf \\star g \\equiv f(-t) \\ast g(t)\n\\]"
+  },
+  {
+    "objectID": "slides/lecture1.html#break",
+    "href": "slides/lecture1.html#break",
+    "title": "Day 1",
+    "section": "Break",
+    "text": "Break"
+  },
+  {
+    "objectID": "slides/lecture1.html#seismology-tasks-solved-with-ml-current-sota",
+    "href": "slides/lecture1.html#seismology-tasks-solved-with-ml-current-sota",
+    "title": "Day 1",
+    "section": "Seismology tasks solved with ML / current SOTA",
+    "text": "Seismology tasks solved with ML / current SOTA"
+  },
+  {
+    "objectID": "slides/lecture1.html#exercise-2",
+    "href": "slides/lecture1.html#exercise-2",
+    "title": "Day 1",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nTrain an ML pick detector"
+  },
+  {
+    "objectID": "slides/lecture1.html#post-exercise-1",
+    "href": "slides/lecture1.html#post-exercise-1",
+    "title": "Day 1",
+    "section": "Post-exercise",
+    "text": "Post-exercise"
+  },
+  {
+    "objectID": "slides/lecture1.html#augmentation",
+    "href": "slides/lecture1.html#augmentation",
+    "title": "Day 1",
+    "section": "Augmentation",
+    "text": "Augmentation\nMove to day 2"
+  },
+  {
+    "objectID": "slides/lecture1.html#day-2",
+    "href": "slides/lecture1.html#day-2",
+    "title": "Day 1",
+    "section": "DAY 2",
+    "text": "DAY 2"
+  },
+  {
+    "objectID": "slides/lecture1.html#recap-from-day-1",
+    "href": "slides/lecture1.html#recap-from-day-1",
+    "title": "Day 1",
+    "section": "Recap from day 1",
+    "text": "Recap from day 1"
+  },
+  {
+    "objectID": "slides/lecture1.html#the-more-advanced-stuff",
+    "href": "slides/lecture1.html#the-more-advanced-stuff",
+    "title": "Day 1",
+    "section": "The more advanced stuff",
+    "text": "The more advanced stuff\nDeep learning components"
+  },
+  {
+    "objectID": "slides/lecture1.html#libraries-for-machine-learning",
+    "href": "slides/lecture1.html#libraries-for-machine-learning",
+    "title": "Day 1",
+    "section": "Libraries for machine learning",
+    "text": "Libraries for machine learning"
+  },
+  {
+    "objectID": "slides/lecture1.html#exercise-unsupervised-learning-with-pretrained-image-models",
+    "href": "slides/lecture1.html#exercise-unsupervised-learning-with-pretrained-image-models",
+    "title": "Day 1",
+    "section": "Exercise: Unsupervised learning with pretrained image models?",
+    "text": "Exercise: Unsupervised learning with pretrained image models?"
+  },
+  {
+    "objectID": "slides/lecture1.html#sota-research",
+    "href": "slides/lecture1.html#sota-research",
+    "title": "Day 1",
+    "section": "SOTA research",
+    "text": "SOTA research"
+  },
+  {
+    "objectID": "slides/lecture1.html#norsar-developments",
+    "href": "slides/lecture1.html#norsar-developments",
+    "title": "Day 1",
+    "section": "NORSAR developments",
+    "text": "NORSAR developments"
+  },
+  {
+    "objectID": "slides/lecture1.html#future-directions-at-norsar",
+    "href": "slides/lecture1.html#future-directions-at-norsar",
+    "title": "Day 1",
+    "section": "Future directions at NORSAR",
+    "text": "Future directions at NORSAR"
+  },
+  {
+    "objectID": "slides/lecture1.html#hackathon",
+    "href": "slides/lecture1.html#hackathon",
+    "title": "Day 1",
+    "section": "Hackathon",
+    "text": "Hackathon"
+  }
+]
