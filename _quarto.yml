@@ -10,24 +10,21 @@ project:
     - "slides/*.qmd"
 
 website:
-  title: "NORSAR ML Workshop"
+  title: ""
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-
+    logo: "NORSAR-main-logo-RGB.png"
+    logo-href: "/"
 format:
   html:
     theme:
       - cosmo
-      - brand
     css: styles.css
     toc: true
   revealjs:
     theme: [default, custom.scss]
     slide-number: true
     #title-slide-attributes: 
-    #  data-background-image: figures/hvl_logo_engelsk.png
+    #  data-background-image: NORSAR-main-logo-RGB.png
     #  data-background-size: 15%
     #  data-background-position: 98% 2%
     code-line-numbers: false
