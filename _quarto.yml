@@ -12,15 +12,18 @@ project:
 website:
   title: "NORSAR ML Workshop"
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
+    logo: "NORSAR-main-logo-RGB.png"
+    logo-href: "/"
+    pinned: true
+    #left:
+    #  - href: index.qmd
+    #    text: Home
 
 format:
   html:
     theme:
       - cosmo
-      - brand
+    #  - brand
     css: styles.css
     toc: true
   revealjs:
