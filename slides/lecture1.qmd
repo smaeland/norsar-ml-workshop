@@ -15,15 +15,35 @@ format:
 
 ### Today
 
-- Pizza
+|   |   |
+|---|---|---|
+|  9.00 | Intro |
+|  9.30 | Exercise: Event detection |
+| 10.00 | Post-exercise: Understanding what we did |
+| 11.00 | Exercise: Event classification |
+| 11.45 | ✨Special✨ lunch |
+| 12.30 | Discussion |
+| 13.00 | End of day 1 |
 
 :::
 :::{.column width="50%"}
 
 ### Tomorrow
 
+|   |   |
+|---|---|
+|  9.00 | Recap from yesterday |
+|  9.15 | Deep learning tools |
+|  9.30 | Exercise: Training deep learning models |
+| 10.00 | Post-exercise: Finding the optimal model |
+| 10.30 | Recent and future ML at NORSAR |
+| 11.00 | Hackathon |
+| 11.45 | Lunch (kantinen) |
+| 12.30 | Wrap-up and discussions |
+| 13.00 | End of day 2 |
 :::
 :::
+
 
 ## What, why, wow {.center background-color="#F3E5F5"}
 
@@ -99,7 +119,7 @@ And some statistics:
 
 ## The _what_
 
-Datasets, data quality 
+Datasets, data quality
 
 
 
@@ -107,7 +127,7 @@ Datasets, data quality
 
 Today and tomorrow:
 
-Intro to modern ML technologies, which is mainly **pattern regognition**.
+Intro to modern ML technologies, which is mainly **pattern recognition**.
 
 :::{.absolute bottom="0%" left="0%" width="200px"}
 ![](https://m.media-amazon.com/images/I/71fqxXDY2ZL._UF1000,1000_QL80_.jpg)
