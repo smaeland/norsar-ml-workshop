@@ -23,3 +23,101 @@ $text-font-weight: 300;
 
 
 /*-- scss:rules --*/
+
+
+// Some colors
+.color-text-muted {
+  color: $text-muted;
+}
+
+.green {
+  color: #388E3C;
+}
+
+.red {
+  color: #E53935;
+}
+
+// Center figure captions
+figcaption {
+   text-align: center;
+}
+
+// Title slide
+#title-slide {
+
+  color: #00335e;
+  
+  .title {
+    background: -webkit-linear-gradient(left, #1c8ece, #00335e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 0.1em;
+   }
+
+  .subtitle {
+    margin-top: 1em;
+    font-weight: 400;
+  }
+
+  .quarto-title-authors {
+    display: flex;
+    justify-content: left;
+
+    .quarto-title-author {
+      margin-top: 2em;
+      padding-left: 0em;
+      padding-right: 0em;
+      width: 100%;
+      font-weight: 300;
+    }
+  }
+ 
+}
+
+$frame-scale: 0.75;
+.frame {
+    width: 1280px;
+    height: 800px;
+    border: 0;
+    -ms-transform: scale($frame-scale);
+    -moz-transform: scale($frame-scale);
+    -o-transform: scale($frame-scale);
+    -webkit-transform: scale($frame-scale);
+    transform: scale($frame-scale);
+    
+    -ms-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.reveal table {
+  // height: auto; /* Adjust table width to fit content up to the available slide space */
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 0.8em;
+}
+
+.reveal table th,
+.reveal table td {
+  border: none; /* Remove internal row lines */
+  padding: .23em; /* Adjust padding as needed */
+  text-align: left; /* Adjust text alignment as needed */
+  font-weight: 300;
+}
+
+.rotatei {
+  animation: loading 60s linear infinite;
+  @keyframes loading {
+    0% { 
+      transform: rotate(0); 
+    }
+    100% { 
+      transform: rotate(360deg);
+    }
+  }
+}

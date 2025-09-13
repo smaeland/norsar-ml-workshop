@@ -1,11 +1,16 @@
 ---
-title: "Day 1"
-subtitle: "NORSAR ML Workshop"
+title: "NORSAR ML Workshop"
+subtitle: "Day 1 -- Wednesday"
 author: "steffen.maeland@norsar.no"
+date: "September 17, 2025"
 format:
   revealjs:
     auto-stretch: false
     auto-play-media: true
+    #max-scale: 1.5
+    #width: 1920
+    #height: 1080
+    
 ---
 
 ## Agenda
@@ -45,7 +50,41 @@ format:
 :::
 
 
+
 ## What, why, wow {.center background-color="#F3E5F5"}
+
+## What can you do with deep learning? {.center background-color="#00838F" style="text-align: center;"}
+
+
+<!----------------------------------------------------------------------------->
+## {background-iframe="https://openai.com/" background-interactive="true" data-menu-title="Example: ChatGPT"}
+
+<!----------------------------------------------------------------------------->
+## {background-image="figures/projectastra.png" background-color="black" .center data-menu-title="Example: Astra"}
+
+:::{style="display: flex;justify-content: center;"}
+<iframe src="https://www.youtube.com/embed/JcDBFAm9PPI?t=10s&autoplay=1&mute=1&cc_load_policy=1" allow="autoplay" width="800px" height="450px"></iframe>
+:::
+
+<!----------------------------------------------------------------------------->
+## {background-iframe="https://openai.com/index/dall-e-3/" background-interactive="true" data-menu-title="Example: DALL-E"}
+
+
+<!----------------------------------------------------------------------------->
+## {background-iframe="https://openai.com/sora/" background-interactive="true" data-menu-title="Example: Sora"}
+
+<!----------------------------------------------------------------------------->
+## {background-iframe="https://segment-anything.com/" background-interactive="true" data-menu-title="Example: Segment Anything"}
+
+## {background-iframe="https://www.youtube.com/embed/tlThdr3O5Qo?autoplay=1&mute=1" data-menu-title="Example: Selvkjøring"}
+
+<!----------------------------------------------------------------------------->
+## {background-image="figures/queue-monitoring-crowd-ultralytics-yolov8.avif" data-menu-title="Example: Queue counting"}
+
+<!----------------------------------------------------------------------------->
+## {background-iframe="https://www.anthropic.com/claude-code" background-interactive="true" data-menu-title="Example: Claude"}
+
+
 
 ## The _what_
 
@@ -102,19 +141,21 @@ Let's plot number of results on [Google Scholar](https://scholar.google.com)
 ![](figures/papers_per_year.png)
 :::
 
+## Task that have been solved with ML
+
 
 ## The _what_
 
 Some terminology:
 
 - _Model:_
+- _Parameters:_
 - _Label:_
 - _Supervised learning:_
 
 
-And some statistics:
+And some statistics: later.
 
-(polynomial regression animation?)
 
 
 ## The _what_
@@ -147,21 +188,363 @@ Accessible tech!
 Success stories
 
 
+
 ## Exercise number 1 {.center background-color="#FBE9E7"}
+
+:::{style="padding-top:30px;"}
+:::
+
+_Comparing detection methods_
+
+Open in [Colab](https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/1_detection.ipynb)
+or [download](https://github.com/smaeland/norsar-ml-workshop/blob/dev/1_detection.ipynb)
 
 ## Post-exercise {.center background-color="#E0F2F1"}
 
 Understanding what we did
 
 
-## Fun with crosscorrelation
+## Crosscorrelation
 
-Animation
+Template identical to signal
+
+:::{.frame}
+<iframe src="figures/crosscorr_animation_1.html" name="crosscorr_animation_1" width="1300" height="800"></iframe>
+:::
+
+## Crosscorrelation
+
+Template not identical to signal
+
+:::{.frame}
+<iframe src="figures/crosscorr_animation_2.html" name="crosscorr_animation_2" width="1300" height="800"></iframe>
+:::
+
+## Crosscorrelation
+
+Short template
+
+:::{.frame}
+<iframe src="figures/crosscorr_animation_3.html" name="crosscorr_animation_3" width="1300" height="800"></iframe>
+:::
+
+
+## Crosscorrelation
+
+_Multiple_ short templates
+
+:::{.frame}
+<iframe src="figures/crosscorr_animation_4.html" name="crosscorr_animation_4" width="1300" height="800"></iframe>
+:::
+
+
+
+## Transitioning into ML
+
+:::{style="padding-top: 40px;"}
+:::
+
+We'll pursure three ideas:
+
+<ul style="line-height:3em">
+  <li>Multiple, short templates</li>
+  <li>Doing correlation _on top of_ the output from correlation<br> `->` _deep_ learning</li>
+  <li>Learn optimal templates, rather than selecting explicit ones<br> `->` machine _learning_</li>
+</ul>
+
+
+## _Deep_ learning
+
+<!-- First: generalised deep learning -->
+
+The point of deep learning is to sequentially **learn better feature representations**, and use these to solve a task.
+
+:::{.columns}
+:::{.column width="12%"}
+insufficient:
+<br>
+<br>
+good:
+<br>
+<br>
+<br>
+better:
+:::
+
+:::{.column width="5%"}
+:::
+
+:::{.column width="7%"}
+data
+<br>
+<br>
+data
+<br>
+<br>
+<br>
+data
+:::
+
+:::{.column width="5%"}
+$\rightarrow$
+<br>
+<br>
+$\rightarrow$
+<br>
+<br>
+<br>
+$\rightarrow$
+:::
+
+:::{.column width="20%"}
+prediction
+<br>
+<br>
+representation<br>
+[_(e.g. crosscorr)_]{.color-text-muted}
+<br>
+<br>
+representation
+[_(e.g. crosscorr)_]{.color-text-muted}
+:::
+
+:::{.column width="5%"}
+<br>
+<br>
+$\rightarrow$
+<br>
+<br>
+<br>
+$\rightarrow$
+:::
+
+:::{.column width="20%"}
+<br>
+<br>
+prediction
+<br>
+<br>
+<br>
+representation
+[_(e.g. crosscorr)_]{.color-text-muted}
+:::
+
+:::{.column width="5%"}
+<br>
+<br>
+<br>
+<br>
+<br>
+$\rightarrow$
+:::
+
+:::{.column width="20%"}
+<br>
+<br>
+<br>
+<br>
+<br>
+prediction
+:::
+:::
+
+
+## {background-iframe="https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=gauss&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=15&networkShape=&seed=0.56524&showTestData=false&discretize=false&percTrainData=50&x=false&y=false&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false&playButton_hide=false&showTestData_hide=false&regularization_hide=true&dataset_hide=false&batchSize_hide=true&learningRate_hide=false&percTrainData_hide=true&regularizationRate_hide=true&problem_hide=true" background-interactive="true" data-menu-title="TensorFlow playground"}
+
+:::{.absolute bottom="0%" left="0%" style="font-size: 0.5em;"}
+[_TensorFlow<br>playground_](https://playground.tensorflow.org/)
+:::
+
+
+## Pattern hierarchies 
+
+:::{.absolute left="20%" bottom="5%" width="700px"}
+![](figures/chollet-cat.png)
+:::
+
+:::{.absolute right="0%" bottom="1%" style="font-size: 0.65em;"}
+[_Details tomorrow_]{.color-text-muted}
+:::
+
+## Training
+
+:::{.columns}
+:::{.column width="60%"}
+Optimal choice of model parameters can usually not be found analytically
+
+$\rightarrow$ need to iteratively search for it, which we call _training_ the model.
+
+:::{.fragment fragment-index=1}
+Deep learning models are essentially composite, differentiable functions,
+meaning we can use _gradient descent_.
+:::
+
+:::{.fragment fragment-index=2}
+[Good:]{.green} DL libraries do the differentiation for us!
+:::
+:::{.fragment fragment-index=3}
+[Bad:]{.red} It's computationally expensive
+:::
+:::{.fragment fragment-index=4}
+[Good:]{.green} Modern hardware (GPUs) are very efficient at this (also, it could have been [worse](https://en.wikipedia.org/wiki/Derivative-free_optimization))
+:::
+:::
+
+:::{.column width="40%"}
+:::{.fragment fragment-index=1}
+![](figures/gradient.png)
+
+$$
+\small
+\nabla \color{MediumVioletRed}{L}(\color{teal}{\boldsymbol{\theta}}) = 
+\begin{bmatrix}
+  \frac{\partial \color{MediumVioletRed}{L}}{\partial \color{teal}{\theta}_0} \\
+  \vdots \\
+  \frac{\partial \color{MediumVioletRed}{L}}{\partial \color{teal}{\theta}_n} \\
+\end{bmatrix} 
+$$ 
+:::
+:::
+:::
+
+
+## Hardware acceleration
+
+:::{.columns}
+:::{.column width="55%"}
+Deep learning training and inference is considerably faster on a graphics processing unit (GPU)
+
+For the next exercises we can enable it in Colab by selecting
+
+_Runtime_ $\rightarrow$ _Change runtime type_ $\rightarrow$ _T4 GPU_
+
+:::{style="padding-top: 50px;"}
+:::
+
+The NORSAR GPU server is available at
+
+```{.bash}
+ssh gpu.norsar.no
+```
+
+:::
+:::
+
+
+:::{.absolute top="15%" right="0%" width="300px"}
+![[NVDA](https://www.google.com/finance/quote/NVDA:NASDAQ?sa=X&ved=2ahUKEwjQk6D279WPAxWNAxAIHWO4J7EQ3ecFegQIVBAT&window=MAX)](figures/nvda.png)
+:::
+
+:::{.absolute bottom="20%" right="0%" width="300px"}
+![](figures/rtx4090.png){.rotate}
+:::
+
+
+## Micro-break 🏖  {.center background-color="#EDE7F6"}
+
+
+## The joys of training a model
+
+
+
+## Selecting _hyperparameters_
+
+:::{.frame}
+<iframe src="figures/over_underfitting_hyperpars.html" name="over_underfitting" width="1300" height="800"></iframe>
+:::
+
+
+
+## Evaluating models
+
+Evaluating a model should be done on an [_independent_]{.color-indigo} data set<br>
+(we want to know how well it performs on new, unseen data)
+
+Typically we set aside a part of the data, and use this only for final evaluation.
+
+![](figures/train-test.png){width="40%" fig-align="center" style="margin-top: 40px;"}
+
+```{.python}
+# "X" are the data, "y" are the targets.
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.25, random_state=42
+)
+```
+
+<!----------------------------------------------------------------------------->
+## Comparing models
+
+Model selection
+
+- In case we want to compare different models, we need a third set: <br>
+  The _validation set_
+- The test set is still only for final evaluation
+
+![](figures/train-val-test.png){width="40%" fig-align="center"}
+
+:::{.fragment}
+ML models are prone to **overfitting** -- i.e. memorising the training data.
+
+How do we know if (_when_) this happens? 
+
+- Can compare performance on the training set to the validation set
+:::
+
+
+
+## Exercise number 2 {.center background-color="#FBE9E7"}
+
+:::{style="padding-top:30px;"}
+:::
+
+_Training a phase picker_
+
+Open in [Colab](https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/1_detection.ipynb)
+or [download](https://github.com/smaeland/norsar-ml-workshop/blob/dev/1_detection.ipynb)
+
+(TODO update links)
+
+
+## Post-exercise {.center background-color="#E0F2F1"}
+
+More advanced phase picking
+
+
+
+## Current seismology SOTA 
+
+
+
+
+
+## LOL
+
+Our _short_ templates can be "re-used" to detect similar but distinct patterns
+
+However, most interesting patterns are considerably longer than the templates.
+
+-> Want a way to compose small patterns into larger ones
+
+
+
+<!-- Then: time series deep learning  --> 
+
+
+## Training
+
+
+
+
+
+
 
 
 ## ML for waveform data
 
 Cross-correlation
+
 
 Convolutions
 
@@ -169,11 +552,6 @@ Convolutions
 
 Sequentially improved features
 
-## {background-iframe="https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=gauss&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=15&networkShape=&seed=0.56524&showTestData=false&discretize=false&percTrainData=50&x=false&y=false&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false&playButton_hide=false&showTestData_hide=false&regularization_hide=true&dataset_hide=false&batchSize_hide=true&learningRate_hide=false&percTrainData_hide=true&regularizationRate_hide=true&problem_hide=true" background-interactive="true" data-menu-title="TensorFlow playground"}
-
-:::{.absolute bottom="0%" left="0%" style="font-size: 0.5em;"}
-[_TensorFlow<br>playground_](https://playground.tensorflow.org/)
-:::
 
 ## _Deep_ learning {background-color="#EDE7F6"}
 

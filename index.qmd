@@ -1,5 +1,7 @@
 ---
 title: "NORSAR Machine Learning Workshop,<br>Sept 17-18 2025"
+order: 1
+format: html
 toc: true
 ---
 
