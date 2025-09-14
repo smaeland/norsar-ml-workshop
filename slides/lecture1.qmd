@@ -244,6 +244,16 @@ Let's plot number of results on [Google Scholar](https://scholar.google.com)
 :::
 
 
+## Deep learning seismology papers
+
+:::{.absolute left="0%" bottom="0%" width="1000px"}
+![](figures/dl_seismology.png)
+:::
+
+:::{.absolute right="0%" bottom="0%" width="400px"}
+![](figures/dl_seismology_paper.png){.img-shadow}
+:::
+
 ## The _what_
 
 Some terminology:
@@ -256,11 +266,6 @@ Some terminology:
 
 And some statistics: later.
 
-
-
-## The _what_
-
-Datasets, data quality
 
 
 
@@ -292,6 +297,9 @@ ML in earthquake seismology
 ![](https://www.annualreviews.org/docserver/fulltext/earth/51/1/ea510105.f2.gif)
 
 
+:::{.absolute bottom="0%" right="0%" style="font-size: 0.7em" .color-text-muted}
+[Mousavi, S. M., & Beroza, G. C. (2023). Machine learning in earthquake seismology. Annual Review of Earth and Planetary Sciences, 51(1), 105-129.](https://www.annualreviews.org/content/journals/10.1146/annurev-earth-071822-100323)
+:::
 
 ## Exercise number 1 {.center background-color="#FBE9E7"}
 
@@ -1246,6 +1254,8 @@ Remember the cat:
 
 
 
+## Pretrained models
+
 ## Exercise: Unsupervised learning with pretrained image models?
 
 
@@ -1254,10 +1264,16 @@ Remember the cat:
 ## SOTA research
 
 
+https://www.nature.com/articles/s41467-020-17591-w/figures/3
+
+![](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-020-17591-w/MediaObjects/41467_2020_17591_Fig3_HTML.png?as=webp)
+
+
 ## NORSAR developments
 
 
 ## Future directions at NORSAR
 
+Arrays 
 
 ## Hackathon

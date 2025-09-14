@@ -121,3 +121,9 @@ $frame-scale: 0.75;
     }
   }
 }
+
+// Drop shadow frame for images
+.img-shadow {
+    border: 1px solid get-color('grey');
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
