@@ -1,7 +1,7 @@
+tensorflow[and-cuda]
 numpy
 scipy
 matplotlib
 obspy
-tensorflow
 scikit-learn
 notebook

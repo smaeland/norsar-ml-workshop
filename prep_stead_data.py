@@ -12,6 +12,11 @@ def prep_signal_plus_noise(output_name, num_train_events=1000, num_test_events=1
         header = fin.readline()
 
         for line in fin:
+            
+            if line.startswith(' '):        # TODO fix these overflow lines
+                print('Skipping line:', line)
+                continue
+
             row = line.strip().split(',')
             try:
                 name, p_start, s_start, mag = row[-1], float(row[6]), float(row[10]), float(row[23])
