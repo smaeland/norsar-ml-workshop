@@ -795,16 +795,68 @@ model.summary
 
 ## {background-iframe="https://keras.io/" data-menu-title="Keras layers" background-interactive="true"}
 
+
 ## The joys of training a model
+
+Recall _gradient descent:_
+
+![](figures/gradient-wide.png)
+
+
+## The joys of training a model
+
+Recall _gradient descent:_
+
+![](figures/gradient-local-minimum.png)
+
+:::{.absolute left="0%" bottom="20%" style="font-size: 0.8em;"}
+Local<br>minimum<br>
+`->` [_bad predictions_]{.color-red}
+:::
+
+
+## The joys of training a model
+
+Recall _gradient descent:_
+
+![](figures/gradient-zero.png)
+
+
+:::{.absolute left="0%" bottom="20%" style="font-size: 0.8em;"}
+Local<br>minimum<br>
+`->` [_bad predictions_]{.color-red}
+:::
+
+:::{.absolute right="5%" top="20%" style="font-size: 0.8em;"}
+Plateau<br>
+`->` [_slow convergence_]{.color-red}
+:::
+
 
 
 ## Going further: Phase picking
 
+A `yes` or `no` classification in a time window is a little simplistic
 
-More advanced phase picking
+For an automated system we rather want phase picks:
 
-TPhaseNet figures.
+![](https://github.com/smousavi05/STEAD/blob/master/eventSample.png?raw=true){width="600px" style="padding-left: 200px;"}
 
+Then: How to define the labels?
+
+
+## Going further: Phase picking
+
+Reformat the labels into _3-component time series:_
+
+![](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/gji/216/1/10.1093_gji_ggy423/1/ggy423fig4.jpeg?Expires=1760963204&Signature=WUY-EaMnvhBy56XqRXAIXVKvpYUy4pPH769Iw76FiOVW476kdIWeOqp7yusw03I4MJ66~FC5fdWSJqIpqllLFS43wzr8heAvp0f2TvHSdkf0-Ffq7WOsW3dPTEURv2b4jYn0ahnCqYOApxF~OHBBECNtI7ygesCo0gIZpf8p0nDF1Czn7xhfOciESTnK3OEDucZbhLlDvXjRjPKFeURB37ki6WdB5xjIMoATpYBUXFI62~O~I-b7dsr6vtGuIeCZrxeRzcE6I~PzcsawnNqf0scoTvSkS9CHTxmPFMlgdRIdd-~iUGxj3FYgftoFjw2wWOJQG0~uy1Hg~ZnolRzXGg__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA){width="600px" style="padding-left: 200px;"}
+
+
+$\rightarrow$ More on this tomorrow
+
+:::{.absolute bottom="0%" right="-5%" style="font-size: 0.6em;" width="250px"}
+Zhu, W., & Beroza, G. C. (2019). PhaseNet: a deep-neural-network-based seismic arrival-time picking method. Geophysical Journal International, 216(1), 261-273.
+:::
 
 ## End of day one {.center background-color="#E0F2F1"}
 
@@ -835,6 +887,10 @@ However, most interesting patterns are considerably longer than the templates.
 ## Training
 
 
+
+## Exercise 1
+
+First: Repeat phase picksing from yesterday
 
 
 
