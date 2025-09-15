@@ -409,6 +409,7 @@ _Comparing detection methods_
 Open in [Colab](https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/1_detection.ipynb)
 or [download](https://github.com/smaeland/norsar-ml-workshop/blob/dev/1_detection.ipynb)
 
+
 ## Post-exercise {.center background-color="#E0F2F1"}
 
 Understanding what we did
@@ -774,10 +775,9 @@ How do we know if (_when_) this happens?
 
 _Training an earthquake classifier_
 
-Open in [Colab](https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/1_detection.ipynb)
-or [download](https://github.com/smaeland/norsar-ml-workshop/blob/dev/1_detection.ipynb)
+Open in [Colab](https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/2_event_classification.ipynb)
+or [download](https://github.com/smaeland/norsar-ml-workshop/blob/main/2_event_classification.ipynb)
 
-(TODO update links)
 
 
 ## Post-exercise {.center background-color="#E0F2F1"}
