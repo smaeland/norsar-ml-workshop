@@ -15,6 +15,9 @@ format:
 
 ## Agenda
 
+:::{style="padding-top: 50px;"}
+:::
+
 :::{.columns}
 :::{.column width="50%"}
 
@@ -51,10 +54,13 @@ format:
 
 
 
-## What, why, wow {.center background-color="#F3E5F5"}
+<!-- ## What, why, wow {.center background-color="#F3E5F5"} -->
 
-## What can you do with deep learning? {.center background-color="#00838F" style="text-align: center;"}
+## What can you do with machine learning? {.center background-color="#00838F" style="text-align: center;"}
 
+:::{style="padding-top: 20px;"}
+:::
+[_(outside of seismology)_]{style="color: #CFD8DC;"}
 
 <!----------------------------------------------------------------------------->
 ## {background-iframe="https://openai.com/" background-interactive="true" data-menu-title="Example: ChatGPT"}
@@ -89,55 +95,78 @@ format:
 ## The _what_
 
 :::{.columns}
-:::{.column width="60%"}
-- AI: Computer makes smart decisions
-- Machine learning: Computer learns to recognise patterns
-- Deep learning: Computer learns to recognise advanced patterns
-- (Generative DL)
+:::{.column width="55%"}
+- **Artificial intelligence (AI):**<br>
+  Umbrella term for computer systems that make smart decisions
+- **Machine learning (ML):**<br>
+  Collection of algorithms that learn to recognise patterns in data
+- **Deep learning:**<br>
+  ML that recognises complex patterns, using neural networks
+<!-- - (Generative DL) -->
 
 The big AI tools of today are driven by advancements in
 
-- Deep learning -- bigger and better models
-- Computing -- bigger and better data centres
+- Deep learning -- _bigger and better models_
+- Computing -- _bigger and better processors_
 :::
 :::
 
-:::{.absolute top="10%" right="0%" width="400px"}
+:::{.absolute top="20%" right="0%" width="400px"}
 ![](figures/AI_hierarchy.png)
 :::
 
+
 ## The _what_
 
-:::{.columns}
-:::{.column width="50%"}
-Traditional approach: (_symbolic AI_)
+**Traditional approach:** _Symbolic_ or _rule-based_ AI
 
+:::{.columns}
+:::{.column width="10%"}
+:::
+
+:::{.column width="80%"}
+
+```{.bash}
 IF amplitude > threshold AND duration > 2 seconds
 THEN earthquake;
 ELSE noise;
+```
+:::
 :::
 
-:::{.column width="50%"}
-Machine learning approach:
+:::{.fragment}
+**Machine learning approach:**
 
+:::{}
+:::
+
+:::{.columns}
+:::{.column width="5%"}
+:::
+
+:::{.column width="45%"}
 This is an earthquake
 
-![](https://raw.githubusercontent.com/smousavi05/STEAD/master/eventSample.png)
+![](https://raw.githubusercontent.com/smousavi05/STEAD/master/eventSample.png){width="350px"}
+:::
 
+:::{.column width="45%"}
 This is not
 
-![](https://raw.githubusercontent.com/smousavi05/STEAD/master/noise.png)
+![](https://raw.githubusercontent.com/smousavi05/STEAD/master/noise.png){width="350px"}
+:::
+:::
 
 Compute a function to separate the two.
 
 :::
-:::
+
 
 ## The _what_
 
-Let's plot number of results on [Google Scholar](https://scholar.google.com)
+Number of results on [Google Scholar](https://scholar.google.com) per year:
 
-:::{.absolute left="5%" bottom="5%" width="800px"}
+:::{.absolute left="7%" bottom="0%" width="800px"}
 ![](figures/papers_per_year.png)
 :::
 
@@ -167,23 +196,23 @@ Let's plot number of results on [Google Scholar](https://scholar.google.com)
 
 
 
-:::{.absolute bottom="0%" right="0%" width="200px" .fragment fragment-index=1 .fade-in-then-out}
+:::{.absolute bottom="0%" right="0%" width="450px" .fragment fragment-index=1 .fade-in-then-out}
 ![Linville et al., Geophys. Res. Lett. 46:3643–51](https://agupubs.onlinelibrary.wiley.com/cms/asset/7f6f01d8-2280-4416-90f1-bb2effabe29b/grl58692-fig-0001-m.png)
 :::
 
-:::{.absolute bottom="0%" right="0%" width="200px" .fragment fragment-index=2 .fade-in-then-out}
+:::{.absolute bottom="0%" right="0%" width="650px" .fragment fragment-index=2 .fade-in-then-out}
 ![Köhler et al., Geophys. J. Int. 230:1305–17](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/gji/230/2/10.1093_gji_ggac117/1/ggac117fig1.jpeg?Expires=1760812945&Signature=fl6O1S~oZ3pog8KzHzKKLL1~Ov146mvkYDWsLZcebOfCwELCI1nBgUzYWCht-rcAW2LLPfZbTwWuP0f4XjsKpI023zokswsMIrAVNQufvgnoA1ShgaLa2S1lEJlkABQV3hkii4szu-QSEzSL1krAAm1Dpbxmdq0O6RB7KrsByvBEziNVNcb369WU7v7rKNrV6FrV2QxIdIkAFCLOLCpAO4kFF1P0MaKX8RCiZknQwnfcKKlAyRq6P~Fen5tahkXzBkgUug-PNodUsXzWnI8i8Atk3vnib~hRRNUOAV~xTk5fzmzjVfjqpQjuIFm0-FZPH~WkAH36MEV0IOB3HAUQQw__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
 :::
 
-:::{.absolute bottom="0%" right="0%" width="200px" .fragment fragment-index=3 .fade-in-then-out}
+:::{.absolute bottom="0%" right="0%" width="370px" .fragment fragment-index=3 .fade-in-then-out}
 ![Köhler et al., Geophys. J. Int. 239:862–81](figures/tphasenet.jpeg)
 :::
 
-:::{.absolute bottom="0%" right="0%" width="200px" .fragment fragment-index=4 .fade-in-then-out}
+:::{.absolute bottom="0%" right="0%" width="450px" .fragment fragment-index=4 .fade-in-then-out}
 ![Uchide T., Geophys. J. Int. 223:1658–71](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/gji/223/3/10.1093_gji_ggaa401/1/ggaa401fig7.jpeg?Expires=1760814086&Signature=ziTf8FwfivYmKgh8rxpVw6mZk6F1dvJ1BTdXwml-Ez2pBVOxKkotTYqT6ACx3qsxl6662ask7j89xcn1oC7b7YDwT6M9e0UHN45IqxA-eHSCruo7IEad-M3C3Hi0cgGggrjUyHI6-LcxxyINSRqXS0ndzAiFufgAtktjUd8ROIML0P8Z3~tIfKtcyN7at4jsExBpZGbqvmkozq8FqfYls06LE67udg9d~r7QxzYAWRnxw8OvYqXB6aW8MlhKp~bUuCgVcMyX-ZYRGlrtjTb3aMApl5aZx00cIgb3YoQGgm5LckrDECCyLFT5RAh4xTDwmz7Enn~gvhK1CLEUDx4EoA__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
 :::
 
-:::{.absolute bottom="0%" right="0%" width="200px" .fragment fragment-index=5 .fade-in-then-out}
+:::{.absolute bottom="0%" right="0%" width="600px" .fragment fragment-index=5 .fade-in-then-out}
 ![Dickey et al., Seismol. Res. Lett. 91:356–69](figures/dickey.png)
 :::
 
@@ -219,40 +248,67 @@ Let's plot number of results on [Google Scholar](https://scholar.google.com)
 :::
 
 
-:::{.absolute bottom="0%" right="0%" width="200px" .fragment fragment-index=1 .fade-in-then-out}
+:::{.absolute bottom="0%" right="0%" width="550px" .fragment fragment-index=1 .fade-in-then-out}
 ![Köhler et al., Bull. Seismol. Soc. Am. 113.6 (2023): 2345-62](figures/arraynet.png)
 :::
 
-:::{.absolute bottom="0%" right="0%" width="200px" .fragment fragment-index=2 .fade-in-then-out}
+:::{.absolute bottom="0%" right="0%" width="700px" .fragment fragment-index=2 .fade-in-then-out}
 ![Zhang et al., Geophys. J. Int. 241:1853-67](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/gji/241/3/10.1093_gji_ggaf135/2/ggaf135fig4.jpeg?Expires=1760815424&Signature=sX9YKLBpakwpmBRxYJtY3dju1nlJu~8XRkvBTavsvQG1k4ylZXrlj03KrwJMvodsQYtfximXFht5ZEtFCXyk8FanO8qVpTXNR-ZLF08~mWNwAmtwl-oE2FTGAaLCMmyXfvF6syS-d-n7kVViLvM357tmN44kwoEf7qqcxFj6V89NQVs67pySNIlk2OlT2C9aiqthHv-5Uyu0htxCiPn-GM0DdN18JJgD3KAz0V7QlYwzUpWZD9ZkdsDyd94WZEPFjFXNjNGAygGCX2kACstwjZtX3fstgP8ELpf58WAOilHtl5IO3Y4~qIIcIQ~j7KLvIhxP0B5xLfJJLD-8mVtTcA__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
 :::
 
-:::{.absolute bottom="0%" right="0%" width="200px" .fragment fragment-index=3 .fade-in-then-out}
+:::{.absolute bottom="0%" right="0%" width="600px" .fragment fragment-index=3 .fade-in-then-out}
 ![Steinberg et al., J. Geophys. Res. Solid Earth 126:e2021JB022685](https://agupubs.onlinelibrary.wiley.com/cms/asset/bba0a433-acf9-47c4-978a-a6e7752de231/jgrb55215-fig-0008-m.jpg)
 :::
 
-:::{.absolute bottom="0%" right="0%" width="200px" .fragment fragment-index=4 .fade-in-then-out}
+:::{.absolute bottom="0%" right="0%" width="600px" .fragment fragment-index=4 .fade-in-then-out}
 ![Moseley et al., Solid Earth 11:1527–49](https://se.copernicus.org/articles/11/1527/2020/se-11-1527-2020-f09-web.png)
 :::
 
-:::{.absolute bottom="0%" right="0%" width="200px" .fragment fragment-index=5 .fade-in-then-out}
+:::{.absolute bottom="0%" right="0%" width="550px" .fragment fragment-index=5 .fade-in-then-out}
 ![Münchmeyer at al., Geophys. J. Int. 225::646–56](https://www.annualreviews.org/docserver/fulltext/earth/51/1/ea510105.f3.gif)
 :::
 
-:::{.absolute bottom="0%" right="0%" width="200px" .fragment fragment-index=5 .fade-in-then-out}
+:::{.absolute bottom="0%" right="0%" width="500px" .fragment fragment-index=6 .fade-in-then-out}
 ![Snover at al., Seismol. Soc. Am. 92::1011–22](figures/snover2021.png)
 :::
 
 
 ## Deep learning seismology papers
 
-:::{.absolute left="0%" bottom="0%" width="1000px"}
+:::{.absolute left="0%" bottom="0%" width="1200px"}
 ![](figures/dl_seismology.png)
 :::
 
-:::{.absolute right="0%" bottom="0%" width="400px"}
+:::{.absolute right="0%" bottom="10%" width="400px"}
 ![](figures/dl_seismology_paper.png){.img-shadow}
 :::
+
+:::{.absolute left="0%" bottom="-2%" style="font-size: 0.5em;" .color-text-muted}
+https://smousavi05.github.io/dl_seismology/
+:::
+
+##  {background-iframe="https://smousavi05.github.io/dl_seismology/figure_3a.html" data-menu-title="DL papers by use case" background-interactive="true"}
+
+:::{.absolute right="0%" top="25%" style="font-size: 1.6em; font-weight: 400;"}
+**DL papers by<br>use case**
+:::
+
+:::{.absolute right="0%" bottom="0%" style="font-size: 0.5em;" .color-text-muted}
+https://smousavi05.github.io/dl_seismology/
+:::
+
+##  {background-iframe="https://smousavi05.github.io/dl_seismology/figure_3b.html" data-menu-title="DL papers by model type" background-interactive="true"}
+
+:::{.absolute right="0%" top="25%" style="font-size: 1.6em; font-weight: 400;"}
+**DL papers by<br>model type**
+:::
+
+:::{.absolute right="0%" bottom="0%" style="font-size: 0.5em;" .color-text-muted}
+https://smousavi05.github.io/dl_seismology/
+:::
+
+
+
 
 ## The _what_
 
