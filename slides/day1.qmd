@@ -310,17 +310,18 @@ https://smousavi05.github.io/dl_seismology/
 
 
 
-## The _what_
+## The _what_ {background-color="#edf7ff"}
 
 Some terminology:
 
-- _Model:_
-- _Parameters:_
-- _Label:_
-- _Supervised learning:_
+- [_Model:_]{.purple style="font-weight: 400;"}<br> A mathematical function (or algorithm) that takes data in and gives predictions out
+- [_Parameters:_]{.purple style="font-weight: 400;"}<br> The internal variables of the model
+- [_Label:_]{.purple style="font-weight: 400;"}<br> The correct answer that the model should learn to predict
+- [_Supervised learning:_]{.purple style="font-weight: 400;"}<br> Learning the relation between data and labels
+- [_Unsupervised learning:_]{.purple style="font-weight: 400;"}<br> Learning patterns _without_ explicit labels 
 
 
-And some statistics: later.
+We also need to know some statistics, but let's deal with that later.
 
 
 
@@ -331,31 +332,76 @@ Today and tomorrow:
 
 Intro to modern ML technologies, which is mainly **pattern recognition**.
 
-:::{.absolute bottom="0%" left="0%" width="200px"}
-![](https://m.media-amazon.com/images/I/71fqxXDY2ZL._UF1000,1000_QL80_.jpg)
+:::{.absolute bottom="0%" left="10%" width="280px"}
+![2006 🥱](https://m.media-amazon.com/images/I/71fqxXDY2ZL._UF1000,1000_QL80_.jpg){.img-shadow}
 :::
 
-:::{.absolute bottom="0%" right="0%" width="200px"}
-![](https://www.bishopbook.com/assets/images/deep-learning-book-cover.jpg)
+:::{.absolute bottom="0%" right="10%" width="250px"}
+![2023 🤩](https://www.bishopbook.com/assets/images/deep-learning-book-cover.jpg){.img-shadow}
 :::
 
 ## The _why_
 
-Accessible tech!
+Modern ML tech is accessible!
+
+:::{style="padding-top: 40px;"}
+:::
+
+The major frameworks are 
+
+1. **open source**, and
+2. [(relatively)]{.color-text-muted} **easy to use**.
+
+
+:::{.absolute bottom="5%" right="5%" width="150px"}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Keras_logo.svg/500px-Keras_logo.svg.png)
+:::
+:::{.absolute bottom="70%" right="0%" width="300px"}
+![](https://upload.wikimedia.org/wikipedia/commons/9/96/Pytorch_logo.png)
+:::
+:::{.absolute bottom="40%" right="20%" width="300px"}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/TensorFlow_logo.svg/330px-TensorFlow_logo.svg.png)
+:::
+:::{.absolute bottom="20%" right="50%" width="200px"}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Google_JAX_logo.svg/640px-Google_JAX_logo.svg.png)
+:::
+:::{.absolute bottom="0%" right="80%" width="220px"}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Scikit_learn_logo_small.svg/640px-Scikit_learn_logo_small.svg.png)
+:::
 
 
 ## The _wow_
 
-Success stories
-
-ML in earthquake seismology
+:::{style="padding-top: 50px;"}
+:::
 
 ![](https://www.annualreviews.org/docserver/fulltext/earth/51/1/ea510105.f2.gif)
 
 
-:::{.absolute bottom="0%" right="0%" style="font-size: 0.7em" .color-text-muted}
-[Mousavi, S. M., & Beroza, G. C. (2023). Machine learning in earthquake seismology. Annual Review of Earth and Planetary Sciences, 51(1), 105-129.](https://www.annualreviews.org/content/journals/10.1146/annurev-earth-071822-100323)
+:::{.absolute bottom="0%" left="0%" style="font-size: 0.6em;"}
+[Mousavi, S. M., & Beroza, G. C. (2023). _Machine learning in earthquake seismology_. Annu. Rev. Earth Planet. Sci., 51(1), 105-129.](https://www.annualreviews.org/content/journals/10.1146/annurev-earth-071822-100323)
 :::
+
+
+## Open datasets
+
+Some readily available datasets suited for ML: 
+
+- [STEAD](https://github.com/smousavi05/STEAD): 1.2M 3C waveforms from 450k local earthquakes
+
+- [INSTANCE](https://github.com/INGV/instance): 1.3M 3C waveforms from 54k local and regional earthquakes
+
+- [CREW](https://github.com/albertleonardo/CREW): 1.6M waveforms from regional earthquakes
+
+- [MLAAPDE](https://code.usgs.gov/ghsc/neic/neic-mlaapde): 5.1M waveforms from local to teleseismic events
+
+[_(others exist too)_]{.color-text-muted}
+
+:::{style="padding-top: 50px;"}
+:::
+Prepped NORSAR catalog for regional events recorded at ARCES: [Zenodo](https://zenodo.org/records/11231543)
+
+
 
 ## Exercise number 1 {.center background-color="#FBE9E7"}
 
@@ -414,105 +460,166 @@ _Multiple_ short templates
 
 We'll pursure three ideas:
 
-<ul style="line-height:3em">
-  <li>Multiple, short templates</li>
-  <li>Doing correlation _on top of_ the output from correlation<br> `->` _deep_ learning</li>
-  <li>Learn optimal templates, rather than selecting explicit ones<br> `->` machine _learning_</li>
-</ul>
+:::{style="padding-top: 20px;"}
+:::
+
+- Multiple, short templates
+
+:::{style="padding-top: 20px;"}
+:::
+
+- Doing correlation [_on top of_]{.orange} the output from correlation
+  - [_Deep_]{.deep-purple} learning
+
+:::{style="padding-top: 20px;"}
+:::
+
+- Learn optimal templates, rather than selecting explicit ones
+  - Deep [_learning_]{.deep-purple}
+
 
 
 ## _Deep_ learning
 
 <!-- First: generalised deep learning -->
+:::{style="padding-top: 20px;"}
+:::
 
 The point of deep learning is to sequentially **learn better feature representations**, and use these to solve a task.
 
+:::{style="padding-top: 30px;"}
+:::
+
 :::{.columns}
-:::{.column width="12%"}
-insufficient:
+:::{.column width="13%"}
+::::{.fragment fragment-index=1}
+[_insufficient:_]{style="color: #C62828;"}
 <br>
 <br>
-good:
+::::
+::::{.fragment fragment-index=2}
+[_good:_]{style="color: #F57C00;"}
 <br>
 <br>
 <br>
-better:
+::::
+::::{.fragment fragment-index=3}
+[_better:_]{style="color: #2E7D32;"}
+::::
 :::
 
 :::{.column width="5%"}
 :::
 
 :::{.column width="7%"}
+::::{.fragment fragment-index=1}
 data
 <br>
 <br>
+::::
+::::{.fragment fragment-index=2}
 data
 <br>
 <br>
 <br>
+::::
+::::{.fragment fragment-index=3}
 data
+::::
 :::
 
 :::{.column width="5%"}
+::::{.fragment fragment-index=1}
 $\rightarrow$
 <br>
 <br>
+::::
+::::{.fragment fragment-index=2}
 $\rightarrow$
 <br>
 <br>
 <br>
+::::
+::::{.fragment fragment-index=3}
 $\rightarrow$
+::::
 :::
 
 :::{.column width="20%"}
+::::{.fragment fragment-index=1}
 prediction
 <br>
 <br>
+::::
+::::{.fragment fragment-index=2}
 representation<br>
 [_(e.g. crosscorr)_]{.color-text-muted}
 <br>
 <br>
+::::
+::::{.fragment fragment-index=3}
 representation
 [_(e.g. crosscorr)_]{.color-text-muted}
+::::
 :::
 
 :::{.column width="5%"}
+::::{.fragment fragment-index=2}
 <br>
 <br>
+
 $\rightarrow$
 <br>
 <br>
 <br>
+::::
+::::{.fragment fragment-index=3}
 $\rightarrow$
+::::
 :::
 
 :::{.column width="20%"}
+::::{.fragment fragment-index=2}
 <br>
 <br>
+
 prediction
 <br>
 <br>
 <br>
+::::
+::::{.fragment fragment-index=3}
 representation
 [_(e.g. crosscorr)_]{.color-text-muted}
+::::
 :::
 
 :::{.column width="5%"}
+::::{.fragment fragment-index=3}
+<br>
+<br>
+
+&nbsp;
 <br>
 <br>
 <br>
-<br>
-<br>
+
 $\rightarrow$
+::::
 :::
 
 :::{.column width="20%"}
+::::{.fragment fragment-index=3}
+<br>
+<br>
+
+&nbsp;
 <br>
 <br>
 <br>
-<br>
-<br>
+
 prediction
+::::
 :::
 :::
 
@@ -540,21 +647,24 @@ prediction
 :::{.column width="60%"}
 Optimal choice of model parameters can usually not be found analytically
 
-$\rightarrow$ need to iteratively search for it, which we call _training_ the model.
+$\rightarrow$ need to iteratively search for it, which we call [_training_]{.purple} the model.
 
 :::{.fragment fragment-index=1}
 Deep learning models are essentially composite, differentiable functions,
-meaning we can use _gradient descent_.
+meaning we can use [_gradient descent_]{.purple}.
+:::
+
+:::{style="padding-top: 20px;"}
 :::
 
 :::{.fragment fragment-index=2}
-[Good:]{.green} DL libraries do the differentiation for us!
+[Good:]{.green style="font-weight: 400;"} DL libraries do the differentiation for us!
 :::
 :::{.fragment fragment-index=3}
-[Bad:]{.red} It's computationally expensive
+[Bad:]{.red style="font-weight: 400;"} It's computationally expensive
 :::
 :::{.fragment fragment-index=4}
-[Good:]{.green} Modern hardware (GPUs) are very efficient at this (also, it could have been [worse](https://en.wikipedia.org/wiki/Derivative-free_optimization))
+[Good:]{.green style="font-weight: 400;"} Modern hardware (GPUs) are very efficient at this (also, it could have been [worse](https://en.wikipedia.org/wiki/Derivative-free_optimization))
 :::
 :::
 
@@ -584,7 +694,7 @@ Deep learning training and inference is considerably faster on a graphics proces
 
 For the next exercises we can enable it in Colab by selecting
 
-_Runtime_ $\rightarrow$ _Change runtime type_ $\rightarrow$ _T4 GPU_
+[_Runtime_ $\rightarrow$ _Change runtime type_ $\rightarrow$ _T4 GPU_]{.pink}
 
 :::{style="padding-top: 50px;"}
 :::
@@ -611,7 +721,6 @@ ssh gpu.norsar.no
 ## Micro-break 🏖  {.center background-color="#EDE7F6"}
 
 
-## The joys of training a model
 
 
 
@@ -667,7 +776,7 @@ How do we know if (_when_) this happens?
 :::{style="padding-top:30px;"}
 :::
 
-_Training a phase picker_
+_Training an earthquake classifier_
 
 Open in [Colab](https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/1_detection.ipynb)
 or [download](https://github.com/smaeland/norsar-ml-workshop/blob/dev/1_detection.ipynb)
@@ -677,8 +786,31 @@ or [download](https://github.com/smaeland/norsar-ml-workshop/blob/dev/1_detectio
 
 ## Post-exercise {.center background-color="#E0F2F1"}
 
+
+## Constructing a deep learning model
+
+model.summary
+
+-> look at keras.io
+
+## {background-iframe="https://keras.io/" data-menu-title="Keras layers" background-interactive="true"}
+
+## The joys of training a model
+
+
+## Going further: Phase picking
+
+
 More advanced phase picking
 
+TPhaseNet figures.
+
+
+## End of day one {.center background-color="#E0F2F1"}
+
+
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
 
 
 ## Current seismology SOTA 

@@ -63,18 +63,27 @@ $text-font-weight: 300;
   }
 }
 
+.reveal ol {
+  font-weight: $text-font-weight;
+  li::marker {
+    color: #283593;
+  }
+}
+
 // Some colors
 .color-text-muted {
   color: $text-muted;
 }
 
-.green {
-  color: #388E3C;
-}
+.green {color: #388E3C;}
+.red {color: #E53935;}
+.deep-purple {color: #512DA8;}
+.purple {color: #7B1FA2;}
+.pink {color: #C2185B;}
+.teal {color: #00796B;}
+.orange {color: #E64A19;}
+.blue {color: #303F9F;}
 
-.red {
-  color: #E53935;
-}
 
 // Code blocks
 .sourceCode {
@@ -121,7 +130,7 @@ figcaption {
 }
 
 /* $frame-scale: 0.75; */
-$frame-scale: 0.6;
+$frame-scale: 0.7;
 .frame {
     width: 1280px;
     height: 800px;
