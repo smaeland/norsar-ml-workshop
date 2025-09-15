@@ -14,6 +14,7 @@ website:
   navbar:
     logo: "NORSAR-main-logo-RGB.png"
     logo-href: "/"
+    pinned: true
 format:
   html:
     theme:
@@ -23,12 +24,11 @@ format:
   revealjs:
     theme: [default, custom.scss]
     slide-number: true
-    #title-slide-attributes: 
-    #  data-background-image: NORSAR-main-logo-RGB.png
-    #  data-background-size: 15%
-    #  data-background-position: 98% 2%
+    title-slide-attributes:
+      data-background-image: NORSAR-main-logo-RGB.png
+      data-background-size: 15%
+      data-background-position: 98% 2%
     code-line-numbers: false
 highlight-style: atom-one
 revealjs-plugins:
   - pointer
-  

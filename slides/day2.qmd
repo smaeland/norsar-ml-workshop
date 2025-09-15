@@ -1,0 +1,670 @@
+---
+title: "NORSAR ML Workshop"
+subtitle: "Day 2 -- Wednesday"
+author: "steffen.maeland@norsar.no"
+date: "September 18, 2025"
+format:
+  revealjs:
+    auto-stretch: false
+    auto-play-media: true
+---
+
+
+
+
+## Current seismology SOTA 
+
+
+
+
+
+## LOL
+
+Our _short_ templates can be "re-used" to detect similar but distinct patterns
+
+However, most interesting patterns are considerably longer than the templates.
+
+-> Want a way to compose small patterns into larger ones
+
+
+
+<!-- Then: time series deep learning  --> 
+
+
+## Training
+
+
+
+## Exercise 1
+
+First: Repeat phase picksing from yesterday
+
+
+
+
+
+
+## ML for waveform data
+
+Cross-correlation
+
+
+Convolutions
+
+## Neural networks
+
+Sequentially improved features
+
+
+## _Deep_ learning {background-color="#EDE7F6"}
+
+:::{style="padding-top: 80px;"}
+:::
+
+The point of deep learning is to sequentially **learn better feature representations**, and use these to solve a task.
+
+:::{style="padding-top: 80px;"}
+:::
+
+Since neural networks are _universal function approximators_, they can model arbitrarily complex relationships. The cost of doing so, is that we need a lot of data.
+
+
+## Enter the _convolution operation_
+
+The foundation for modern computer vision [_(plus lots of other things!)_]{.color-grey}<br>
+is [**convolution**]{.color-purple}:
+
+an operation that takes in two functions and returns a new function
+
+:::{style="padding-top: 40px;"}
+:::
+
+::::{.columns}
+:::{.column width="50%}
+$$
+f \ast g \equiv \int_{-\infty}^{\infty} f(\tau) g(t-\tau) d\tau
+$$
+:::
+
+:::{.column width="50%}
+:::{.fragment}
+![](https://upload.wikimedia.org/wikipedia/commons/6/6a/Convolution_of_box_signal_with_itself2.gif)
+:::
+:::
+
+::::
+
+
+
+## Enter the _convolution operation_
+
+The foundation for modern computer vision [_(plus lots of other things!)_]{.color-grey}<br>
+is [**convolution**]{.color-purple}:
+
+an operation that takes in two functions and returns a new function
+
+:::{style="padding-top: 40px;"}
+:::
+
+::::{.columns}
+:::{.column width="50%}
+$$
+f \ast g \equiv \int_{-\infty}^{\infty} f(\tau) g(t-\tau) d\tau
+$$
+:::
+
+:::{.column width="50%}
+![](https://upload.wikimedia.org/wikipedia/commons/b/b9/Convolution_of_spiky_function_with_box2.gif)
+:::
+
+::::
+
+In practice, convolution is a way to **recognise and localise patterns** in data
+
+
+## Discrete convolution
+
+Convolution is a lot easier with discrete data such as images, because:
+
+ - the integral becomes a [sum]{.color-pink-dark}
+ - the first function is our [image]{.color-pink-dark}
+ - the second function is our [_**kernel**_]{.color-pink-dark} or [_**filter**_]{.color-pink-dark}, which tries to find patterns in the image.
+
+
+
+## Convolutions recap
+
+![](figures/conv1d-0.png)
+
+## Convolutions recap
+
+![](figures/conv1d-1.png)
+
+## Convolutions recap
+
+![](figures/conv1d-2.png)
+
+## Convolutions recap
+
+![](figures/conv1d-3.png)
+
+## Convolutions recap
+
+![](figures/conv1d-4.png)
+
+## Convolutions recap
+
+![](figures/conv1d-last.png)
+
+## Convolutions detour
+
+If the take the convolution operation
+
+$$
+\small
+(f \ast g)(t) \equiv \int_{-\infty}^{\infty} f(\tau) g(t-\tau) d\tau
+$$
+
+but reverse one of the functions ($\small f(t) \to f(-t)$), we get the similar operation called _cross-correlation_:
+
+:::{style="margin-top: -30px;"}
+$$
+\small
+f \star g \equiv f(-t) \ast g(t)
+$$
+:::
+
+:::{.fragment}
+![](https://upload.wikimedia.org/wikipedia/commons/7/71/Cross_correlation_animation.gif)
+:::
+
+## Convolutions detour
+
+If the take the convolution operation
+
+$$
+\small
+f \ast g \equiv \int_{-\infty}^{\infty} f(\tau) g(t-\tau) d\tau
+$$
+
+but reverse one of the functions ($\small f(t) \to f(-t)$), we get the similar operation called _cross-correlation_:
+
+:::{style="margin-top: -30px;"}
+$$
+\small
+f \star g \equiv f(-t) \ast g(t)
+$$
+:::
+
+![](figures/box-crosscorrelation.png){fig-align="center" width="550px" style="margin-top: 0px;"}
+
+
+:::{.fragment .fade-out .rectangle .absolute bottom="-20px" left="200px" width="650px" height="100px" style="background-color: #fff; border: 0px;"}
+:::
+
+## Break {.center background-color="#23e323"}
+
+
+## Seismology tasks solved with ML / current SOTA
+
+
+## Exercise 2
+
+Train an ML pick detector
+
+
+## Post-exercise
+
+
+
+
+
+
+
+
+
+## Augmentation
+
+
+
+Move to day 2
+
+
+
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+## DAY 2
+
+
+## Recap from day 1
+
+
+
+## The more advanced stuff
+
+Deep learning components
+
+## Libraries for machine learning
+
+
+## Python libraries
+
+:::{style="margin-top: 10%"}
+:::
+
+
+:::{.columns }
+:::{.column width="45%"}
+![https://numpy.org/](figures/numpy-logo.png){width="55%" style="text-align: center;"}
+
+`numpy` provides fast manipulation of large arrays and matrices
+:::
+
+:::{.column width="5%"}
+:::
+
+:::{.column width="45%"}
+![https://scikit-learn.org/](figures/sklearn-logo.png){width="45%" style="text-align: center;"}
+
+`scikit-learn` has a big selection of machine learning models and functions for data processing and evaluation
+:::
+
+:::
+
+## {background-iframe="https://numpy.org/learn/" background-interactive="true" data-menu-title="Numpy docs"}
+
+## `numpy` arrays
+
+The core of `numpy` is the _array_, on which we can do operations without explicit loops:
+
+[_Example:_ Given a list of numbers, make a new list, where all the elements are multiplied by 2.]{.color-cyan-dark style="font-size: 0.8em"}
+
+:::{.columns}
+
+:::{.column width="50%"}
+
+[Vanilla python:]{ style="margin-top=0px"}
+
+```{.python}
+>>> a = [1,2,3]; b = []
+>>> for elem in a:
+>>>   b.append(elem * 2)
+b
+[2, 4, 6]
+```
+:::
+
+:::{.column width="50%"}
+:::{.fragment}
+Numpy:
+```{.python code-line-numbers="1-5|3" }
+>>> import numpy as np
+>>> a = np.array([1,2,3])
+>>> b = a * 2
+>>> b
+array([2 4 6])
+```
+:::
+:::
+:::
+
+:::{.fragment}
+Arrays can have any number of dimensions -- e.g. a 2D matrix is written
+```{.python code-line-numbers="1,2-4|1,5-6|1,7-8"}
+>>> a = np.array([[1,2,3],[4,5,6]])
+>>> print(a)
+[[1 2 3]
+ [4 5 6]]
+>>> a.ndim
+2
+>>> a.shape
+(2, 3)
+```
+:::
+
+
+## `numpy` arrays
+
+In normal python, elements are _sliced_ from a list using `[start : stop]`:
+```{.python code-line-numbers="false"}
+>>> a = [0, 1, 2, 3, 4]
+>>> a[2:4]                  # (remember zero-based indexing)
+[2, 3]    
+>>> a[:]                    # no start or stop -> select everything
+[0, 1, 2, 3, 4]
+```
+
+:::{.fragment}
+Numpy extends this to any number of dimensions, separated by `,`
+```{.python code-line-numbers="false"}
+>>> a = np.arange(1,10).reshape(3,3)
+>>> a
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+```
+:::
+
+:::{.columns}
+
+:::{.column width="33%"}
+:::{.fragment}
+Select single element:
+```{.python code-line-numbers="false"}
+>>> a[1, 1]
+5
+```
+:::
+:::
+
+:::{.column width="33%"}
+:::{.fragment}
+Select row:
+```{.python code-line-numbers="false"}
+>>> a[1, :]
+array([4, 5, 6])
+```
+:::
+:::
+
+:::{.column width="33%"}
+:::{.fragment}
+Select column:
+```{.python code-line-numbers="false"}
+>>> a[:, 1]
+array([2, 5, 8])
+```
+:::
+:::
+
+:::
+
+
+## `numpy` arrays
+
+Operations on arrays are typically done [element-by-element]{.color-teal}.
+
+:::{.columns}
+:::{.column width="50%"}
+```{.python code-line-numbers="false"}
+>>> a = np.array([1,2,3])
+>>> np.power(a, 2)
+array([1, 4, 9])
+```
+:::
+
+:::{.column width="50%"}
+:::{.fragment}
+```{.python  code-line-numbers="false"}
+>>> b = np.array([4,5,6])
+>>> a * b
+array([ 4, 10, 18])
+```
+:::
+:::
+:::
+
+:::{.fragment}
+In cases the shapes of two arrays don't match, numpy will try to [_make_]{.color-purple} them match<br>(aka _broadcasting_):
+
+```{.python code-line-numbers="1-3|1-6"}
+# I type this
+>>> a * 2
+array([2, 4, 6])
+# ...and numpy does this:
+>>> a * np.array([2, 2, 2])
+array([2, 4, 6])
+```
+:::
+
+:::{.fragment}
+![Numpy [docs](https://numpy.org/doc/stable/user/basics.broadcasting.html)](https://numpy.org/doc/stable/_images/broadcasting_1.png){width="40%" style="text-align: center;"}
+:::
+
+
+## Shapes
+
+Broadcasting_ works like in NumPy: 
+
+```{.python}
+>>> x = tf.constant([1,2,3], dtype=tf.float32)
+>>> x + 1
+<tf.Tensor: shape=(3,), dtype=float32, numpy=array([2., 3., 4.], dtype=float32)>
+```
+
+Same for _shapes_: 
+
+:::{.r-stack}
+
+![](figures/shapes1.png){width="80%"}
+
+:::{.fragment}
+![](figures/shapes2.png){width="80%"}
+:::
+
+:::
+
+## Deep learning frameworks 
+
+::::{.r-stack}
+
+:::{.absolute left="25%" top="20%" width="450px"}
+[![](figures/lecture2/keras-logo.png)](https://keras.io/)
+:::
+
+:::{.absolute left="0%" bottom="20%" width="250px"}
+[![](figures/lecture2/TensorFlow_logo.svg.png)](https://www.tensorflow.org/)
+:::
+
+:::{.absolute left="30%" bottom="25%" width="150px"}
+[![](figures/lecture2/Google_JAX_logo.svg.png)](https://jax.readthedocs.io/en/latest/)
+:::
+
+:::{.absolute left="55%" bottom="25%" width="250px"}
+[![](figures/lecture2/PyTorch_logo_black.svg.png)](https://pytorch.org/)
+:::
+
+:::{.absolute left="15%" bottom="0%" width="150px"}
+[![](figures/lecture2/Scikit_learn_logo_small.svg.png)](https://scikit-learn.org/stable/)
+:::
+
+:::{.absolute left="45%" bottom="0%" width="170px"}
+[![](figures/lecture2/NumPy_logo_2020.svg.png)](https://numpy.org/doc/stable/)
+:::
+
+::::
+
+:::{.absolute right="0%" top="25%"}
+_High-level_
+:::
+
+:::{.absolute right="0%" bottom="30%"}
+_Compute_
+:::
+
+:::{.absolute right="0%" bottom="7%"}
+_Supporting_
+:::
+
+## Low-level TensorFlow
+
+Usually we don't need to get involved with TensorFlow. But in case:
+
+Most things work like NumPy, but with the benefit of GPU support and JIT compilation.
+
+The core object is the [`Tensor`](https://www.tensorflow.org/api_docs/python/tf/Tensor), which is basically a multidimensional array.  
+
+:::{.fragment}
+NumPy
+
+```{.python code-line-numbers="1,2|"}
+>>> import numpy as np
+>>> x = np.array([[1,2,3], [4,5,6]], dtype=np.float32)
+>>> print(x)
+[[1. 2. 3.]
+ [4. 5. 6.]]
+
+```
+:::
+
+:::{.fragment}
+TensorFlow
+
+```{.python code-line-numbers="1,2|"}
+>>> import tensorflow as tf
+>>> x = tf.constant([[1,2,3], [4,5,6]], dtype=tf.float32)
+>>> print(x)
+tf.Tensor(
+[[1. 2. 3.]
+ [4. 5. 6.]], shape=(2, 3), dtype=float32)
+```
+:::
+
+
+
+## Keras
+
+The [Keras](https://keras.io/) framework contains all the high-level components we need to construct and train a neural network:
+
+- `keras.layers`: Different types of layers and activation functions
+- `keras.callbacks`: Monitor, modify or stop the training process
+- `keras.optimizers`: Optimisation algorithms
+- `keras.metrics`: Performance metrics
+- `keras.losses`: Loss functions 
+- `keras.datasets`: Small datasets for testing
+- `keras.applications`: Pre-trained networks for different tasks
+
+:::{.r-stack}
+
+:::{.absolute bottom="0%" right="0%" width="300px"}
+![](figures/lecture2/keras-logo.png)
+:::
+
+:::
+
+
+## My first convolutional network ✨
+
+Let's piece together a [**convnet**]{.color-indigo} using Keras' [sequential model API](https://keras.io/api/models/sequential/):
+
+
+:::{style="padding-top:30px;"}
+:::
+
+```{.python code-line-numbers="|1|3|4,5|6,7|8|9"}
+convnet = keras.Sequential(
+    [
+        keras.Input(shape=(28, 28, 1)),
+        keras.layers.Conv2D(32, kernel_size=(3, 3), activation="relu"),
+        keras.layers.MaxPooling2D(pool_size=(2, 2)),
+        keras.layers.Conv2D(32, kernel_size=(3, 3), activation="relu"),
+        keras.layers.MaxPooling2D(pool_size=(2, 2)),
+        keras.layers.Flatten(),
+        keras.layers.Dense(10, activation="softmax"),
+    ]
+)
+```
+
+:::{style="padding-top:30px;"}
+:::
+
+(More details about `activation`s and training next week)
+
+
+## My first convolutional network ✨
+
+```{.python}
+convnet.summary()
+```
+
+```
+Model: "sequential_1"
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ conv2d (Conv2D)                      │ (None, 26, 26, 32)          │             320 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ max_pooling2d (MaxPooling2D)         │ (None, 13, 13, 32)          │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ conv2d_1 (Conv2D)                    │ (None, 11, 11, 32)          │           9,248 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ max_pooling2d_1 (MaxPooling2D)       │ (None, 5, 5, 32)            │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ flatten_1 (Flatten)                  │ (None, 800)                 │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout (Dropout)                    │ (None, 800)                 │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense_3 (Dense)                      │ (None, 10)                  │           8,010 │
+└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘
+
+ Total params: 17,578 (68.66 KB)
+
+ Trainable params: 17,578 (68.66 KB)
+
+ Non-trainable params: 0 (0.00 B)
+```
+
+## My first convolutional network ✨
+
+Configure the training objective and strategy:
+
+```{.python}
+convnet.compile(
+  loss="categorical_crossentropy",
+  optimizer="adam",
+  metrics=["accuracy"]
+)
+```
+(again, more details next week)
+
+Start training!
+```{.python}
+convnet.fit(
+  X_train,
+  y_train,
+  batch_size=128,
+  epochs=15,
+  validation_split=0.1
+)
+```
+
+
+
+## Decomposition into simple patters: Theory vs practice
+
+Remember the cat:
+
+![](figures/chollet-cat.png){fig-align="center" width="60%"}
+
+(We'll try to classify pictures of cats in exercise 3, but let's test out a cat detector convnet already now)
+
+
+
+## Putting together an improved network
+
+
+
+## Pretrained models
+
+## Exercise: Unsupervised learning with pretrained image models?
+
+
+
+
+## SOTA research
+
+
+https://www.nature.com/articles/s41467-020-17591-w/figures/3
+
+![](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-020-17591-w/MediaObjects/41467_2020_17591_Fig3_HTML.png?as=webp)
+
+
+## NORSAR developments
+
+
+## Future directions at NORSAR
+
+Arrays 
+
+## Hackathon

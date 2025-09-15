@@ -1,0 +1,861 @@
+---
+title: "NORSAR ML Workshop"
+subtitle: "Day 1 -- Wednesday"
+author: "steffen.maeland@norsar.no"
+date: "September 17, 2025"
+format:
+  revealjs:
+    auto-stretch: false
+    auto-play-media: true
+---
+
+## Agenda
+
+:::{style="padding-top: 50px;"}
+:::
+
+:::{.columns}
+:::{.column width="50%"}
+
+### Today
+
+|   |   |
+|---|---|---|
+|  9.00 | Intro |
+|  9.30 | Exercise: Event detection |
+| 10.00 | Post-exercise: Understanding what we did |
+| 11.00 | Exercise: Event classification |
+| 11.45 | ✨Special✨ lunch |
+| 12.30 | Discussion |
+| 13.00 | End of day 1 |
+
+:::
+:::{.column width="50%"}
+
+### Tomorrow
+
+|   |   |
+|---|---|
+|  9.00 | Recap from yesterday |
+|  9.15 | Deep learning tools |
+|  9.30 | Exercise: Training deep learning models |
+| 10.00 | Post-exercise: Finding the optimal model |
+| 10.30 | Recent and future ML at NORSAR |
+| 11.00 | Hackathon |
+| 11.45 | Lunch (kantinen) |
+| 12.30 | Wrap-up and discussions |
+| 13.00 | End of day 2 |
+:::
+:::
+
+
+
+<!-- ## What, why, wow {.center background-color="#F3E5F5"} -->
+
+## What can you do with machine learning? {.center background-color="#00838F" style="text-align: center;"}
+
+:::{style="padding-top: 20px;"}
+:::
+[_(outside of seismology)_]{style="color: #CFD8DC;"}
+
+<!----------------------------------------------------------------------------->
+## {background-iframe="https://openai.com/" background-interactive="true" data-menu-title="Example: ChatGPT"}
+
+<!----------------------------------------------------------------------------->
+## {background-image="figures/projectastra.png" background-color="black" .center data-menu-title="Example: Astra"}
+
+:::{style="display: flex;justify-content: center;"}
+<iframe src="https://www.youtube.com/embed/JcDBFAm9PPI?t=10s&autoplay=1&mute=1&cc_load_policy=1" allow="autoplay" width="800px" height="450px"></iframe>
+:::
+
+<!----------------------------------------------------------------------------->
+## {background-iframe="https://openai.com/index/dall-e-3/" background-interactive="true" data-menu-title="Example: DALL-E"}
+
+
+<!----------------------------------------------------------------------------->
+## {background-iframe="https://openai.com/sora/" background-interactive="true" data-menu-title="Example: Sora"}
+
+<!----------------------------------------------------------------------------->
+## {background-iframe="https://segment-anything.com/" background-interactive="true" data-menu-title="Example: Segment Anything"}
+
+## {background-iframe="https://www.youtube.com/embed/tlThdr3O5Qo?autoplay=1&mute=1" data-menu-title="Example: Selvkjøring"}
+
+<!----------------------------------------------------------------------------->
+## {background-image="figures/queue-monitoring-crowd-ultralytics-yolov8.avif" data-menu-title="Example: Queue counting"}
+
+<!----------------------------------------------------------------------------->
+## {background-iframe="https://www.anthropic.com/claude-code" background-interactive="true" data-menu-title="Example: Claude"}
+
+
+
+## The _what_
+
+:::{.columns}
+:::{.column width="55%"}
+- **Artificial intelligence (AI):**<br>
+  Umbrella term for computer systems that make smart decisions
+- **Machine learning (ML):**<br>
+  Collection of algorithms that learn to recognise patterns in data
+- **Deep learning:**<br>
+  ML that recognises complex patterns, using neural networks
+<!-- - (Generative DL) -->
+
+The big AI tools of today are driven by advancements in
+
+- Deep learning -- _bigger and better models_
+- Computing -- _bigger and better processors_
+:::
+:::
+
+:::{.absolute top="20%" right="0%" width="400px"}
+![](figures/AI_hierarchy.png)
+:::
+
+
+## The _what_
+
+**Traditional approach:** _Symbolic_ or _rule-based_ AI
+
+:::{.columns}
+:::{.column width="10%"}
+:::
+
+:::{.column width="80%"}
+
+```{.bash}
+IF amplitude > threshold AND duration > 2 seconds
+THEN earthquake;
+ELSE noise;
+```
+:::
+:::
+
+:::{.fragment}
+**Machine learning approach:**
+
+:::{}
+:::
+
+:::{.columns}
+:::{.column width="5%"}
+:::
+
+:::{.column width="45%"}
+This is an earthquake
+
+![](https://raw.githubusercontent.com/smousavi05/STEAD/master/eventSample.png){width="350px"}
+:::
+
+:::{.column width="45%"}
+This is not
+
+![](https://raw.githubusercontent.com/smousavi05/STEAD/master/noise.png){width="350px"}
+:::
+:::
+
+Compute a function to separate the two.
+
+:::
+
+
+## The _what_
+
+Number of results on [Google Scholar](https://scholar.google.com) per year:
+
+:::{.absolute left="7%" bottom="0%" width="800px"}
+![](figures/papers_per_year.png)
+:::
+
+## Task that have been solved with ML
+
+- Event discrimination, such as
+
+  :::{.fragment fragment-index=1}
+  - Earthquake vs explosion
+  :::
+
+  :::{.fragment fragment-index=2}
+  - Earthquake vs glacier calving
+  :::
+
+:::{.fragment fragment-index=3}
+- Phase picking
+:::
+
+:::{.fragment fragment-index=4}
+- Polarity determination
+:::
+
+:::{.fragment fragment-index=5}
+- Phase association
+:::
+
+
+
+:::{.absolute bottom="0%" right="0%" width="450px" .fragment fragment-index=1 .fade-in-then-out}
+![Linville et al., Geophys. Res. Lett. 46:3643–51](https://agupubs.onlinelibrary.wiley.com/cms/asset/7f6f01d8-2280-4416-90f1-bb2effabe29b/grl58692-fig-0001-m.png)
+:::
+
+:::{.absolute bottom="0%" right="0%" width="650px" .fragment fragment-index=2 .fade-in-then-out}
+![Köhler et al., Geophys. J. Int. 230:1305–17](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/gji/230/2/10.1093_gji_ggac117/1/ggac117fig1.jpeg?Expires=1760812945&Signature=fl6O1S~oZ3pog8KzHzKKLL1~Ov146mvkYDWsLZcebOfCwELCI1nBgUzYWCht-rcAW2LLPfZbTwWuP0f4XjsKpI023zokswsMIrAVNQufvgnoA1ShgaLa2S1lEJlkABQV3hkii4szu-QSEzSL1krAAm1Dpbxmdq0O6RB7KrsByvBEziNVNcb369WU7v7rKNrV6FrV2QxIdIkAFCLOLCpAO4kFF1P0MaKX8RCiZknQwnfcKKlAyRq6P~Fen5tahkXzBkgUug-PNodUsXzWnI8i8Atk3vnib~hRRNUOAV~xTk5fzmzjVfjqpQjuIFm0-FZPH~WkAH36MEV0IOB3HAUQQw__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
+:::
+
+:::{.absolute bottom="0%" right="0%" width="370px" .fragment fragment-index=3 .fade-in-then-out}
+![Köhler et al., Geophys. J. Int. 239:862–81](figures/tphasenet.jpeg)
+:::
+
+:::{.absolute bottom="0%" right="0%" width="450px" .fragment fragment-index=4 .fade-in-then-out}
+![Uchide T., Geophys. J. Int. 223:1658–71](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/gji/223/3/10.1093_gji_ggaa401/1/ggaa401fig7.jpeg?Expires=1760814086&Signature=ziTf8FwfivYmKgh8rxpVw6mZk6F1dvJ1BTdXwml-Ez2pBVOxKkotTYqT6ACx3qsxl6662ask7j89xcn1oC7b7YDwT6M9e0UHN45IqxA-eHSCruo7IEad-M3C3Hi0cgGggrjUyHI6-LcxxyINSRqXS0ndzAiFufgAtktjUd8ROIML0P8Z3~tIfKtcyN7at4jsExBpZGbqvmkozq8FqfYls06LE67udg9d~r7QxzYAWRnxw8OvYqXB6aW8MlhKp~bUuCgVcMyX-ZYRGlrtjTb3aMApl5aZx00cIgb3YoQGgm5LckrDECCyLFT5RAh4xTDwmz7Enn~gvhK1CLEUDx4EoA__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
+:::
+
+:::{.absolute bottom="0%" right="0%" width="600px" .fragment fragment-index=5 .fade-in-then-out}
+![Dickey et al., Seismol. Res. Lett. 91:356–69](figures/dickey.png)
+:::
+
+
+
+
+## Task that have been solved with ML
+
+- Source parametrisation
+
+  :::{.fragment fragment-index=1}
+  - Backazimuth estimation
+  :::
+  
+  :::{.fragment fragment-index=2}
+  - Localisation
+  :::
+
+  :::{.fragment fragment-index=3}
+  - Focal mechanism estimation
+  :::
+  
+:::{.fragment fragment-index=4}
+- Seismogram simulation 
+:::
+
+:::{.fragment fragment-index=5}
+- Ground motion characterisation 
+:::
+
+:::{.fragment fragment-index=6}
+- Event clustering 
+:::
+
+
+:::{.absolute bottom="0%" right="0%" width="550px" .fragment fragment-index=1 .fade-in-then-out}
+![Köhler et al., Bull. Seismol. Soc. Am. 113.6 (2023): 2345-62](figures/arraynet.png)
+:::
+
+:::{.absolute bottom="0%" right="0%" width="700px" .fragment fragment-index=2 .fade-in-then-out}
+![Zhang et al., Geophys. J. Int. 241:1853-67](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/gji/241/3/10.1093_gji_ggaf135/2/ggaf135fig4.jpeg?Expires=1760815424&Signature=sX9YKLBpakwpmBRxYJtY3dju1nlJu~8XRkvBTavsvQG1k4ylZXrlj03KrwJMvodsQYtfximXFht5ZEtFCXyk8FanO8qVpTXNR-ZLF08~mWNwAmtwl-oE2FTGAaLCMmyXfvF6syS-d-n7kVViLvM357tmN44kwoEf7qqcxFj6V89NQVs67pySNIlk2OlT2C9aiqthHv-5Uyu0htxCiPn-GM0DdN18JJgD3KAz0V7QlYwzUpWZD9ZkdsDyd94WZEPFjFXNjNGAygGCX2kACstwjZtX3fstgP8ELpf58WAOilHtl5IO3Y4~qIIcIQ~j7KLvIhxP0B5xLfJJLD-8mVtTcA__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
+:::
+
+:::{.absolute bottom="0%" right="0%" width="600px" .fragment fragment-index=3 .fade-in-then-out}
+![Steinberg et al., J. Geophys. Res. Solid Earth 126:e2021JB022685](https://agupubs.onlinelibrary.wiley.com/cms/asset/bba0a433-acf9-47c4-978a-a6e7752de231/jgrb55215-fig-0008-m.jpg)
+:::
+
+:::{.absolute bottom="0%" right="0%" width="600px" .fragment fragment-index=4 .fade-in-then-out}
+![Moseley et al., Solid Earth 11:1527–49](https://se.copernicus.org/articles/11/1527/2020/se-11-1527-2020-f09-web.png)
+:::
+
+:::{.absolute bottom="0%" right="0%" width="550px" .fragment fragment-index=5 .fade-in-then-out}
+![Münchmeyer at al., Geophys. J. Int. 225::646–56](https://www.annualreviews.org/docserver/fulltext/earth/51/1/ea510105.f3.gif)
+:::
+
+:::{.absolute bottom="0%" right="0%" width="500px" .fragment fragment-index=6 .fade-in-then-out}
+![Snover at al., Seismol. Soc. Am. 92::1011–22](figures/snover2021.png)
+:::
+
+
+## Deep learning seismology papers
+
+:::{.absolute left="0%" bottom="0%" width="1200px"}
+![](figures/dl_seismology.png)
+:::
+
+:::{.absolute right="0%" bottom="10%" width="400px"}
+![](figures/dl_seismology_paper.png){.img-shadow}
+:::
+
+:::{.absolute left="0%" bottom="-2%" style="font-size: 0.5em;" .color-text-muted}
+https://smousavi05.github.io/dl_seismology/
+:::
+
+##  {background-iframe="https://smousavi05.github.io/dl_seismology/figure_3a.html" data-menu-title="DL papers by use case" background-interactive="true"}
+
+:::{.absolute right="0%" top="25%" style="font-size: 1.6em; font-weight: 400;"}
+**DL papers by<br>use case**
+:::
+
+:::{.absolute right="0%" bottom="0%" style="font-size: 0.5em;" .color-text-muted}
+https://smousavi05.github.io/dl_seismology/
+:::
+
+##  {background-iframe="https://smousavi05.github.io/dl_seismology/figure_3b.html" data-menu-title="DL papers by model type" background-interactive="true"}
+
+:::{.absolute right="0%" top="25%" style="font-size: 1.6em; font-weight: 400;"}
+**DL papers by<br>model type**
+:::
+
+:::{.absolute right="0%" bottom="0%" style="font-size: 0.5em;" .color-text-muted}
+https://smousavi05.github.io/dl_seismology/
+:::
+
+
+
+
+## The _what_ {background-color="#edf7ff"}
+
+Some terminology:
+
+- [_Model:_]{.purple style="font-weight: 400;"}<br> A mathematical function (or algorithm) that takes data in and gives predictions out
+- [_Parameters:_]{.purple style="font-weight: 400;"}<br> The internal variables of the model
+- [_Label:_]{.purple style="font-weight: 400;"}<br> The correct answer that the model should learn to predict
+- [_Supervised learning:_]{.purple style="font-weight: 400;"}<br> Learning the relation between data and labels
+- [_Unsupervised learning:_]{.purple style="font-weight: 400;"}<br> Learning patterns _without_ explicit labels 
+
+
+We also need to know some statistics, but let's deal with that later.
+
+
+
+
+## The _what_
+
+Today and tomorrow:
+
+Intro to modern ML technologies, which is mainly **pattern recognition**.
+
+:::{.absolute bottom="0%" left="10%" width="280px"}
+![2006 🥱](https://m.media-amazon.com/images/I/71fqxXDY2ZL._UF1000,1000_QL80_.jpg){.img-shadow}
+:::
+
+:::{.absolute bottom="0%" right="10%" width="250px"}
+![2023 🤩](https://www.bishopbook.com/assets/images/deep-learning-book-cover.jpg){.img-shadow}
+:::
+
+## The _why_
+
+Modern ML tech is accessible!
+
+:::{style="padding-top: 40px;"}
+:::
+
+The major frameworks are 
+
+1. **open source**, and
+2. [(relatively)]{.color-text-muted} **easy to use**.
+
+
+:::{.absolute bottom="5%" right="5%" width="150px"}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Keras_logo.svg/500px-Keras_logo.svg.png)
+:::
+:::{.absolute bottom="70%" right="0%" width="300px"}
+![](https://upload.wikimedia.org/wikipedia/commons/9/96/Pytorch_logo.png)
+:::
+:::{.absolute bottom="40%" right="20%" width="300px"}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/TensorFlow_logo.svg/330px-TensorFlow_logo.svg.png)
+:::
+:::{.absolute bottom="20%" right="50%" width="200px"}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Google_JAX_logo.svg/640px-Google_JAX_logo.svg.png)
+:::
+:::{.absolute bottom="0%" right="80%" width="220px"}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Scikit_learn_logo_small.svg/640px-Scikit_learn_logo_small.svg.png)
+:::
+
+
+## The _wow_
+
+:::{style="padding-top: 50px;"}
+:::
+
+![](https://www.annualreviews.org/docserver/fulltext/earth/51/1/ea510105.f2.gif)
+
+
+:::{.absolute bottom="0%" left="0%" style="font-size: 0.6em;"}
+[Mousavi, S. M., & Beroza, G. C. (2023). _Machine learning in earthquake seismology_. Annu. Rev. Earth Planet. Sci., 51(1), 105-129.](https://www.annualreviews.org/content/journals/10.1146/annurev-earth-071822-100323)
+:::
+
+
+## Open datasets
+
+Some readily available datasets suited for ML: 
+
+- [STEAD](https://github.com/smousavi05/STEAD): 1.2M 3C waveforms from 450k local earthquakes
+
+- [INSTANCE](https://github.com/INGV/instance): 1.3M 3C waveforms from 54k local and regional earthquakes
+
+- [CREW](https://github.com/albertleonardo/CREW): 1.6M waveforms from regional earthquakes
+
+- [MLAAPDE](https://code.usgs.gov/ghsc/neic/neic-mlaapde): 5.1M waveforms from local to teleseismic events
+
+[_(others exist too)_]{.color-text-muted}
+
+:::{style="padding-top: 50px;"}
+:::
+Prepped NORSAR catalog for regional events recorded at ARCES: [Zenodo](https://zenodo.org/records/11231543)
+
+
+
+## Exercise number 1 {.center background-color="#FBE9E7"}
+
+:::{style="padding-top:30px;"}
+:::
+
+_Comparing detection methods_
+
+Open in [Colab](https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/1_detection.ipynb)
+or [download](https://github.com/smaeland/norsar-ml-workshop/blob/dev/1_detection.ipynb)
+
+## Post-exercise {.center background-color="#E0F2F1"}
+
+Understanding what we did
+
+
+## Crosscorrelation
+
+Template identical to signal
+
+:::{.frame}
+<iframe src="figures/crosscorr_animation_1.html" name="crosscorr_animation_1" width="1300" height="800"></iframe>
+:::
+
+## Crosscorrelation
+
+Template not identical to signal
+
+:::{.frame}
+<iframe src="figures/crosscorr_animation_2.html" name="crosscorr_animation_2" width="1300" height="800"></iframe>
+:::
+
+## Crosscorrelation
+
+Short template
+
+:::{.frame}
+<iframe src="figures/crosscorr_animation_3.html" name="crosscorr_animation_3" width="1300" height="800"></iframe>
+:::
+
+
+## Crosscorrelation
+
+_Multiple_ short templates
+
+:::{.frame}
+<iframe src="figures/crosscorr_animation_4.html" name="crosscorr_animation_4" width="1300" height="800"></iframe>
+:::
+
+
+
+## Transitioning into ML
+
+:::{style="padding-top: 40px;"}
+:::
+
+We'll pursure three ideas:
+
+:::{style="padding-top: 20px;"}
+:::
+
+- Multiple, short templates
+
+:::{style="padding-top: 20px;"}
+:::
+
+- Doing correlation [_on top of_]{.orange} the output from correlation
+  - [_Deep_]{.deep-purple} learning
+
+:::{style="padding-top: 20px;"}
+:::
+
+- Learn optimal templates, rather than selecting explicit ones
+  - Deep [_learning_]{.deep-purple}
+
+
+
+## _Deep_ learning
+
+<!-- First: generalised deep learning -->
+:::{style="padding-top: 20px;"}
+:::
+
+The point of deep learning is to sequentially **learn better feature representations**, and use these to solve a task.
+
+:::{style="padding-top: 30px;"}
+:::
+
+:::{.columns}
+:::{.column width="13%"}
+::::{.fragment fragment-index=1}
+[_insufficient:_]{style="color: #C62828;"}
+<br>
+<br>
+::::
+::::{.fragment fragment-index=2}
+[_good:_]{style="color: #F57C00;"}
+<br>
+<br>
+<br>
+::::
+::::{.fragment fragment-index=3}
+[_better:_]{style="color: #2E7D32;"}
+::::
+:::
+
+:::{.column width="5%"}
+:::
+
+:::{.column width="7%"}
+::::{.fragment fragment-index=1}
+data
+<br>
+<br>
+::::
+::::{.fragment fragment-index=2}
+data
+<br>
+<br>
+<br>
+::::
+::::{.fragment fragment-index=3}
+data
+::::
+:::
+
+:::{.column width="5%"}
+::::{.fragment fragment-index=1}
+$\rightarrow$
+<br>
+<br>
+::::
+::::{.fragment fragment-index=2}
+$\rightarrow$
+<br>
+<br>
+<br>
+::::
+::::{.fragment fragment-index=3}
+$\rightarrow$
+::::
+:::
+
+:::{.column width="20%"}
+::::{.fragment fragment-index=1}
+prediction
+<br>
+<br>
+::::
+::::{.fragment fragment-index=2}
+representation<br>
+[_(e.g. crosscorr)_]{.color-text-muted}
+<br>
+<br>
+::::
+::::{.fragment fragment-index=3}
+representation
+[_(e.g. crosscorr)_]{.color-text-muted}
+::::
+:::
+
+:::{.column width="5%"}
+::::{.fragment fragment-index=2}
+<br>
+<br>
+
+$\rightarrow$
+<br>
+<br>
+<br>
+::::
+::::{.fragment fragment-index=3}
+$\rightarrow$
+::::
+:::
+
+:::{.column width="20%"}
+::::{.fragment fragment-index=2}
+<br>
+<br>
+
+prediction
+<br>
+<br>
+<br>
+::::
+::::{.fragment fragment-index=3}
+representation
+[_(e.g. crosscorr)_]{.color-text-muted}
+::::
+:::
+
+:::{.column width="5%"}
+::::{.fragment fragment-index=3}
+<br>
+<br>
+
+&nbsp;
+<br>
+<br>
+<br>
+
+$\rightarrow$
+::::
+:::
+
+:::{.column width="20%"}
+::::{.fragment fragment-index=3}
+<br>
+<br>
+
+&nbsp;
+<br>
+<br>
+<br>
+
+prediction
+::::
+:::
+:::
+
+
+## {background-iframe="https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=gauss&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=15&networkShape=&seed=0.56524&showTestData=false&discretize=false&percTrainData=50&x=false&y=false&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false&playButton_hide=false&showTestData_hide=false&regularization_hide=true&dataset_hide=false&batchSize_hide=true&learningRate_hide=false&percTrainData_hide=true&regularizationRate_hide=true&problem_hide=true" background-interactive="true" data-menu-title="TensorFlow playground"}
+
+:::{.absolute bottom="0%" left="0%" style="font-size: 0.5em;"}
+[_TensorFlow<br>playground_](https://playground.tensorflow.org/)
+:::
+
+
+## Pattern hierarchies 
+
+:::{.absolute left="20%" bottom="5%" width="700px"}
+![](figures/chollet-cat.png)
+:::
+
+:::{.absolute right="0%" bottom="1%" style="font-size: 0.65em;"}
+[_Details tomorrow_]{.color-text-muted}
+:::
+
+## Training
+
+:::{.columns}
+:::{.column width="60%"}
+Optimal choice of model parameters can usually not be found analytically
+
+$\rightarrow$ need to iteratively search for it, which we call [_training_]{.purple} the model.
+
+:::{.fragment fragment-index=1}
+Deep learning models are essentially composite, differentiable functions,
+meaning we can use [_gradient descent_]{.purple}.
+:::
+
+:::{style="padding-top: 20px;"}
+:::
+
+:::{.fragment fragment-index=2}
+[Good:]{.green style="font-weight: 400;"} DL libraries do the differentiation for us!
+:::
+:::{.fragment fragment-index=3}
+[Bad:]{.red style="font-weight: 400;"} It's computationally expensive
+:::
+:::{.fragment fragment-index=4}
+[Good:]{.green style="font-weight: 400;"} Modern hardware (GPUs) are very efficient at this (also, it could have been [worse](https://en.wikipedia.org/wiki/Derivative-free_optimization))
+:::
+:::
+
+:::{.column width="40%"}
+:::{.fragment fragment-index=1}
+![](figures/gradient.png)
+
+$$
+\small
+\nabla \color{MediumVioletRed}{L}(\color{teal}{\boldsymbol{\theta}}) = 
+\begin{bmatrix}
+  \frac{\partial \color{MediumVioletRed}{L}}{\partial \color{teal}{\theta}_0} \\
+  \vdots \\
+  \frac{\partial \color{MediumVioletRed}{L}}{\partial \color{teal}{\theta}_n} \\
+\end{bmatrix} 
+$$ 
+:::
+:::
+:::
+
+
+## Hardware acceleration
+
+:::{.columns}
+:::{.column width="55%"}
+Deep learning training and inference is considerably faster on a graphics processing unit (GPU)
+
+For the next exercises we can enable it in Colab by selecting
+
+[_Runtime_ $\rightarrow$ _Change runtime type_ $\rightarrow$ _T4 GPU_]{.pink}
+
+:::{style="padding-top: 50px;"}
+:::
+
+The NORSAR GPU server is available at
+
+```{.bash}
+ssh gpu.norsar.no
+```
+
+:::
+:::
+
+
+:::{.absolute top="15%" right="0%" width="300px"}
+![[NVDA](https://www.google.com/finance/quote/NVDA:NASDAQ?sa=X&ved=2ahUKEwjQk6D279WPAxWNAxAIHWO4J7EQ3ecFegQIVBAT&window=MAX)](figures/nvda.png)
+:::
+
+:::{.absolute bottom="20%" right="0%" width="300px"}
+![](figures/rtx4090.png){.rotate}
+:::
+
+
+## Micro-break 🏖  {.center background-color="#EDE7F6"}
+
+
+
+
+
+## Selecting _hyperparameters_
+
+:::{.frame}
+<iframe src="figures/over_underfitting_hyperpars.html" name="over_underfitting" width="1300" height="800"></iframe>
+:::
+
+
+
+## Evaluating models
+
+Evaluating a model should be done on an [_independent_]{.color-indigo} data set<br>
+(we want to know how well it performs on new, unseen data)
+
+Typically we set aside a part of the data, and use this only for final evaluation.
+
+![](figures/train-test.png){width="40%" fig-align="center" style="margin-top: 40px;"}
+
+```{.python}
+# "X" are the data, "y" are the targets.
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.25, random_state=42
+)
+```
+
+<!----------------------------------------------------------------------------->
+## Comparing models
+
+Model selection
+
+- In case we want to compare different models, we need a third set: <br>
+  The _validation set_
+- The test set is still only for final evaluation
+
+![](figures/train-val-test.png){width="40%" fig-align="center"}
+
+:::{.fragment}
+ML models are prone to **overfitting** -- i.e. memorising the training data.
+
+How do we know if (_when_) this happens? 
+
+- Can compare performance on the training set to the validation set
+:::
+
+
+
+## Exercise number 2 {.center background-color="#FBE9E7"}
+
+:::{style="padding-top:30px;"}
+:::
+
+_Training an earthquake classifier_
+
+Open in [Colab](https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/1_detection.ipynb)
+or [download](https://github.com/smaeland/norsar-ml-workshop/blob/dev/1_detection.ipynb)
+
+(TODO update links)
+
+
+## Post-exercise {.center background-color="#E0F2F1"}
+
+
+## Constructing a deep learning model
+
+model.summary
+
+-> look at keras.io
+
+## {background-iframe="https://keras.io/" data-menu-title="Keras layers" background-interactive="true"}
+
+
+## The joys of training a model
+
+Recall _gradient descent:_
+
+![](figures/gradient-wide.png)
+
+
+## The joys of training a model
+
+Recall _gradient descent:_
+
+![](figures/gradient-local-minimum.png)
+
+:::{.absolute left="0%" bottom="20%" style="font-size: 0.8em;"}
+Local<br>minimum<br>
+`->` [_bad predictions_]{.color-red}
+:::
+
+
+## The joys of training a model
+
+Recall _gradient descent:_
+
+![](figures/gradient-zero.png)
+
+
+:::{.absolute left="0%" bottom="20%" style="font-size: 0.8em;"}
+Local<br>minimum<br>
+`->` [_bad predictions_]{.color-red}
+:::
+
+:::{.absolute right="5%" top="20%" style="font-size: 0.8em;"}
+Plateau<br>
+`->` [_slow convergence_]{.color-red}
+:::
+
+
+
+## Going further: Phase picking
+
+A `yes` or `no` classification in a time window is a little simplistic
+
+For an automated system we rather want phase picks:
+
+![](https://github.com/smousavi05/STEAD/blob/master/eventSample.png?raw=true){width="600px" style="padding-left: 200px;"}
+
+Then: How to define the labels?
+
+
+## Going further: Phase picking
+
+Reformat the labels into _3-component time series:_
+
+![](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/gji/216/1/10.1093_gji_ggy423/1/ggy423fig4.jpeg?Expires=1760963204&Signature=WUY-EaMnvhBy56XqRXAIXVKvpYUy4pPH769Iw76FiOVW476kdIWeOqp7yusw03I4MJ66~FC5fdWSJqIpqllLFS43wzr8heAvp0f2TvHSdkf0-Ffq7WOsW3dPTEURv2b4jYn0ahnCqYOApxF~OHBBECNtI7ygesCo0gIZpf8p0nDF1Czn7xhfOciESTnK3OEDucZbhLlDvXjRjPKFeURB37ki6WdB5xjIMoATpYBUXFI62~O~I-b7dsr6vtGuIeCZrxeRzcE6I~PzcsawnNqf0scoTvSkS9CHTxmPFMlgdRIdd-~iUGxj3FYgftoFjw2wWOJQG0~uy1Hg~ZnolRzXGg__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA){width="600px" style="padding-left: 200px;"}
+
+
+$\rightarrow$ More on this tomorrow
+
+:::{.absolute bottom="0%" right="-5%" style="font-size: 0.6em;" width="250px"}
+Zhu, W., & Beroza, G. C. (2019). PhaseNet: a deep-neural-network-based seismic arrival-time picking method. Geophysical Journal International, 216(1), 261-273.
+:::
+
+## End of day one {.center background-color="#E0F2F1"}
+
+
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
