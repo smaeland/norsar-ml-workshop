@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-958fc32383290b5ef6234cdb9c3ce2d8.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.29">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-fe91322616dd2b9cea8bc6bfc6aa44e1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.33">
 
   <meta name="author" content="steffen.maeland@norsar.no">
   <meta name="dcterms.date" content="2025-09-17">
@@ -961,8 +961,37 @@ steffen.maeland@norsar.no
 </section>
 <section id="constructing-a-deep-learning-model" class="slide level2">
 <h2>Constructing a deep learning model</h2>
-<p>model.summary</p>
-<p>-&gt; look at keras.io</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>model.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div style="padding-top:30px;">
+
+</div>
+<pre><code>Model: "sequential"
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ Layer (type)                    ┃ Output Shape           ┃       Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ conv1d (Conv1D)                 │ (None, 5998, 16)       │            64 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling1d (MaxPooling1D)    │ (None, 2999, 16)       │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv1d_1 (Conv1D)               │ (None, 2997, 16)       │           784 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling1d_1 (MaxPooling1D)  │ (None, 1498, 16)       │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv1d_2 (Conv1D)               │ (None, 1496, 16)       │           784 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ global_max_pooling1d            │ (None, 16)             │             0 │
+│ (GlobalMaxPooling1D)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense (Dense)                   │ (None, 1)              │            17 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+
+ Total params: 1,649 (6.44 KB)
+
+ Trainable params: 1,649 (6.44 KB)
+
+ Non-trainable params: 0 (0.00 B)
+</code></pre>
 </section>
 <section id="section-11" class="slide level2" data-background-iframe="https://keras.io/" data-menu-title="Keras layers" data-background-interactive="true">
 <h2></h2>

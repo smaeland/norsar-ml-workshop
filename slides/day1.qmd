@@ -785,9 +785,43 @@ or [download](https://github.com/smaeland/norsar-ml-workshop/blob/main/2_event_c
 
 ## Constructing a deep learning model
 
-model.summary
+```{.python}
+model.summary()
+```
 
--> look at keras.io
+:::{style='padding-top:30px;'}
+:::
+
+```{}
+Model: "sequential"
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ Layer (type)                    ┃ Output Shape           ┃       Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ conv1d (Conv1D)                 │ (None, 5998, 16)       │            64 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling1d (MaxPooling1D)    │ (None, 2999, 16)       │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv1d_1 (Conv1D)               │ (None, 2997, 16)       │           784 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling1d_1 (MaxPooling1D)  │ (None, 1498, 16)       │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv1d_2 (Conv1D)               │ (None, 1496, 16)       │           784 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ global_max_pooling1d            │ (None, 16)             │             0 │
+│ (GlobalMaxPooling1D)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense (Dense)                   │ (None, 1)              │            17 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+
+ Total params: 1,649 (6.44 KB)
+
+ Trainable params: 1,649 (6.44 KB)
+
+ Non-trainable params: 0 (0.00 B)
+
+```
+
 
 ## {background-iframe="https://keras.io/" data-menu-title="Keras layers" background-interactive="true"}
 
