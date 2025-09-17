@@ -409,8 +409,8 @@ Prepped NORSAR catalog for regional events recorded at ARCES: [Zenodo](https://z
 
 _Comparing detection methods_
 
-Open in [Colab](https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/1_detection.ipynb)
-or [download](https://github.com/smaeland/norsar-ml-workshop/blob/dev/1_detection.ipynb)
+Open in [Colab](https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/1_event_detection.ipynb)
+or [download](https://github.com/smaeland/norsar-ml-workshop/blob/main/1_event_detection.ipynb)
 
 
 ## Post-exercise {.center background-color="#E0F2F1"}
