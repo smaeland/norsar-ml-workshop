@@ -84,7 +84,10 @@ format:
 ## {background-image="figures/queue-monitoring-crowd-ultralytics-yolov8.avif" data-menu-title="Example: Queue counting"}
 
 <!----------------------------------------------------------------------------->
-## {background-iframe="https://www.anthropic.com/claude-code" background-interactive="true" data-menu-title="Example: Claude"}
+<!-- ## {background-iframe="https://www.anthropic.com/claude-code" background-interactive="true" data-menu-title="Example: Claude"} -->
+
+
+## {background-iframe="https://claude.com/product/claude-code" background-interactive="true" data-menu-title="Example: Claude"}
 
 
 
