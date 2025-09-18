@@ -66,10 +66,10 @@ _**Remote participation:**_ Teams link can be found in the meeting invitation.
 |---|---|---|
 |  9.00 | Recap from yesterday |  |
 |  9.15 | Deep learning tools | [Slides](slides/day2.qmd) | 
-|  9.30 | Exercise: Training deep learning models | Notebook: [Colab](https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/4_clustering.ipynb) or [download](https://github.com/smaeland/norsar-ml-workshop/blob/main/3_phase_picker.ipynb) |
+|  9.30 | Exercise: Training deep learning models | Notebook: [Colab](https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/3_phase_picker.ipynb) or [download](https://github.com/smaeland/norsar-ml-workshop/blob/main/3_phase_picker.ipynb) |
 | 10.00 | Post-exercise: Finding the optimal model | [Slides](slides/day2.qmd) | 
 | 10.30 | Recent and future ML at NORSAR | | 
-| 11.00 | Exercise: Using pretrained models | Notebook: [Colab](https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/4_clustering.ipynb) or [download](https://github.com/smaeland/norsar-ml-workshop/blob/main/3_phase_picker.ipynb) | 
+| 11.00 | Exercise: Using pretrained models | Notebook: [Colab](https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/4_clustering.ipynb) or [download](https://github.com/smaeland/norsar-ml-workshop/blob/main/4_clustering.ipynb) | 
 | 11.45 | Lunch (kantinen) | |
 | 12.30 | Wrap-up and discussions | |
 | 13.00 | End of day 2 | | 
