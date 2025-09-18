@@ -196,7 +196,7 @@
 
 <section id="title-slide" data-background-image="../NORSAR-main-logo-RGB.png" data-background-position="98% 2%" data-background-size="15%" class="quarto-title-block center">
   <h1 class="title">NORSAR ML Workshop</h1>
-  <p class="subtitle">Day 2 – Wednesday</p>
+  <p class="subtitle">Day 2 – Thursday</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -606,8 +606,60 @@ steffen.maeland@norsar.no
 </figure>
 </div>
 </section>
-<section id="more-cats" class="slide level2">
-<h2>More cats</h2>
+<section id="pattern-hierarchies-1" class="slide level2">
+<h2>Pattern hierarchies</h2>
+<p>Computer vision example:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/cat-picture.png" class="quarto-figure quarto-figure-center" style="width:45.0%"></p>
+</figure>
+</div>
+<div style="font-size: 0.7em;">
+<p>From F. Chollet: <em>Deep Learning with Python</em></p>
+</div>
+</section>
+<section id="layer-activations" class="slide level2">
+<h2>Layer <em>activations</em></h2>
+<p>We can visualise what each filter does by looking at its <em>activation</em> on the test image: The output after the convolution and applying the activation function.</p>
+<p>Examples:</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/cat-layer1-channel4.png" width="400"></p>
+<figcaption>Layer 1, filter 4</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/cat-layer1-channel7.png" width="400"></p>
+<figcaption>Layer 1, filter 7</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="layer-activations-1" class="slide level2">
+<h2>Layer <em>activations</em></h2>
+<p>Repeat for all filters in all layers:</p>
+<p><strong>Layer 1 and 2:</strong></p>
+<p><img data-src="figures/cat-layer1-2.png" style="width:100.0%"></p>
+</section>
+<section id="layer-activations-2" class="slide level2">
+<h2>Layer <em>activations</em></h2>
+<p>Repeat for all filters in all layers:</p>
+<p><strong>Layer 3:</strong></p>
+<p><img data-src="figures/cat-layer3.png" style="width:100.0%"></p>
+</section>
+<section id="layer-activations-3" class="slide level2">
+<h2>Layer <em>activations</em></h2>
+<p>Repeat for all filters in all layers:</p>
+<p><strong>Layer 4 (last): </strong></p>
+<p><img data-src="figures/cat-layer4.png" style="width:100.0%"></p>
 </section>
 <section id="keras" class="slide level2">
 <h2>Keras</h2>

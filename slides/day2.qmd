@@ -1,6 +1,6 @@
 ---
 title: "NORSAR ML Workshop"
-subtitle: "Day 2 -- Wednesday"
+subtitle: "Day 2 -- Thursday"
 author: "steffen.maeland@norsar.no"
 date: "September 18, 2025"
 format:
@@ -600,10 +600,56 @@ Remember the cat:
 
 ![](figures/chollet-cat.png){fig-align="center" width="60%"}
 
+## Pattern hierarchies
+
+Computer vision example:
+
+![](figures/cat-picture.png){width="45%" fig-align="center"}
+
+:::{style="font-size: 0.7em;"}
+From F. Chollet: _Deep Learning with Python_
+:::
 
 
-## More cats 
+## Layer _activations_
 
+We can visualise what each filter does by looking at its _activation_ on the test image: The output after the convolution and applying the activation function.
+
+Examples:
+
+:::{layout-ncol=2}
+![Layer 1, filter 4](figures/cat-layer1-channel4.png){width="400px"}
+
+![Layer 1, filter 7](figures/cat-layer1-channel7.png){width="400px"}
+:::
+
+
+## Layer _activations_
+
+Repeat for all filters in all layers:
+
+**Layer 1 and 2:**
+
+![](figures/cat-layer1-2.png){width="100%"}
+
+
+
+## Layer _activations_
+
+Repeat for all filters in all layers:
+
+**Layer 3:**
+
+![](figures/cat-layer3.png){width="100%"}
+
+
+## Layer _activations_
+
+Repeat for all filters in all layers:
+
+**Layer 4 (last): **
+
+![](figures/cat-layer4.png){width="100%"}
 
 ## Keras
 

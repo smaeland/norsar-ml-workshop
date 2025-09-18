@@ -147,11 +147,39 @@
     "text": "Pattern hierarchies\nRemember the cat:"
   },
   {
-    "objectID": "slides/day2.html#more-cats",
-    "href": "slides/day2.html#more-cats",
+    "objectID": "slides/day2.html#pattern-hierarchies-1",
+    "href": "slides/day2.html#pattern-hierarchies-1",
     "title": "NORSAR ML Workshop",
-    "section": "More cats",
-    "text": "More cats"
+    "section": "Pattern hierarchies",
+    "text": "Pattern hierarchies\nComputer vision example:\n\n\n\n\n\n\nFrom F. Chollet: Deep Learning with Python"
+  },
+  {
+    "objectID": "slides/day2.html#layer-activations",
+    "href": "slides/day2.html#layer-activations",
+    "title": "NORSAR ML Workshop",
+    "section": "Layer activations",
+    "text": "Layer activations\nWe can visualise what each filter does by looking at its activation on the test image: The output after the convolution and applying the activation function.\nExamples:\n\n\n\n\n\n\nLayer 1, filter 4\n\n\n\n\n\n\n\nLayer 1, filter 7"
+  },
+  {
+    "objectID": "slides/day2.html#layer-activations-1",
+    "href": "slides/day2.html#layer-activations-1",
+    "title": "NORSAR ML Workshop",
+    "section": "Layer activations",
+    "text": "Layer activations\nRepeat for all filters in all layers:\nLayer 1 and 2:"
+  },
+  {
+    "objectID": "slides/day2.html#layer-activations-2",
+    "href": "slides/day2.html#layer-activations-2",
+    "title": "NORSAR ML Workshop",
+    "section": "Layer activations",
+    "text": "Layer activations\nRepeat for all filters in all layers:\nLayer 3:"
+  },
+  {
+    "objectID": "slides/day2.html#layer-activations-3",
+    "href": "slides/day2.html#layer-activations-3",
+    "title": "NORSAR ML Workshop",
+    "section": "Layer activations",
+    "text": "Layer activations\nRepeat for all filters in all layers:\nLayer 4 (last):"
   },
   {
     "objectID": "slides/day2.html#keras",
