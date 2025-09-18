@@ -1,241 +1,157 @@
 [
   {
-    "objectID": "slides/day2.html#current-seismology-sota",
-    "href": "slides/day2.html#current-seismology-sota",
-    "title": "NORSAR ML Workshop",
-    "section": "Current seismology SOTA",
-    "text": "Current seismology SOTA"
-  },
-  {
-    "objectID": "slides/day2.html#lol",
-    "href": "slides/day2.html#lol",
-    "title": "NORSAR ML Workshop",
-    "section": "LOL",
-    "text": "LOL\nOur short templates can be “re-used” to detect similar but distinct patterns\nHowever, most interesting patterns are considerably longer than the templates.\n-&gt; Want a way to compose small patterns into larger ones"
-  },
-  {
-    "objectID": "slides/day2.html#training",
-    "href": "slides/day2.html#training",
-    "title": "NORSAR ML Workshop",
-    "section": "Training",
-    "text": "Training"
-  },
-  {
-    "objectID": "slides/day2.html#exercise-1",
-    "href": "slides/day2.html#exercise-1",
-    "title": "NORSAR ML Workshop",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nFirst: Repeat phase picksing from yesterday"
-  },
-  {
-    "objectID": "slides/day2.html#ml-for-waveform-data",
-    "href": "slides/day2.html#ml-for-waveform-data",
-    "title": "NORSAR ML Workshop",
-    "section": "ML for waveform data",
-    "text": "ML for waveform data\nCross-correlation\nConvolutions"
-  },
-  {
-    "objectID": "slides/day2.html#neural-networks",
-    "href": "slides/day2.html#neural-networks",
-    "title": "NORSAR ML Workshop",
-    "section": "Neural networks",
-    "text": "Neural networks\nSequentially improved features"
-  },
-  {
     "objectID": "slides/day2.html#deep-learning",
     "href": "slides/day2.html#deep-learning",
     "title": "NORSAR ML Workshop",
     "section": "Deep learning",
-    "text": "Deep learning\n\n\n\nThe point of deep learning is to sequentially learn better feature representations, and use these to solve a task.\n\n\n\nSince neural networks are universal function approximators, they can model arbitrarily complex relationships. The cost of doing so, is that we need a lot of data."
+    "text": "Deep learning\n\n\n\n\nThe point of deep learning is to sequentially learn better feature representations, and use these to solve a task.\n\n\n\n\n\ninsufficient:   good:    better:\n\n\n\ndata   data    data\n\n\\(\\rightarrow\\)   \\(\\rightarrow\\)    \\(\\rightarrow\\)\n\nprediction   representation (e.g. crosscorr)   representation (e.g. crosscorr)\n\n  \\(\\rightarrow\\)    \\(\\rightarrow\\)\n\n  prediction    representation (e.g. crosscorr)\n\n      \\(\\rightarrow\\)\n\n       prediction\n\n\n\n\n\nSince neural networks are universal function approximators, they can model arbitrarily complex relationships. The cost of doing so, is that we need a lot of data."
   },
   {
-    "objectID": "slides/day2.html#enter-the-convolution-operation",
-    "href": "slides/day2.html#enter-the-convolution-operation",
+    "objectID": "slides/day2.html#crosscorrelation",
+    "href": "slides/day2.html#crosscorrelation",
     "title": "NORSAR ML Workshop",
-    "section": "Enter the convolution operation",
-    "text": "Enter the convolution operation\nThe foundation for modern computer vision (plus lots of other things!) is convolution:\nan operation that takes in two functions and returns a new function\n\n\n\n\n\n\\[\nf \\ast g \\equiv \\int_{-\\infty}^{\\infty} f(\\tau) g(t-\\tau) d\\tau\n\\]"
+    "section": "Crosscorrelation",
+    "text": "Crosscorrelation\nCrosscorrelation of two real-valued functions \\(f\\) and \\(g\\) is defined as\n\\[\n(f \\star g)(\\tau) = \\int_{-\\infty}^{\\infty} f(t)g(t + \\tau)\n\\]\n\nFor discrete signals the operation is computationally simple since \\(\\int \\rightarrow \\sum\\) and we just need to multiply and sum."
   },
   {
-    "objectID": "slides/day2.html#enter-the-convolution-operation-1",
-    "href": "slides/day2.html#enter-the-convolution-operation-1",
+    "objectID": "slides/day2.html#crosscorrelation-1",
+    "href": "slides/day2.html#crosscorrelation-1",
     "title": "NORSAR ML Workshop",
-    "section": "Enter the convolution operation",
-    "text": "Enter the convolution operation\nThe foundation for modern computer vision (plus lots of other things!) is convolution:\nan operation that takes in two functions and returns a new function\n\n\n\n\n\n\\[\nf \\ast g \\equiv \\int_{-\\infty}^{\\infty} f(\\tau) g(t-\\tau) d\\tau\n\\]\n\n\n\nIn practice, convolution is a way to recognise and localise patterns in data"
+    "section": "Crosscorrelation",
+    "text": "Crosscorrelation"
   },
   {
-    "objectID": "slides/day2.html#discrete-convolution",
-    "href": "slides/day2.html#discrete-convolution",
+    "objectID": "slides/day2.html#crosscorrelation-2",
+    "href": "slides/day2.html#crosscorrelation-2",
     "title": "NORSAR ML Workshop",
-    "section": "Discrete convolution",
-    "text": "Discrete convolution\nConvolution is a lot easier with discrete data such as images, because:\n\nthe integral becomes a sum\nthe first function is our image\nthe second function is our kernel or filter, which tries to find patterns in the image."
+    "section": "Crosscorrelation",
+    "text": "Crosscorrelation"
   },
   {
-    "objectID": "slides/day2.html#convolutions-recap",
-    "href": "slides/day2.html#convolutions-recap",
+    "objectID": "slides/day2.html#crosscorrelation-3",
+    "href": "slides/day2.html#crosscorrelation-3",
     "title": "NORSAR ML Workshop",
-    "section": "Convolutions recap",
-    "text": "Convolutions recap"
+    "section": "Crosscorrelation",
+    "text": "Crosscorrelation"
   },
   {
-    "objectID": "slides/day2.html#convolutions-recap-1",
-    "href": "slides/day2.html#convolutions-recap-1",
+    "objectID": "slides/day2.html#crosscorrelation-4",
+    "href": "slides/day2.html#crosscorrelation-4",
     "title": "NORSAR ML Workshop",
-    "section": "Convolutions recap",
-    "text": "Convolutions recap"
+    "section": "Crosscorrelation",
+    "text": "Crosscorrelation"
   },
   {
-    "objectID": "slides/day2.html#convolutions-recap-2",
-    "href": "slides/day2.html#convolutions-recap-2",
+    "objectID": "slides/day2.html#crosscorrelation-5",
+    "href": "slides/day2.html#crosscorrelation-5",
     "title": "NORSAR ML Workshop",
-    "section": "Convolutions recap",
-    "text": "Convolutions recap"
+    "section": "Crosscorrelation",
+    "text": "Crosscorrelation"
   },
   {
-    "objectID": "slides/day2.html#convolutions-recap-3",
-    "href": "slides/day2.html#convolutions-recap-3",
+    "objectID": "slides/day2.html#crosscorrelation-6",
+    "href": "slides/day2.html#crosscorrelation-6",
     "title": "NORSAR ML Workshop",
-    "section": "Convolutions recap",
-    "text": "Convolutions recap"
+    "section": "Crosscorrelation",
+    "text": "Crosscorrelation"
   },
   {
-    "objectID": "slides/day2.html#convolutions-recap-4",
-    "href": "slides/day2.html#convolutions-recap-4",
+    "objectID": "slides/day2.html#crosscorrelation-appreciation-slide",
+    "href": "slides/day2.html#crosscorrelation-appreciation-slide",
     "title": "NORSAR ML Workshop",
-    "section": "Convolutions recap",
-    "text": "Convolutions recap"
+    "section": "Crosscorrelation appreciation slide",
+    "text": "Crosscorrelation appreciation slide\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote: Time-reversing \\(f\\) in the definition of crosscorrelation yields the convolution operation.\nIn ML we got the terms mixed up and only talk about convolution, even though we do crosscorrelation."
   },
   {
-    "objectID": "slides/day2.html#convolutions-recap-5",
-    "href": "slides/day2.html#convolutions-recap-5",
+    "objectID": "slides/day2.html#some-more-terminology",
+    "href": "slides/day2.html#some-more-terminology",
     "title": "NORSAR ML Workshop",
-    "section": "Convolutions recap",
-    "text": "Convolutions recap"
+    "section": "Some more terminology",
+    "text": "Some more terminology\n\nLayer: A slice of the model where an internal representation is computed\n\n\n\n\n\ndata(input layer)\n\n\\(\\rightarrow\\)\n\nrepresentation(hidden layer 1)\n\n\\(\\rightarrow\\)\n\nrepresentation(hidden layer 2)\n\n\\(\\rightarrow\\)\n\nprediction(output layer)\n\n\n\n\n\n\nFilter: A template (sometimes also called a kernel)\n\n\n\n\nActivation function: Usually applied after each layer to introduce non-linearity to the model\n\n\n\n\n\n\nSigmoid\n\n\n\n\n\ntanh\n\n\n\n\n\nReLU\n\n\n\n\n\nGELU\n\n\n\n\n\nSwish"
   },
   {
-    "objectID": "slides/day2.html#convolutions-detour",
-    "href": "slides/day2.html#convolutions-detour",
+    "objectID": "slides/day2.html#some-deep-learning-frameworks",
+    "href": "slides/day2.html#some-deep-learning-frameworks",
     "title": "NORSAR ML Workshop",
-    "section": "Convolutions detour",
-    "text": "Convolutions detour\nIf the take the convolution operation\n\\[\n\\small\n(f \\ast g)(t) \\equiv \\int_{-\\infty}^{\\infty} f(\\tau) g(t-\\tau) d\\tau\n\\]\nbut reverse one of the functions (\\(\\small f(t) \\to f(-t)\\)), we get the similar operation called cross-correlation:\n\n\\[\n\\small\nf \\star g \\equiv f(-t) \\ast g(t)\n\\]"
+    "section": "Some deep learning frameworks",
+    "text": "Some deep learning frameworks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHigh-level  (optional)\n\n\nCompute  (choose one)\n\n\nSupporting  (useful)"
   },
   {
-    "objectID": "slides/day2.html#convolutions-detour-1",
-    "href": "slides/day2.html#convolutions-detour-1",
+    "objectID": "slides/day2.html#interlude-programming",
+    "href": "slides/day2.html#interlude-programming",
     "title": "NORSAR ML Workshop",
-    "section": "Convolutions detour",
-    "text": "Convolutions detour\nIf the take the convolution operation\n\\[\n\\small\nf \\ast g \\equiv \\int_{-\\infty}^{\\infty} f(\\tau) g(t-\\tau) d\\tau\n\\]\nbut reverse one of the functions (\\(\\small f(t) \\to f(-t)\\)), we get the similar operation called cross-correlation:\n\n\\[\n\\small\nf \\star g \\equiv f(-t) \\ast g(t)\n\\]"
+    "section": "Interlude: Programming 👩🏼‍💻",
+    "text": "Interlude: Programming 👩🏼‍💻"
   },
   {
-    "objectID": "slides/day2.html#break",
-    "href": "slides/day2.html#break",
+    "objectID": "slides/day2.html#numpy-numerical-python",
+    "href": "slides/day2.html#numpy-numerical-python",
     "title": "NORSAR ML Workshop",
-    "section": "Break",
-    "text": "Break"
-  },
-  {
-    "objectID": "slides/day2.html#seismology-tasks-solved-with-ml-current-sota",
-    "href": "slides/day2.html#seismology-tasks-solved-with-ml-current-sota",
-    "title": "NORSAR ML Workshop",
-    "section": "Seismology tasks solved with ML / current SOTA",
-    "text": "Seismology tasks solved with ML / current SOTA"
-  },
-  {
-    "objectID": "slides/day2.html#exercise-2",
-    "href": "slides/day2.html#exercise-2",
-    "title": "NORSAR ML Workshop",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nTrain an ML pick detector"
-  },
-  {
-    "objectID": "slides/day2.html#post-exercise",
-    "href": "slides/day2.html#post-exercise",
-    "title": "NORSAR ML Workshop",
-    "section": "Post-exercise",
-    "text": "Post-exercise"
-  },
-  {
-    "objectID": "slides/day2.html#augmentation",
-    "href": "slides/day2.html#augmentation",
-    "title": "NORSAR ML Workshop",
-    "section": "Augmentation",
-    "text": "Augmentation\nMove to day 2"
-  },
-  {
-    "objectID": "slides/day2.html#day-2",
-    "href": "slides/day2.html#day-2",
-    "title": "NORSAR ML Workshop",
-    "section": "DAY 2",
-    "text": "DAY 2"
-  },
-  {
-    "objectID": "slides/day2.html#recap-from-day-1",
-    "href": "slides/day2.html#recap-from-day-1",
-    "title": "NORSAR ML Workshop",
-    "section": "Recap from day 1",
-    "text": "Recap from day 1"
-  },
-  {
-    "objectID": "slides/day2.html#the-more-advanced-stuff",
-    "href": "slides/day2.html#the-more-advanced-stuff",
-    "title": "NORSAR ML Workshop",
-    "section": "The more advanced stuff",
-    "text": "The more advanced stuff\nDeep learning components"
-  },
-  {
-    "objectID": "slides/day2.html#libraries-for-machine-learning",
-    "href": "slides/day2.html#libraries-for-machine-learning",
-    "title": "NORSAR ML Workshop",
-    "section": "Libraries for machine learning",
-    "text": "Libraries for machine learning"
-  },
-  {
-    "objectID": "slides/day2.html#python-libraries",
-    "href": "slides/day2.html#python-libraries",
-    "title": "NORSAR ML Workshop",
-    "section": "Python libraries",
-    "text": "Python libraries\n\n\n\n\n\n\n\n\nhttps://numpy.org/\n\n\nnumpy provides fast manipulation of large arrays and matrices\n\n\n\n\n\n\nhttps://scikit-learn.org/\n\n\nscikit-learn has a big selection of machine learning models and functions for data processing and evaluation"
+    "section": "NumPy: Numerical Python",
+    "text": "NumPy: Numerical Python\n\n\nMost (all?) scientific or data-driven Python projects rely on NumPy.\nThe different deep learning libraries implement the same concepts, so if we know NumPy, the transition to &lt;new flashy DL library✨&gt; is easy.\n\n\n\n\nCore concept: Vectorisation\nPerforming efficent operations on all data at once, without writing explicit loops"
   },
   {
     "objectID": "slides/day2.html#numpy-arrays",
     "href": "slides/day2.html#numpy-arrays",
     "title": "NORSAR ML Workshop",
-    "section": "numpy arrays",
-    "text": "numpy arrays\nThe core of numpy is the array, on which we can do operations without explicit loops:\nExample: Given a list of numbers, make a new list, where all the elements are multiplied by 2.\n\n\nVanilla python:\n&gt;&gt;&gt; a = [1,2,3]; b = []\n&gt;&gt;&gt; for elem in a:\n&gt;&gt;&gt;   b.append(elem * 2)\nb\n[2, 4, 6]\n\n\nNumpy:\n&gt;&gt;&gt; import numpy as np\n&gt;&gt;&gt; a = np.array([1,2,3])\n&gt;&gt;&gt; b = a * 2\n&gt;&gt;&gt; b\narray([2 4 6])\n\n\n\nArrays can have any number of dimensions – e.g. a 2D matrix is written\n&gt;&gt;&gt; a = np.array([[1,2,3],[4,5,6]])\n&gt;&gt;&gt; print(a)\n[[1 2 3]\n [4 5 6]]\n&gt;&gt;&gt; a.ndim\n2\n&gt;&gt;&gt; a.shape\n(2, 3)"
+    "section": "NumPy arrays",
+    "text": "NumPy arrays\nAt the core of NumPy is the array, which supports vectorised operations.\n\nExample: Given a list of numbers, make a new list, where all the elements are multiplied by 2.\n\n\n\nVanilla python:\n&gt;&gt;&gt; a = [1,2,3]; b = []\n&gt;&gt;&gt; for elem in a:\n&gt;&gt;&gt;   b.append(elem * 2)\nb\n[2, 4, 6]\n\n\nNumpy:\n&gt;&gt;&gt; import numpy as np\n&gt;&gt;&gt; a = np.array([1,2,3])\n&gt;&gt;&gt; b = a * 2\n&gt;&gt;&gt; b\narray([2 4 6])\n\n\n\nArrays can have any number of dimensions – e.g. a 2D matrix is written\n&gt;&gt;&gt; a = np.array([[1,2,3],[4,5,6]])\n&gt;&gt;&gt; print(a)\n[[1 2 3]\n [4 5 6]]\n&gt;&gt;&gt; a.shape\n(2, 3)"
   },
   {
-    "objectID": "slides/day2.html#numpy-arrays-1",
-    "href": "slides/day2.html#numpy-arrays-1",
+    "objectID": "slides/day2.html#numpy-arrays-selecting-data",
+    "href": "slides/day2.html#numpy-arrays-selecting-data",
     "title": "NORSAR ML Workshop",
-    "section": "numpy arrays",
-    "text": "numpy arrays\nIn normal python, elements are sliced from a list using [start : stop]:\n&gt;&gt;&gt; a = [0, 1, 2, 3, 4]\n&gt;&gt;&gt; a[2:4]                  # (remember zero-based indexing)\n[2, 3]    \n&gt;&gt;&gt; a[:]                    # no start or stop -&gt; select everything\n[0, 1, 2, 3, 4]\n\nNumpy extends this to any number of dimensions, separated by ,\n&gt;&gt;&gt; a = np.arange(1,10).reshape(3,3)\n&gt;&gt;&gt; a\narray([[1, 2, 3],\n       [4, 5, 6],\n       [7, 8, 9]])\n\n\n\n\nSelect single element:\n&gt;&gt;&gt; a[1, 1]\n5\n\n\n\nSelect row:\n&gt;&gt;&gt; a[1, :]\narray([4, 5, 6])\n\n\n\nSelect column:\n&gt;&gt;&gt; a[:, 1]\narray([2, 5, 8])"
+    "section": "NumPy arrays: Selecting data",
+    "text": "NumPy arrays: Selecting data\nIn normal python, elements are sliced from a list using [start : stop]:\n&gt;&gt;&gt; a = [0, 1, 2, 3, 4]\n&gt;&gt;&gt; a[2:4]                  # (remember zero-based indexing)\n[2, 3]    \n&gt;&gt;&gt; a[:]                    # no start or stop -&gt; select everything\n[0, 1, 2, 3, 4]\n\nNumPy extends this to any number of dimensions, separated by “,”:\n&gt;&gt;&gt; a = np.arange(1,10).reshape(3,3)\n&gt;&gt;&gt; a\narray([[1, 2, 3],\n       [4, 5, 6],\n       [7, 8, 9]])\n\n\n\n\nSelect single element:\n&gt;&gt;&gt; a[1, 1]\n5\n\n\n\nSelect row:\n&gt;&gt;&gt; a[1, :]\narray([4, 5, 6])\n\n\n\nSelect column:\n&gt;&gt;&gt; a[:, 1]\narray([2, 5, 8])"
   },
   {
-    "objectID": "slides/day2.html#numpy-arrays-2",
-    "href": "slides/day2.html#numpy-arrays-2",
+    "objectID": "slides/day2.html#numpy-arrays-broadcasting",
+    "href": "slides/day2.html#numpy-arrays-broadcasting",
     "title": "NORSAR ML Workshop",
-    "section": "numpy arrays",
-    "text": "numpy arrays\nOperations on arrays are typically done element-by-element.\n\n\n&gt;&gt;&gt; a = np.array([1,2,3])\n&gt;&gt;&gt; np.power(a, 2)\narray([1, 4, 9])\n\n\n&gt;&gt;&gt; b = np.array([4,5,6])\n&gt;&gt;&gt; a * b\narray([ 4, 10, 18])\n\n\n\nIn cases the shapes of two arrays don’t match, numpy will try to make them match(aka broadcasting):\n# I type this\n&gt;&gt;&gt; a * 2\narray([2, 4, 6])\n# ...and numpy does this:\n&gt;&gt;&gt; a * np.array([2, 2, 2])\narray([2, 4, 6])\n\n\n\n\n\nNumpy docs"
+    "section": "NumPy arrays: Broadcasting",
+    "text": "NumPy arrays: Broadcasting\nOperations on arrays are typically done element-by-element.\n\n\n&gt;&gt;&gt; a = np.array([1,2,3])\n&gt;&gt;&gt; np.power(a, 2)\narray([1, 4, 9])\n\n\n&gt;&gt;&gt; b = np.array([4,5,6])\n&gt;&gt;&gt; a * b\narray([ 4, 10, 18])\n\n\n\nIn cases the shapes of two arrays don’t match, numpy will try to make them match(aka broadcasting):\n# I type this\n&gt;&gt;&gt; a * 2\narray([2, 4, 6])\n# ...and numpy does this:\n&gt;&gt;&gt; a * np.array([2, 2, 2])\narray([2, 4, 6])\n\n\n\n\n\nNumpy docs"
   },
   {
     "objectID": "slides/day2.html#shapes",
     "href": "slides/day2.html#shapes",
     "title": "NORSAR ML Workshop",
     "section": "Shapes",
-    "text": "Shapes\nBroadcasting_ works like in NumPy:\n&gt;&gt;&gt; x = tf.constant([1,2,3], dtype=tf.float32)\n&gt;&gt;&gt; x + 1\n&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([2., 3., 4.], dtype=float32)&gt;\nSame for shapes:"
-  },
-  {
-    "objectID": "slides/day2.html#deep-learning-frameworks",
-    "href": "slides/day2.html#deep-learning-frameworks",
-    "title": "NORSAR ML Workshop",
-    "section": "Deep learning frameworks",
-    "text": "Deep learning frameworks\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHigh-level\n\n\nCompute\n\n\nSupporting"
+    "text": "Shapes\nThe number of time steps, channels, etc is described by the shape of the array:"
   },
   {
     "objectID": "slides/day2.html#low-level-tensorflow",
     "href": "slides/day2.html#low-level-tensorflow",
     "title": "NORSAR ML Workshop",
     "section": "Low-level TensorFlow",
-    "text": "Low-level TensorFlow\nUsually we don’t need to get involved with TensorFlow. But in case:\nMost things work like NumPy, but with the benefit of GPU support and JIT compilation.\nThe core object is the Tensor, which is basically a multidimensional array.\n\nNumPy\n&gt;&gt;&gt; import numpy as np\n&gt;&gt;&gt; x = np.array([[1,2,3], [4,5,6]], dtype=np.float32)\n&gt;&gt;&gt; print(x)\n[[1. 2. 3.]\n [4. 5. 6.]]\n\n\nTensorFlow\n&gt;&gt;&gt; import tensorflow as tf\n&gt;&gt;&gt; x = tf.constant([[1,2,3], [4,5,6]], dtype=tf.float32)\n&gt;&gt;&gt; print(x)\ntf.Tensor(\n[[1. 2. 3.]\n [4. 5. 6.]], shape=(2, 3), dtype=float32)"
+    "text": "Low-level TensorFlow\nUsually we don’t need to get involved with the underlying computational framework (in our case TensorFlow). But in case:\nMost things work like NumPy, but with the benefit of GPU support and JIT compilation.\nThe core object is the Tensor, which is basically a multidimensional array.\n\nNumPy\n&gt;&gt;&gt; import numpy as np\n&gt;&gt;&gt; x = np.array([[1,2,3], [4,5,6]], dtype=np.float32)\n&gt;&gt;&gt; print(x)\n[[1. 2. 3.]\n [4. 5. 6.]]\n\n\nTensorFlow\n&gt;&gt;&gt; import tensorflow as tf\n&gt;&gt;&gt; x = tf.constant([[1,2,3], [4,5,6]], dtype=tf.float32)\n&gt;&gt;&gt; print(x)\ntf.Tensor(\n[[1. 2. 3.]\n [4. 5. 6.]], shape=(2, 3), dtype=float32)"
+  },
+  {
+    "objectID": "slides/day2.html#building-neural-networks",
+    "href": "slides/day2.html#building-neural-networks",
+    "title": "NORSAR ML Workshop",
+    "section": "Building neural networks",
+    "text": "Building neural networks"
+  },
+  {
+    "objectID": "slides/day2.html#my-first-convolutional-network",
+    "href": "slides/day2.html#my-first-convolutional-network",
+    "title": "NORSAR ML Workshop",
+    "section": "My first convolutional network 🦄",
+    "text": "My first convolutional network 🦄\nYesterday we pieced together a convnet using Keras’ sequential model API:\n\n\n\nmodel = keras.Sequential(\n    [\n        keras.Input(shape=(waveforms.shape[1], waveforms.shape[2])),\n        \n        keras.layers.Conv1D(filters=16, kernel_size=3, activation='relu'),\n        keras.layers.MaxPooling1D(2),\n        \n        keras.layers.Conv1D(filters=16, kernel_size=3, activation='relu'),\n        keras.layers.MaxPooling1D(2),\n        \n        keras.layers.Conv1D(filters=16, kernel_size=3, activation='relu'),\n        \n        keras.layers.GlobalMaxPooling1D(),\n        \n        keras.layers.Dense(1, activation='sigmoid')\n    ]\n)"
+  },
+  {
+    "objectID": "slides/day2.html#pattern-hierarchies",
+    "href": "slides/day2.html#pattern-hierarchies",
+    "title": "NORSAR ML Workshop",
+    "section": "Pattern hierarchies",
+    "text": "Pattern hierarchies\nRemember the cat:"
+  },
+  {
+    "objectID": "slides/day2.html#more-cats",
+    "href": "slides/day2.html#more-cats",
+    "title": "NORSAR ML Workshop",
+    "section": "More cats",
+    "text": "More cats"
   },
   {
     "objectID": "slides/day2.html#keras",
@@ -245,81 +161,74 @@
     "text": "Keras\nThe Keras framework contains all the high-level components we need to construct and train a neural network:\n\nkeras.layers: Different types of layers and activation functions\nkeras.callbacks: Monitor, modify or stop the training process\nkeras.optimizers: Optimisation algorithms\nkeras.metrics: Performance metrics\nkeras.losses: Loss functions\nkeras.datasets: Small datasets for testing\nkeras.applications: Pre-trained networks for different tasks"
   },
   {
-    "objectID": "slides/day2.html#my-first-convolutional-network",
-    "href": "slides/day2.html#my-first-convolutional-network",
+    "objectID": "slides/day2.html#exercise-number-3",
+    "href": "slides/day2.html#exercise-number-3",
     "title": "NORSAR ML Workshop",
-    "section": "My first convolutional network ✨",
-    "text": "My first convolutional network ✨\nLet’s piece together a convnet using Keras’ sequential model API:\n\n\n\nconvnet = keras.Sequential(\n    [\n        keras.Input(shape=(28, 28, 1)),\n        keras.layers.Conv2D(32, kernel_size=(3, 3), activation=\"relu\"),\n        keras.layers.MaxPooling2D(pool_size=(2, 2)),\n        keras.layers.Conv2D(32, kernel_size=(3, 3), activation=\"relu\"),\n        keras.layers.MaxPooling2D(pool_size=(2, 2)),\n        keras.layers.Flatten(),\n        keras.layers.Dense(10, activation=\"softmax\"),\n    ]\n)\n\n\n\n(More details about activations and training next week)"
+    "section": "Exercise number 3",
+    "text": "Exercise number 3\n\n\n\nBuilding a phase picker\nOpen in Colab or download"
   },
   {
-    "objectID": "slides/day2.html#my-first-convolutional-network-1",
-    "href": "slides/day2.html#my-first-convolutional-network-1",
+    "objectID": "slides/day2.html#post-exercise",
+    "href": "slides/day2.html#post-exercise",
     "title": "NORSAR ML Workshop",
-    "section": "My first convolutional network ✨",
-    "text": "My first convolutional network ✨\nconvnet.summary()\nModel: \"sequential_1\"\n\n┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓\n┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃\n┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩\n│ conv2d (Conv2D)                      │ (None, 26, 26, 32)          │             320 │\n├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤\n│ max_pooling2d (MaxPooling2D)         │ (None, 13, 13, 32)          │               0 │\n├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤\n│ conv2d_1 (Conv2D)                    │ (None, 11, 11, 32)          │           9,248 │\n├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤\n│ max_pooling2d_1 (MaxPooling2D)       │ (None, 5, 5, 32)            │               0 │\n├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤\n│ flatten_1 (Flatten)                  │ (None, 800)                 │               0 │\n├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤\n│ dropout (Dropout)                    │ (None, 800)                 │               0 │\n├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤\n│ dense_3 (Dense)                      │ (None, 10)                  │           8,010 │\n└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘\n\n Total params: 17,578 (68.66 KB)\n\n Trainable params: 17,578 (68.66 KB)\n\n Non-trainable params: 0 (0.00 B)"
+    "section": "Post-exercise",
+    "text": "Post-exercise\nGreat resource for illustrations and comparison of deep learning phase pickers:\nMyklebust, E. B., & Köhler, A. (2024). Deep learning models for regional phase detection on seismic stations in Northern Europe and the European Arctic. Geophysical Journal International, 239(2), 862-881."
   },
   {
-    "objectID": "slides/day2.html#my-first-convolutional-network-2",
-    "href": "slides/day2.html#my-first-convolutional-network-2",
+    "objectID": "slides/day2.html#deep-learning-phase-pickers",
+    "href": "slides/day2.html#deep-learning-phase-pickers",
     "title": "NORSAR ML Workshop",
-    "section": "My first convolutional network ✨",
-    "text": "My first convolutional network ✨\nConfigure the training objective and strategy:\nconvnet.compile(\n  loss=\"categorical_crossentropy\",\n  optimizer=\"adam\",\n  metrics=[\"accuracy\"]\n)\n(again, more details next week)\nStart training!\nconvnet.fit(\n  X_train,\n  y_train,\n  batch_size=128,\n  epochs=15,\n  validation_split=0.1\n)"
+    "section": "Deep learning phase pickers",
+    "text": "Deep learning phase pickers\n\n\n\nPhaseNet"
   },
   {
-    "objectID": "slides/day2.html#decomposition-into-simple-patters-theory-vs-practice",
-    "href": "slides/day2.html#decomposition-into-simple-patters-theory-vs-practice",
+    "objectID": "slides/day2.html#deep-learning-phase-pickers-1",
+    "href": "slides/day2.html#deep-learning-phase-pickers-1",
     "title": "NORSAR ML Workshop",
-    "section": "Decomposition into simple patters: Theory vs practice",
-    "text": "Decomposition into simple patters: Theory vs practice\nRemember the cat:\n\n\n\n\n\n(We’ll try to classify pictures of cats in exercise 3, but let’s test out a cat detector convnet already now)"
+    "section": "Deep learning phase pickers",
+    "text": "Deep learning phase pickers\n\n\n\nEPick"
   },
   {
-    "objectID": "slides/day2.html#putting-together-an-improved-network",
-    "href": "slides/day2.html#putting-together-an-improved-network",
+    "objectID": "slides/day2.html#deep-learning-phase-pickers-2",
+    "href": "slides/day2.html#deep-learning-phase-pickers-2",
     "title": "NORSAR ML Workshop",
-    "section": "Putting together an improved network",
-    "text": "Putting together an improved network"
+    "section": "Deep learning phase pickers",
+    "text": "Deep learning phase pickers\n\n\n\nEQTransformer"
   },
   {
-    "objectID": "slides/day2.html#pretrained-models",
-    "href": "slides/day2.html#pretrained-models",
+    "objectID": "slides/day2.html#deep-learning-phase-pickers-3",
+    "href": "slides/day2.html#deep-learning-phase-pickers-3",
     "title": "NORSAR ML Workshop",
-    "section": "Pretrained models",
-    "text": "Pretrained models"
+    "section": "Deep learning phase pickers",
+    "text": "Deep learning phase pickers\n\n\n\nTPhaseNet"
   },
   {
-    "objectID": "slides/day2.html#exercise-unsupervised-learning-with-pretrained-image-models",
-    "href": "slides/day2.html#exercise-unsupervised-learning-with-pretrained-image-models",
+    "objectID": "slides/day2.html#current-and-future-ml-at-norsar",
+    "href": "slides/day2.html#current-and-future-ml-at-norsar",
     "title": "NORSAR ML Workshop",
-    "section": "Exercise: Unsupervised learning with pretrained image models?",
-    "text": "Exercise: Unsupervised learning with pretrained image models?"
+    "section": "Current and future ML at NORSAR",
+    "text": "Current and future ML at NORSAR\n(Andreas K)"
   },
   {
-    "objectID": "slides/day2.html#sota-research",
-    "href": "slides/day2.html#sota-research",
+    "objectID": "slides/day2.html#exercise-number-4",
+    "href": "slides/day2.html#exercise-number-4",
     "title": "NORSAR ML Workshop",
-    "section": "SOTA research",
-    "text": "SOTA research\nhttps://www.nature.com/articles/s41467-020-17591-w/figures/3"
+    "section": "Exercise number 4",
+    "text": "Exercise number 4\n\n\n\nUsing pretrained models\nOpen in Colab or download"
   },
   {
-    "objectID": "slides/day2.html#norsar-developments",
-    "href": "slides/day2.html#norsar-developments",
+    "objectID": "slides/day2.html#tips-for-doing-ml-when-we-have-little-training-data",
+    "href": "slides/day2.html#tips-for-doing-ml-when-we-have-little-training-data",
     "title": "NORSAR ML Workshop",
-    "section": "NORSAR developments",
-    "text": "NORSAR developments"
+    "section": "Tips for doing ML when we have little training data",
+    "text": "Tips for doing ML when we have little training data\n\n\nAugmentation\nArtificially expand the dataset by e.g. randomly adding noise\n\n\n\n\nTransfer learning\nTrain a model on a separate, larger dataset, then carefully re-train (fine-tune) it on the actual data\nCan re-use general patterns learnt in the bigger dataset, and then increase specificity to the actual task afterwards.\n\n\n\n\nUse pretrained models (potentially with fine-tuning)\nVarious models pretrained for seismic data available through SeisBench\nCan also use pretrained models for entirely different tasks, if we reformat our data sufficiently (like in the exercise)"
   },
   {
-    "objectID": "slides/day2.html#future-directions-at-norsar",
-    "href": "slides/day2.html#future-directions-at-norsar",
+    "objectID": "slides/day2.html#discussion",
+    "href": "slides/day2.html#discussion",
     "title": "NORSAR ML Workshop",
-    "section": "Future directions at NORSAR",
-    "text": "Future directions at NORSAR\nArrays"
-  },
-  {
-    "objectID": "slides/day2.html#hackathon",
-    "href": "slides/day2.html#hackathon",
-    "title": "NORSAR ML Workshop",
-    "section": "Hackathon",
-    "text": "Hackathon"
+    "section": "Discussion",
+    "text": "Discussion\nHow will you use machine learning?"
   },
   {
     "objectID": "index.html",
@@ -340,7 +249,7 @@
     "href": "index.html#agenda",
     "title": "NORSAR Machine Learning Workshop,Sept 17-18 2025",
     "section": "Agenda",
-    "text": "Agenda\nBoth days will take place in Maskinhallen. The agenda will most likely change a bit up until Wednesday, but the start and end times are absolute.\nRemote participation: Teams link can be found in the meeting invitation.\n\nWednesday\n\n\n\n9.00\nIntro\nSlides\n\n\n9.30\nExercise: Event detection\nNotebook: Colab or download\n\n\n10.00\nPost-exercise: Understanding what we did\nSlides\n\n\n11.00\nExercise: Event classification\nNotebook: Colab or download\n\n\n11.45\n✨Special✨ lunch\n\n\n\n12.30\nDiscussion\n\n\n\n13.00\nEnd of day 1\n\n\n\n\n\n\nThursday\n\n\n\n9.00\nRecap from yesterday\n\n\n\n9.15\nDeep learning tools\nSlides: coming\n\n\n9.30\nExercise: Training deep learning models\nNotebook: coming\n\n\n10.00\nPost-exercise: Finding the optimal model\nSlides: coming\n\n\n10.30\nRecent and future ML at NORSAR\n\n\n\n11.00\nHackathon\n\n\n\n11.45\nLunch (kantinen)\n\n\n\n12.30\nWrap-up and discussions\n\n\n\n13.00\nEnd of day 2"
+    "text": "Agenda\nBoth days will take place in Maskinhallen. The agenda will most likely change a bit up until Wednesday, but the start and end times are absolute.\nRemote participation: Teams link can be found in the meeting invitation.\n\nWednesday\n\n\n\n9.00\nIntro\nSlides\n\n\n9.30\nExercise: Event detection\nNotebook: Colab or download\n\n\n10.00\nPost-exercise: Understanding what we did\nSlides\n\n\n11.00\nExercise: Event classification\nNotebook: Colab or download\n\n\n11.45\n✨Special✨ lunch\n\n\n\n12.30\nDiscussion\n\n\n\n13.00\nEnd of day 1\n\n\n\n\n\n\nThursday\n\n\n\n9.00\nRecap from yesterday\n\n\n\n9.15\nDeep learning tools\nSlides\n\n\n9.30\nExercise: Training deep learning models\nNotebook: Colab or download\n\n\n10.00\nPost-exercise: Finding the optimal model\nSlides\n\n\n10.30\nRecent and future ML at NORSAR\n\n\n\n11.00\nExercise: Using pretrained models\nNotebook: Colab or download\n\n\n11.45\nLunch (kantinen)\n\n\n\n12.30\nWrap-up and discussions\n\n\n\n13.00\nEnd of day 2"
   },
   {
     "objectID": "index.html#sec-background",

@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-fe91322616dd2b9cea8bc6bfc6aa44e1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.33">
+
+  <meta name="author" content="steffen.maeland@norsar.no">
+  <meta name="dcterms.date" content="2025-09-18">
+  <title>NORSAR ML Workshop</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #383a42;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #383a42; } /* Normal */
+    code span.al { color: #95da4c; background-color: #4d1f24; font-weight: bold; } /* Alert */
+    code span.an { color: #50a14f; } /* Annotation */
+    code span.at { color: #a626a4; } /* Attribute */
+    code span.bn { color: #986801; } /* BaseN */
+    code span.bu { color: #a626a4; } /* BuiltIn */
+    code span.cf { color: #a626a4; } /* ControlFlow */
+    code span.ch { color: #50a14f; } /* Char */
+    code span.cn { color: #986801; } /* Constant */
+    code span.co { color: #a0a1a7; font-style: italic; } /* Comment */
+    code span.cv { color: #e45649; font-style: italic; } /* CommentVar */
+    code span.do { color: #e45649; } /* Documentation */
+    code span.dt { color: #a626a4; } /* DataType */
+    code span.dv { color: #986801; } /* DecVal */
+    code span.er { color: #f44747; text-decoration: underline; } /* Error */
+    code span.ex { color: #4078f2; font-weight: bold; } /* Extension */
+    code span.fl { color: #986801; } /* Float */
+    code span.fu { color: #4078f2; } /* Function */
+    code span.im { color: #50a14f; } /* Import */
+    code span.in { color: #c45b00; } /* Information */
+    code span.kw { color: #a626a4; } /* Keyword */
+    code span.op { color: #a626a4; } /* Operator */
+    code span.ot { color: #27ae60; } /* Other */
+    code span.pp { color: #a626a4; } /* Preprocessor */
+    code span.re { color: #2980b9; background-color: #153042; } /* RegionMarker */
+    code span.sc { color: #0184bc; } /* SpecialChar */
+    code span.ss { color: #da4453; } /* SpecialString */
+    code span.st { color: #50a14f; } /* String */
+    code span.va { color: #e45649; } /* Variable */
+    code span.vs { color: #da4453; } /* VerbatimString */
+    code span.wa { color: #da4453; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-0e6128814f672824c96edd282ad6026a.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-pointer/pointer.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="../NORSAR-main-logo-RGB.png" data-background-position="98% 2%" data-background-size="15%" class="quarto-title-block center">
+  <h1 class="title">NORSAR ML Workshop</h1>
+  <p class="subtitle">Day 2 – Wednesday</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+steffen.maeland@norsar.no 
+</div>
+</div>
+</div>
+
+  <p class="date">2025-09-18</p>
+</section>
+<section id="deep-learning" class="slide level2">
+<h2><em>Deep</em> learning</h2>
+<!-- First: generalised deep learning -->
+<div style="padding-top: 10px;">
+
+</div>
+<p>The point of deep learning is to sequentially <strong>learn better feature representations</strong>, and use these to solve a task.</p>
+<div style="padding-top: 15px;">
+
+</div>
+<div class="columns">
+<div class="column" style="width:13%;">
+<p><span style="color: #C62828;"><em>insufficient:</em></span> <br> <br> <span style="color: #F57C00;"><em>good:</em></span> <br> <br> <br> <span style="color: #2E7D32;"><em>better:</em></span></p>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:7%;">
+<p>data <br> <br> data <br> <br> <br> data</p>
+</div><div class="column" style="width:5%;">
+<p><span class="math inline">\(\rightarrow\)</span> <br> <br> <span class="math inline">\(\rightarrow\)</span> <br> <br> <br> <span class="math inline">\(\rightarrow\)</span></p>
+</div><div class="column" style="width:20%;">
+<p>prediction <br> <br> representation<br> <span class="color-text-muted"><em>(e.g.&nbsp;crosscorr)</em></span> <br> <br> representation <span class="color-text-muted"><em>(e.g.&nbsp;crosscorr)</em></span></p>
+</div><div class="column" style="width:5%;">
+<p><br> <br> <span class="math inline">\(\rightarrow\)</span> <br> <br> <br> <span class="math inline">\(\rightarrow\)</span></p>
+</div><div class="column" style="width:20%;">
+<p><br> <br> prediction <br> <br> <br> representation <span class="color-text-muted"><em>(e.g.&nbsp;crosscorr)</em></span></p>
+</div><div class="column" style="width:5%;">
+<p><br> <br> &nbsp; <br> <br> <span class="math inline">\(\rightarrow\)</span></p>
+</div><div class="column" style="width:20%;">
+<p><br> <br> &nbsp; <br> <br> <br> prediction</p>
+</div></div>
+<div style="padding-top: 10px;">
+
+</div>
+<div class="fragment">
+<p>Since neural networks are <span class="pink"><em>universal function approximators</em></span>, they can model arbitrarily complex relationships. The cost of doing so, is that we need a <span class="purple">lot of data</span>.</p>
+</div>
+</section>
+<section id="crosscorrelation" class="slide level2">
+<h2>Crosscorrelation</h2>
+<p>Crosscorrelation of two real-valued functions <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> is defined as</p>
+<p><span class="math display">\[
+(f \star g)(\tau) = \int_{-\infty}^{\infty} f(t)g(t + \tau)
+\]</span></p>
+<div class="fragment">
+<p>For discrete signals the operation is computationally simple since <span class="math inline">\(\int \rightarrow \sum\)</span> and we just need to multiply and sum.</p>
+<div style="padding-top: 10px;">
+
+</div>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/7/71/Cross_correlation_animation.gif"></p>
+</div>
+</section>
+<section id="crosscorrelation-1" class="slide level2">
+<h2>Crosscorrelation</h2>
+<p><img data-src="figures/conv1d-0.png"></p>
+</section>
+<section id="crosscorrelation-2" class="slide level2">
+<h2>Crosscorrelation</h2>
+<p><img data-src="figures/conv1d-1.png"></p>
+</section>
+<section id="crosscorrelation-3" class="slide level2">
+<h2>Crosscorrelation</h2>
+<p><img data-src="figures/conv1d-2.png"></p>
+</section>
+<section id="crosscorrelation-4" class="slide level2">
+<h2>Crosscorrelation</h2>
+<p><img data-src="figures/conv1d-3.png"></p>
+</section>
+<section id="crosscorrelation-5" class="slide level2">
+<h2>Crosscorrelation</h2>
+<p><img data-src="figures/conv1d-4.png"></p>
+</section>
+<section id="crosscorrelation-6" class="slide level2">
+<h2>Crosscorrelation</h2>
+<p><img data-src="figures/conv1d-last.png"></p>
+</section>
+<section id="crosscorrelation-appreciation-slide" class="slide level2">
+<h2>Crosscorrelation appreciation slide</h2>
+<div class="absolute" style="top: 15%; left: 20%; width: 550px; ">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/box-crosscorrelation.png" class="quarto-figure quarto-figure-center" style="margin-top: 0px;"></p>
+</figure>
+</div>
+</div>
+<div class="fragment fade-out rectangle absolute" style="background-color: #fff; border: 1px;top: 40%; left: 20%; width: 650px; height: 100px; ">
+
+</div>
+<div style="padding-top: 35%;">
+
+</div>
+<div class="fragment">
+<p><strong>Note:</strong> Time-reversing <span class="math inline">\(f\)</span> in the definition of crosscorrelation yields the <span class="pink"><em><strong>convolution</strong></em></span> operation.</p>
+<p>In ML we got the terms mixed up and only talk about <span class="pink"><em>convolution</em></span>, even though we do crosscorrelation.</p>
+</div>
+</section>
+<section id="some-more-terminology" class="slide level2">
+<h2>Some more terminology</h2>
+<ul>
+<li><strong>Layer:</strong> A slice of the model where an internal representation is computed</li>
+</ul>
+<div class="columns" style="text-align: center;">
+<div class="column" style="width:5%;">
+
+</div><div class="column" style="width:20%;">
+<p>data<br>(<span class="teal"><em>input layer</em></span>)</p>
+</div><div class="column" style="width:5%;">
+<p><span class="math inline">\(\rightarrow\)</span></p>
+</div><div class="column" style="width:20%;">
+<p>representation<br>(<span class="orange"><em>hidden layer 1</em></span>)</p>
+</div><div class="column" style="width:5%;">
+<p><span class="math inline">\(\rightarrow\)</span></p>
+</div><div class="column" style="width:20%;">
+<p>representation<br>(<span class="orange"><em>hidden layer 2</em></span>)</p>
+</div><div class="column" style="width:5%;">
+<p><span class="math inline">\(\rightarrow\)</span></p>
+</div><div class="column" style="width:20%;">
+<p>prediction<br>(<span class="teal"><em>output layer</em></span>)</p>
+</div></div>
+<div style="padding-top: 10px;">
+
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Filter:</strong> A template (sometimes also called a <em>kernel</em>)</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Activation function:</strong> Usually applied after each layer to introduce <em>non-linearity</em> to the model</li>
+</ul>
+</div>
+<div class="r-stack">
+<div class="fragment fade-in-then-out">
+<p><img data-src="figures/sigmoid.png" width="400"></p>
+<div class="absolute" style="top: 70%; right: 16%; ">
+<p>Sigmoid</p>
+</div>
+</div>
+<div class="fragment fade-in-then-out">
+<p><img data-src="figures/tanh.png" width="400"></p>
+<div class="absolute" style="top: 70%; right: 16%; ">
+<p>tanh</p>
+</div>
+</div>
+<div class="fragment fade-in-then-out">
+<p><img data-src="figures/relu.png" width="400"></p>
+<div class="absolute" style="top: 70%; right: 16%; ">
+<p>ReLU</p>
+</div>
+</div>
+<div class="fragment fade-in-then-out">
+<p><img data-src="figures/gelu.png" width="400"></p>
+<div class="absolute" style="top: 70%; right: 16%; ">
+<p>GELU</p>
+</div>
+</div>
+<div class="fragment fade-in-then-out">
+<p><img data-src="figures/swish.png" width="400"></p>
+<div class="absolute" style="top: 70%; right: 16%; ">
+<p>Swish</p>
+</div>
+</div>
+<div class="fragment fade-in-then-out">
+<p><img data-src="figures/all-activations.png" width="400"></p>
+</div>
+</div>
+</section>
+<section id="some-deep-learning-frameworks" class="slide level2">
+<h2>Some deep learning frameworks</h2>
+<div class="r-stack">
+<div class="absolute" style="top: 20%; left: 30%; width: 400px; ">
+<p><a href="https://keras.io/"><img data-src="https://keras.io/img/logo.png"></a></p>
+</div>
+<div class="absolute" style="left: 0%; bottom: 20%; width: 250px; ">
+<p><a href="https://www.tensorflow.org/"><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/TensorFlow_logo.svg/330px-TensorFlow_logo.svg.png"></a></p>
+</div>
+<div class="absolute" style="left: 30%; bottom: 25%; width: 150px; ">
+<p><a href="https://jax.readthedocs.io/en/latest/"><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Google_JAX_logo.svg/640px-Google_JAX_logo.svg.png"></a></p>
+</div>
+<div class="absolute" style="left: 55%; bottom: 25%; width: 250px; ">
+<p><a href="https://pytorch.org/"><img data-src="https://upload.wikimedia.org/wikipedia/commons/9/96/Pytorch_logo.png"></a></p>
+</div>
+<div class="absolute" style="left: 15%; bottom: 0%; width: 150px; ">
+<p><a href="https://scikit-learn.org/stable/"><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Scikit_learn_logo_small.svg/640px-Scikit_learn_logo_small.svg.png"></a></p>
+</div>
+<div class="absolute" style="left: 45%; bottom: 0%; width: 170px; ">
+<p><a href="https://numpy.org/doc/stable/"><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/NumPy_logo_2020.svg/640px-NumPy_logo_2020.svg.png"></a></p>
+</div>
+</div>
+<div class="absolute" style="top: 25%; right: 0%; ">
+<p><span class="blue">High-level</span> <br> <em>(optional)</em></p>
+</div>
+<div class="absolute" style="bottom: 30%; right: 0%; ">
+<p><span class="blue">Compute</span> <br> <em>(choose one)</em></p>
+</div>
+<div class="absolute" style="bottom: 7%; right: 0%; ">
+<p><span class="blue">Supporting</span> <br> <em>(useful)</em></p>
+</div>
+</section>
+<section id="interlude-programming" class="slide level2 center" data-background-color="#FBE9E7">
+<h2>Interlude: Programming 👩🏼‍💻</h2>
+</section>
+<section id="numpy-numerical-python" class="slide level2">
+<h2>NumPy: <em>Numerical Python</em></h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Most <span class="color-text-muted"><em>(all?)</em></span> scientific or data-driven Python projects rely on NumPy.</p>
+<p>The different deep learning libraries implement the same concepts, so if we know NumPy, the transition to <code>&lt;new flashy DL library✨&gt;</code> is easy.</p>
+<div style="padding-top: 40px;">
+
+</div>
+<div class="img-shadow" style="background-color: #E0F2F1; padding: 20px;">
+<p>Core concept: <span class="teal"><strong>Vectorisation</strong></span></p>
+<p>Performing efficent operations on all data at once, without writing explicit loops</p>
+</div>
+</div></div>
+<div class="absolute" style="top: 35%; right: -5%; width: 370px; ">
+<p><a href="https://numpy.org/doc/stable/"><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/NumPy_logo_2020.svg/640px-NumPy_logo_2020.svg.png"></a></p>
+</div>
+</section>
+<section id="section" class="slide level2" data-background-iframe="https://numpy.org/learn/" data-background-interactive="true" data-menu-title="Numpy docs">
+<h2></h2>
+</section>
+<section id="numpy-arrays" class="slide level2">
+<h2>NumPy arrays</h2>
+<p>At the core of NumPy is the <code>array</code>, which supports vectorised operations.</p>
+<blockquote>
+<p><em>Example:</em> Given a list of numbers, make a new list, where all the elements are multiplied by 2.</p>
+</blockquote>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span style="margin-top=0px">Vanilla python:</span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]<span class="op">;</span> b <span class="op">=</span> []</span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> elem <span class="kw">in</span> a:</span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span>   b.append(elem <span class="op">*</span> <span class="dv">2</span>)</span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a>b</span>
+<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a>[<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p>Numpy:</p>
+<div class="sourceCode" id="cb2" data-code-line-numbers="1-5|3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a></a><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
+<span id="cb2-3"><a></a><span class="op">&gt;&gt;&gt;</span> b <span class="op">=</span> a <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb2-4"><a></a><span class="op">&gt;&gt;&gt;</span> b</span>
+<span id="cb2-5"><a></a>array([<span class="dv">2</span> <span class="dv">4</span> <span class="dv">6</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+<div class="fragment">
+<p>Arrays can have any number of dimensions – e.g.&nbsp;a 2D matrix is written</p>
+<div class="sourceCode" id="cb3" data-code-line-numbers="1|1,2-4|1,5-6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
+<span id="cb3-2"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(a)</span>
+<span id="cb3-3"><a></a>[[<span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span>]</span>
+<span id="cb3-4"><a></a> [<span class="dv">4</span> <span class="dv">5</span> <span class="dv">6</span>]]</span>
+<span id="cb3-5"><a></a><span class="op">&gt;&gt;&gt;</span> a.shape</span>
+<span id="cb3-6"><a></a>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="numpy-arrays-selecting-data" class="slide level2">
+<h2>NumPy arrays: Selecting data</h2>
+<p>In normal python, elements are <em>sliced</em> from a list using <code>[start : stop]</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> a[<span class="dv">2</span>:<span class="dv">4</span>]                  <span class="co"># (remember zero-based indexing)</span></span>
+<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a>[<span class="dv">2</span>, <span class="dv">3</span>]    </span>
+<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> a[:]                    <span class="co"># no start or stop -&gt; select everything</span></span>
+<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a>[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p>NumPy extends this to any number of dimensions, separated by “<code>,</code>”:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> np.arange(<span class="dv">1</span>,<span class="dv">10</span>).reshape(<span class="dv">3</span>,<span class="dv">3</span>)</span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> a</span>
+<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a>array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
+<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a>       [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
+<span id="cb5-5"><a aria-hidden="true" tabindex="-1"></a>       [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="fragment">
+<p>Select single element:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> a[<span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<p>Select row:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> a[<span class="dv">1</span>, :]</span>
+<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a>array([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<p>Select column:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> a[:, <span class="dv">1</span>]</span>
+<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a>array([<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">8</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="numpy-arrays-broadcasting" class="slide level2">
+<h2>NumPy arrays: <em>Broadcasting</em></h2>
+<p>Operations on arrays are typically done <span class="color-teal">element-by-element</span>.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
+<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> np.power(a, <span class="dv">2</span>)</span>
+<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a>array([<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">9</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> b <span class="op">=</span> np.array([<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span>
+<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> a <span class="op">*</span> b</span>
+<span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a>array([ <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">18</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+<div class="fragment">
+<p>In cases the shapes of two arrays don’t match, numpy will try to <span class="red"><em>make</em></span> them match<br>(aka <em>broadcasting</em>):</p>
+<div class="sourceCode" id="cb11" data-code-line-numbers="1-3|1-6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="co"># I type this</span></span>
+<span id="cb11-2"><a></a><span class="op">&gt;&gt;&gt;</span> a <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb11-3"><a></a>array([<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>])</span>
+<span id="cb11-4"><a></a><span class="co"># ...and numpy does this:</span></span>
+<span id="cb11-5"><a></a><span class="op">&gt;&gt;&gt;</span> a <span class="op">*</span> np.array([<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>])</span>
+<span id="cb11-6"><a></a>array([<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center" style="text-align: center;">
+<figure>
+<p><img data-src="https://numpy.org/doc/stable/_images/broadcasting_1.png" style="width:40.0%"></p>
+<figcaption>Numpy <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html">docs</a></figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="shapes" class="slide level2">
+<h2>Shapes</h2>
+<p>The number of time steps, channels, etc is described by the <strong>shape</strong> of the array:</p>
+<div class="r-stack">
+<p><img data-src="figures/shapes1.png" style="width:80.0%"></p>
+<div class="fragment">
+<p><img data-src="figures/shapes2.png" style="width:80.0%"></p>
+</div>
+</div>
+</section>
+<section id="low-level-tensorflow" class="slide level2">
+<h2>Low-level TensorFlow</h2>
+<p>Usually we don’t need to get involved with the underlying computational framework (in our case TensorFlow). But in case:</p>
+<p>Most things work like NumPy, but with the benefit of GPU support and JIT compilation.</p>
+<p>The core object is the <a href="https://www.tensorflow.org/api_docs/python/tf/Tensor"><code>Tensor</code></a>, which is basically a multidimensional array.</p>
+<div class="fragment">
+<p>NumPy</p>
+<div class="sourceCode" id="cb12" data-code-line-numbers="1,2|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb12-2"><a></a><span class="op">&gt;&gt;&gt;</span> x <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]], dtype<span class="op">=</span>np.float32)</span>
+<span id="cb12-3"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(x)</span>
+<span id="cb12-4"><a></a>[[<span class="fl">1.</span> <span class="fl">2.</span> <span class="fl">3.</span>]</span>
+<span id="cb12-5"><a></a> [<span class="fl">4.</span> <span class="fl">5.</span> <span class="fl">6.</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>TensorFlow</p>
+<div class="sourceCode" id="cb13" data-code-line-numbers="1,2|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
+<span id="cb13-2"><a></a><span class="op">&gt;&gt;&gt;</span> x <span class="op">=</span> tf.constant([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]], dtype<span class="op">=</span>tf.float32)</span>
+<span id="cb13-3"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(x)</span>
+<span id="cb13-4"><a></a>tf.Tensor(</span>
+<span id="cb13-5"><a></a>[[<span class="fl">1.</span> <span class="fl">2.</span> <span class="fl">3.</span>]</span>
+<span id="cb13-6"><a></a> [<span class="fl">4.</span> <span class="fl">5.</span> <span class="fl">6.</span>]], shape<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">3</span>), dtype<span class="op">=</span>float32)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="building-neural-networks" class="slide level2 center" data-background-color="#FCE4EC">
+<h2>Building neural networks</h2>
+<!-- :::{.absolute right="0%" top="0%" width="300px"} -->
+<p><a href="https://keras.io/"><img data-src="https://keras.io/img/logo.png" width="180"></a> <!-- ::: --></p>
+</section>
+<section id="my-first-convolutional-network" class="slide level2">
+<h2>My first convolutional network 🦄</h2>
+<p>Yesterday we pieced together a <span class="color-indigo"><strong>convnet</strong></span> using Keras’ <a href="https://keras.io/api/models/sequential/">sequential model API</a>:</p>
+<div style="padding-top:30px;">
+
+</div>
+<div class="sourceCode" id="cb14" data-code-line-numbers="|1|3|5,6|8,9|11|13|15|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>model <span class="op">=</span> keras.Sequential(</span>
+<span id="cb14-2"><a></a>    [</span>
+<span id="cb14-3"><a></a>        keras.Input(shape<span class="op">=</span>(waveforms.shape[<span class="dv">1</span>], waveforms.shape[<span class="dv">2</span>])),</span>
+<span id="cb14-4"><a></a>        </span>
+<span id="cb14-5"><a></a>        keras.layers.Conv1D(filters<span class="op">=</span><span class="dv">16</span>, kernel_size<span class="op">=</span><span class="dv">3</span>, activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb14-6"><a></a>        keras.layers.MaxPooling1D(<span class="dv">2</span>),</span>
+<span id="cb14-7"><a></a>        </span>
+<span id="cb14-8"><a></a>        keras.layers.Conv1D(filters<span class="op">=</span><span class="dv">16</span>, kernel_size<span class="op">=</span><span class="dv">3</span>, activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb14-9"><a></a>        keras.layers.MaxPooling1D(<span class="dv">2</span>),</span>
+<span id="cb14-10"><a></a>        </span>
+<span id="cb14-11"><a></a>        keras.layers.Conv1D(filters<span class="op">=</span><span class="dv">16</span>, kernel_size<span class="op">=</span><span class="dv">3</span>, activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb14-12"><a></a>        </span>
+<span id="cb14-13"><a></a>        keras.layers.GlobalMaxPooling1D(),</span>
+<span id="cb14-14"><a></a>        </span>
+<span id="cb14-15"><a></a>        keras.layers.Dense(<span class="dv">1</span>, activation<span class="op">=</span><span class="st">'sigmoid'</span>)</span>
+<span id="cb14-16"><a></a>    ]</span>
+<span id="cb14-17"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pattern-hierarchies" class="slide level2">
+<h2>Pattern hierarchies</h2>
+<p>Remember the cat:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/chollet-cat.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</section>
+<section id="more-cats" class="slide level2">
+<h2>More cats</h2>
+</section>
+<section id="keras" class="slide level2">
+<h2>Keras</h2>
+<p>The <a href="https://keras.io/">Keras</a> framework contains all the high-level components we need to construct and train a neural network:</p>
+<ul>
+<li><code>keras.layers</code>: Different types of layers and activation functions</li>
+<li><code>keras.callbacks</code>: Monitor, modify or stop the training process</li>
+<li><code>keras.optimizers</code>: Optimisation algorithms</li>
+<li><code>keras.metrics</code>: Performance metrics</li>
+<li><code>keras.losses</code>: Loss functions</li>
+<li><code>keras.datasets</code>: Small datasets for testing</li>
+<li><code>keras.applications</code>: Pre-trained networks for different tasks</li>
+</ul>
+<div class="r-stack">
+<div class="absolute" style="bottom: 0%; right: 0%; width: 200px; ">
+<p><img data-src="https://keras.io/img/logo.png"></p>
+</div>
+</div>
+</section>
+<section id="exercise-number-3" class="slide level2 center" data-background-color="#FBE9E7">
+<h2>Exercise number 3</h2>
+<div style="padding-top:30px;">
+
+</div>
+<p><em>Building a phase picker</em></p>
+<p>Open in <a href="https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/3_phase_picker.ipynb">Colab</a> or <a href="https://github.com/smaeland/norsar-ml-workshop/blob/main/3_phase_picker.ipynb">download</a></p>
+</section>
+<section id="post-exercise" class="slide level2 center" data-background-color="#E0F2F1">
+<h2>Post-exercise</h2>
+<p><em>Great resource for illustrations and comparison of deep learning phase pickers:</em></p>
+<p>Myklebust, E. B., &amp; Köhler, A. (2024). <a href="https://academic.oup.com/gji/article/239/2/862/7740467">Deep learning models for regional phase detection on seismic stations in Northern Europe and the European Arctic.</a> Geophysical Journal International, 239(2), 862-881.</p>
+</section>
+<section id="deep-learning-phase-pickers" class="slide level2">
+<h2>Deep learning phase pickers</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/gji/239/2/10.1093_gji_ggae298/1/ggae298fig2.jpeg?Expires=1761146227&amp;Signature=iTeD13BpOnH-dGYwe6YjzUpMSRjEzYVyfMoxi3lYzC6TmLm920Eoug4GXNoEKoMajquirYiRJvSFso4R2XhfAc5cOe7r17RHrOUVNAJ-v~C6HJl4LlZmsR08X2e67I-Z9Kw-vExZmUSdXGXSiL1OltAdzuQ9AjkxNFApSsz7kMJhl9aCTF4DWaRY64GqfhsIwL01z4Jgq4Dtya8W08zur60XfWVa~kbTKGnVyfX6VwkUGwgxp8cSISTKFmwyhgxko3GsMrIHkVE7~0DaCjEHCUvydk7j1oyVPoqOBuiifo7DMEmqyIn-tvLH65eA1E0gVOliClWffCUDb42yS~UDrA__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA"></p>
+<figcaption>PhaseNet</figcaption>
+</figure>
+</div>
+</section>
+<section id="deep-learning-phase-pickers-1" class="slide level2">
+<h2>Deep learning phase pickers</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/gji/239/2/10.1093_gji_ggae298/1/ggae298fig3.jpeg?Expires=1761199617&amp;Signature=PFvP9NnMHCpTRHdsJ5pAfj27hd4jjHuOdntB4DHxhHEPVyzKXS04xc6NzVaz4pyz457Yi6IJNPSBE9s3s5A1E9gPOeTszNRCyrxs2Dgj1NssJ~vqA9s50ZDm5veBVkV1-DlmGm7q7KD~oWUHwtMEhxpiHYElEDeqTNhUOCfDdMO~HHSmMMyvLSqHuKqmXQruncWfFEqkGPnz-LaF72LsAEiXCKTx9w7eqW-1ksEPUTNi1-R5jvCFBpi-d9CZWW-UBX0hZ5FqO1ZiXWg5rJcN6h-gIUumbjicJkuAOltGRSS3z0C9aUw5NZ8revAjhXIg3UcKnStc8vqITtC31O5srQ__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA"></p>
+<figcaption>EPick</figcaption>
+</figure>
+</div>
+</section>
+<section id="deep-learning-phase-pickers-2" class="slide level2">
+<h2>Deep learning phase pickers</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/gji/239/2/10.1093_gji_ggae298/1/ggae298fig4.jpeg?Expires=1761199619&amp;Signature=rY6NTL9EYuYYA9AZpw2sZeZ6s2tZyV-BI~N7CFIWDHKhPK-Uv7Hx0HwMwOMv~dpnqivQNH948kK5QeljVVSExm7EQHgUhQH~yMxq7hGyrRcEjNa5tGQkEN~zBj8IZKZ-7fELhzzZZ0XYgsswxgv6NJENmNugEOBmOeiYCC3LtUygLL-OSEnY6gMP6f-0WHGGmA8KA7~awuB8Opj7-XVbMrJe6NHPZ-Y4t~caM0aNTVHJau2gnR~wl8fClsMahd0GbsqyO~luqkuZ0ViZE0BL2mmxQlGRpAHCscG~fL~n~aPlIi05BiMMO4DEyfvg1lCyvtY0rRBgOlyNoVxxRHU-LA__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA"></p>
+<figcaption>EQTransformer</figcaption>
+</figure>
+</div>
+</section>
+<section id="deep-learning-phase-pickers-3" class="slide level2">
+<h2>Deep learning phase pickers</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/gji/239/2/10.1093_gji_ggae298/1/ggae298fig5.jpeg?Expires=1761199623&amp;Signature=HN-RkR7TiasGfbnIwlEFKI0kCP0aIQzGMPQB3h63RbAH98ndUJ7v63VL~~H-Yu4GxndxiiiMa99WiOls0NC3MDXQL7uCuGhFiAVOl7uGm2sf37mB6r8pgYqmr8xetEtatFgCzQDYlb80-DKf5uTevbenIy5gG82EqUTD0SVbSC7S58Wz6jd5VhlkAiT72PtMVb9qYypQLZ8O4RaA-p0d423h2sbEypxYvVO5XVfoQtRqNytOLkmaN1fifD70kD6b-BKiK4Pjfczr-l66a~AeU9rRIQRRxfIRQiAi9Vh9JHtkWxJB-u5Iv-bZto3Xts~Rv-nORonx9Q6g2rX1DHglGQ__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA"></p>
+<figcaption>TPhaseNet</figcaption>
+</figure>
+</div>
+</section>
+<section id="section-1" class="slide level2" data-background-iframe="https://keras.io/guides/functional_api/" data-background-interactive="true" data-menu-title="Functional API">
+<h2></h2>
+</section>
+<section id="current-and-future-ml-at-norsar" class="slide level2 center" data-background-color="#E3F2FD">
+<h2>Current and future ML at NORSAR</h2>
+<p>(Andreas K)</p>
+</section>
+<section id="exercise-number-4" class="slide level2 center" data-background-color="#FBE9E7">
+<h2>Exercise number 4</h2>
+<div style="padding-top:30px;">
+
+</div>
+<p><em>Using pretrained models</em></p>
+<p>Open in <a href="https://colab.research.google.com/github/smaeland/norsar-ml-workshop/blob/main/4_clustering.ipynb">Colab</a> or <a href="https://github.com/smaeland/norsar-ml-workshop/blob/main/4_clustering.ipynb">download</a></p>
+</section>
+<section id="tips-for-doing-ml-when-we-have-little-training-data" class="slide level2">
+<h2>Tips for doing ML when we have little training data</h2>
+<div class="fragment">
+<ol type="1">
+<li><p><strong>Augmentation</strong></p>
+<p>Artificially expand the dataset by <em>e.g.</em> randomly adding noise</p></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li><p><strong>Transfer learning</strong></p>
+<p>Train a model on a separate, larger dataset, then carefully re-train (<em>fine-tune</em>) it on the actual data</p>
+<p>Can re-use general patterns learnt in the bigger dataset, and then increase specificity to the actual task afterwards.</p></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li><p><strong>Use pretrained models</strong> (potentially with fine-tuning)</p>
+<p>Various models pretrained for seismic data available through <a href="https://seisbench.readthedocs.io/en/stable/">SeisBench</a></p>
+<p>Can also use pretrained models for entirely different tasks, if we reformat our data sufficiently (like in the exercise)</p></li>
+</ol>
+</div>
+</section>
+<section id="section-2" class="slide level2" data-background-iframe="https://seisbench.readthedocs.io/en/stable/">
+<h2></h2>
+</section>
+<section id="discussion" class="slide level2 center" data-background-color="#E0F2F1">
+<h2>Discussion</h2>
+<p>How will <strong>you</strong> use machine learning?</p>
+<!--------------------------------------------------------------------------------------------------->
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-pointer/pointer.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'pointer': {"key":"q","color":"red","pointerSize":16,"alwaysVisible":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: true,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealPointer, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
